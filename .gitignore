@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw design source files — not used by the built site (public/work has the
+# optimized copies actually served); keep out of git, it's ~700MB
+/design
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
