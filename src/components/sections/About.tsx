@@ -41,7 +41,7 @@ export default function About() {
           </Reveal>
 
           <ul className="mt-8 grid grid-cols-1 border-t border-hairline sm:grid-cols-2 lg:grid-cols-3">
-            {t.about.directions.map((direction, index) => (
+            {t.about.directions.primary.map((direction, index) => (
               <Reveal
                 key={direction}
                 as="li"
@@ -59,6 +59,25 @@ export default function About() {
               </Reveal>
             ))}
           </ul>
+        </div>
+
+        <div className="mt-14 md:mt-16">
+          <Reveal as="p">
+            <span className="block text-[12px] font-medium uppercase tracking-[0.18em] text-muted">
+              {t.about.secondaryDirectionsLabel}
+            </span>
+          </Reveal>
+
+          <Reveal as="div" delay={70} className="mt-5 flex flex-wrap gap-2.5">
+            {t.about.directions.secondary.map((direction) => (
+              <span
+                key={direction}
+                className="rounded-full border border-hairline px-4 py-2 text-[14px] text-muted"
+              >
+                {direction}
+              </span>
+            ))}
+          </Reveal>
         </div>
       </div>
     </section>
