@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { activeLinks, contactMethods, site } from "@/lib/site";
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
+
   return (
     <footer className="border-t border-hairline">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-end md:justify-between md:px-10 md:py-16">
@@ -45,7 +52,7 @@ export default function Footer() {
           )}
 
           <p className="mt-2 text-[13px] text-muted">
-            © {new Date().getFullYear()} {site.name}. Все права защищены.
+            © {new Date().getFullYear()} {site.name}. {t.footer.rights}
           </p>
         </div>
       </div>

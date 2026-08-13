@@ -1,52 +1,21 @@
+"use client";
+
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-
-/**
- * В брифе раздел «Навыки» обрывается на категории Design.
- * Первая карточка — ровно то, что было указано. Две остальные собраны
- * только из фактов, уже названных в брифе (полный цикл проектов,
- * взаимодействие с маркетингом / разработчиками / подрядчиками),
- * чтобы ничего не выдумывать. Дополни или замени их своим списком.
- */
-const GROUPS = [
-  {
-    title: "Design",
-    items: [
-      "Figma",
-      "Adobe Photoshop",
-      "Adobe Illustrator",
-      "After Effects",
-      "Adobe Premiere Pro",
-    ],
-  },
-  {
-    title: "Нейросети",
-    items: ["ChatGPT", "Perplexity", "Claude Code", "Kling", "Sora"],
-  },
-  {
-    title: "Полный цикл",
-    items: [
-      "Исследование задачи",
-      "Разработка концепции",
-      "Дизайн-системы и шаблоны",
-      "Подготовка к производству",
-      "Передача в разработку",
-    ],
-  },
-  {
-    title: "Взаимодействие",
-    items: ["Маркетинг", "Разработчики", "Подрядчики"],
-  },
-];
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
 
 export default function Skills() {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
+
   return (
     <section id="skills" className="scroll-mt-20 border-t border-hairline">
       <div className="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36">
-        <SectionHeading label="Навыки" title="Инструменты и зоны ответственности." />
+        <SectionHeading label={t.skills.label} title={t.skills.title} />
 
         <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
-          {GROUPS.map((group, index) => (
+          {t.skills.groups.map((group, index) => (
             <Reveal
               key={group.title}
               as="div"

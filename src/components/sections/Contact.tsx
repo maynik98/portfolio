@@ -1,8 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { activeLinks, contactMethods } from "@/lib/site";
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
+
   return (
     <section
       id="contact"
@@ -22,19 +29,19 @@ export default function Contact() {
           <Reveal as="div" className="flex items-center gap-2.5">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/50">
-              Контакты
+              {t.contact.label}
             </span>
           </Reveal>
 
           <Reveal as="h2" delay={80}>
             <span className="mt-5 block max-w-[24ch] text-[clamp(2rem,5vw,3.75rem)] font-medium leading-[1.04] tracking-tight">
-              Открыт к новым проектам и сотрудничеству.
+              {t.contact.title}
             </span>
           </Reveal>
 
           <Reveal as="p" delay={140}>
             <span className="mt-6 block max-w-[52ch] text-[17px] leading-[1.65] text-white/60 md:text-[19px]">
-              Расскажите о задаче — обсудим, как её можно решить через дизайн.
+              {t.contact.subtitle}
             </span>
           </Reveal>
 
@@ -49,7 +56,7 @@ export default function Contact() {
                   className="group flex flex-col gap-2 border-b border-white/10 py-6 md:flex-row md:items-baseline md:justify-between md:gap-8 md:py-7"
                 >
                   <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/40">
-                    {method.label}
+                    {method.label === "Телефон" ? t.contact.phoneLabel : method.label}
                   </span>
                   <span className="inline-flex items-baseline gap-4 text-[clamp(1.375rem,3.2vw,2.25rem)] font-medium tracking-tight">
                     <span className="border-b border-white/20 pb-1 transition-colors duration-300 group-hover:border-accent">

@@ -6,15 +6,11 @@ import ProjectCover from "@/components/ProjectCover";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { companies } from "@/lib/companies";
-import { projects, type Project } from "@/lib/projects";
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
+import { localizeProject, projects, type Project } from "@/lib/projects";
 
 type CompanyFilter = "all" | "globalnet" | "gnm" | "other";
-
-const COMPANY_FILTERS: { id: CompanyFilter; label: string }[] = [
-  { id: "all", label: "Все" },
-  ...companies.map((company) => ({ id: company.id as CompanyFilter, label: company.name })),
-  { id: "other", label: "Other" },
-];
 
 function matchesCompany(project: Project, filter: CompanyFilter) {
   if (filter === "all") return true;
@@ -26,10 +22,12 @@ function ProjectCard({
   project,
   index,
   delay = 0,
+  viewCaseLabel,
 }: {
   project: Project;
   index: number;
   delay?: number;
+  viewCaseLabel: string;
 }) {
   return (
     <Reveal as="article" delay={delay}>
@@ -49,7 +47,7 @@ function ProjectCard({
           </p>
 
           <span className="mt-5 inline-flex shrink-0 items-center gap-2 text-[15px] font-medium transition-colors duration-300 group-hover:text-accent">
-            Смотреть кейс
+            {viewCaseLabel}
             <span
               aria-hidden
               className="transition-transform duration-300 group-hover:translate-x-1"
@@ -64,12 +62,25 @@ function ProjectCard({
 }
 
 export default function Work() {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
   const [companyFilter, setCompanyFilter] = useState<CompanyFilter>("all");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
 
+  const localizedProjects = useMemo(
+    () => projects.map((project) => localizeProject(project, lang)),
+    [lang],
+  );
+
+  const companyFilters: { id: CompanyFilter; label: string }[] = [
+    { id: "all", label: t.work.all },
+    ...companies.map((company) => ({ id: company.id as CompanyFilter, label: company.name })),
+    { id: "other", label: t.work.other },
+  ];
+
   const companyFiltered = useMemo(
-    () => projects.filter((project) => matchesCompany(project, companyFilter)),
-    [companyFilter],
+    () => localizedProjects.filter((project) => matchesCompany(project, companyFilter)),
+    [localizedProjects, companyFilter],
   );
 
   const categories = useMemo(
@@ -88,14 +99,11 @@ export default function Work() {
   return (
     <section id="work" className="scroll-mt-20 border-t border-hairline">
       <div className="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36">
-        <SectionHeading
-          label="Избранные проекты"
-          title="Проекты, где дизайн решал задачу бизнеса."
-        />
+        <SectionHeading label={t.work.label} title={t.work.title} />
 
         {/* Фильтр по компаниям */}
         <Reveal as="div" delay={100} className="mt-10 flex flex-wrap gap-2 md:mt-14">
-          {COMPANY_FILTERS.map((option) => (
+          {companyFilters.map((option) => (
             <button
               key={option.id}
               type="button"
@@ -126,7 +134,7 @@ export default function Work() {
                   : "text-muted hover:text-ink"
               }`}
             >
-              Все категории
+              {t.work.allCategories}
             </button>
             {categories.map((category) => (
               <button
@@ -153,13 +161,12 @@ export default function Work() {
                 project={project}
                 index={index}
                 delay={(index % 2) * 90}
+                viewCaseLabel={t.work.viewCase}
               />
             ))}
           </div>
         ) : (
-          <p className="mt-14 text-[16px] text-muted">
-            По выбранному фильтру проектов пока нет.
-          </p>
+          <p className="mt-14 text-[16px] text-muted">{t.work.emptyHome}</p>
         )}
       </div>
     </section>

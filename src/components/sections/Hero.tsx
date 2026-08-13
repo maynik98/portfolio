@@ -1,13 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-
-const STATS = [
-  { value: "3+", label: "года коммерческого опыта" },
-  { value: "100+", label: "реализованных проектов" },
-  { value: "Web / Branding", label: "Motion / Print" },
-];
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
 
 export default function Hero() {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
+
   return (
     <section className="relative overflow-hidden">
       <div
@@ -25,14 +26,13 @@ export default function Hero() {
             Anton Maynik
           </span>
           <span className="mt-2 block text-[clamp(1.75rem,5.5vw,4rem)] font-medium leading-[1.02] tracking-[-0.025em] text-muted md:mt-4">
-            Lead Graphic Designer
+            {t.hero.role}
           </span>
         </Reveal>
 
         <Reveal as="p" delay={120}>
           <span className="mt-9 block max-w-[46ch] text-[18px] leading-[1.6] text-ink/80 md:mt-12 md:text-[22px]">
-            Создаю визуальные решения для брендов, цифровых продуктов и
-            маркетинговых коммуникаций.
+            {t.hero.subtitle}
           </span>
         </Reveal>
 
@@ -41,18 +41,18 @@ export default function Hero() {
             href="#work"
             className="rounded-full bg-ink px-7 py-3.5 text-[15px] font-medium text-white transition-colors duration-300 hover:bg-accent"
           >
-            Посмотреть проекты
+            {t.hero.viewWork}
           </Link>
           <Link
             href="#contact"
             className="rounded-full border border-hairline px-7 py-3.5 text-[15px] font-medium transition-colors duration-300 hover:border-ink"
           >
-            Связаться
+            {t.hero.contact}
           </Link>
         </Reveal>
 
         <dl className="mt-20 grid grid-cols-1 gap-px border-t border-hairline sm:grid-cols-3 md:mt-32">
-          {STATS.map((stat, index) => (
+          {t.hero.stats.map((stat, index) => (
             <Reveal
               key={stat.value}
               as="div"

@@ -4,22 +4,31 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import ProjectCover from "@/components/ProjectCover";
 import Reveal from "@/components/Reveal";
-import type { Project } from "@/lib/projects";
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
+import { localizeProject, type Project } from "@/lib/projects";
 
 export default function CompanyWorkGrid({ projects }: { projects: Project[] }) {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
 
+  const localizedProjects = useMemo(
+    () => projects.map((project) => localizeProject(project, lang)),
+    [projects, lang],
+  );
+
   const categories = useMemo(
-    () => Array.from(new Set(projects.flatMap((project) => project.categories))),
-    [projects],
+    () => Array.from(new Set(localizedProjects.flatMap((project) => project.categories))),
+    [localizedProjects],
   );
 
   const filtered = useMemo(
     () =>
       categoryFilter === "all"
-        ? projects
-        : projects.filter((project) => project.categories.includes(categoryFilter)),
-    [projects, categoryFilter],
+        ? localizedProjects
+        : localizedProjects.filter((project) => project.categories.includes(categoryFilter)),
+    [localizedProjects, categoryFilter],
   );
 
   return (
@@ -35,7 +44,7 @@ export default function CompanyWorkGrid({ projects }: { projects: Project[] }) {
                 : "border-hairline text-muted hover:border-ink hover:text-ink"
             }`}
           >
-            Все категории
+            {t.work.allCategories}
           </button>
           {categories.map((category) => (
             <button
@@ -77,9 +86,7 @@ export default function CompanyWorkGrid({ projects }: { projects: Project[] }) {
           ))}
         </div>
       ) : (
-        <p className="mt-12 text-[16px] text-muted">
-          По выбранной категории проектов пока нет.
-        </p>
+        <p className="mt-12 text-[16px] text-muted">{t.work.emptyCompany}</p>
       )}
     </div>
   );

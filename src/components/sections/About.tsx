@@ -1,43 +1,33 @@
+"use client";
+
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-
-const DIRECTIONS = [
-  "Graphic Design",
-  "Web Design",
-  "Landing Pages",
-  "UI/UX",
-  "Branding",
-  "Motion Design",
-  "Print Design",
-  "Presentation Design",
-  "Telegram Bot Design",
-  "AI-разработчик",
-];
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
 
 export default function About() {
+  const { lang } = useLanguage();
+  const t = getDictionary(lang);
+
   return (
     <section id="about" className="scroll-mt-20 border-t border-hairline">
       <div className="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-36">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <SectionHeading
             className="md:col-span-6"
-            label="Обо мне"
-            title="Ведущий дизайнер отдела маркетинга Globalnet и GNM."
+            label={t.about.label}
+            title={t.about.title}
           />
 
           <div className="space-y-6 md:col-span-6 md:pt-16">
             <Reveal as="p" delay={60}>
               <span className="block text-[17px] leading-[1.7] text-muted md:text-[19px]">
-                Специализируюсь на создании визуальных решений для цифровых
-                продуктов, корпоративных сайтов, лендингов, брендинга и
-                маркетинговых материалов.
+                {t.about.paragraph1}
               </span>
             </Reveal>
             <Reveal as="p" delay={140}>
               <span className="block text-[17px] leading-[1.7] text-muted md:text-[19px]">
-                Работаю над проектами полного цикла: от исследования и разработки
-                концепции до подготовки финальных материалов и передачи в
-                производство или разработку.
+                {t.about.paragraph2}
               </span>
             </Reveal>
           </div>
@@ -46,12 +36,12 @@ export default function About() {
         <div className="mt-20 md:mt-28">
           <Reveal as="p">
             <span className="block text-[12px] font-medium uppercase tracking-[0.18em] text-muted">
-              Направления
+              {t.about.directionsLabel}
             </span>
           </Reveal>
 
           <ul className="mt-8 grid grid-cols-1 border-t border-hairline sm:grid-cols-2 lg:grid-cols-3">
-            {DIRECTIONS.map((direction, index) => (
+            {t.about.directions.map((direction, index) => (
               <Reveal
                 key={direction}
                 as="li"

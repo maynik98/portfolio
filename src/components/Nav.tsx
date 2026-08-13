@@ -3,18 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const LINKS = [
-  { href: "/#about", label: "Обо мне" },
-  { href: "/#experience", label: "Опыт" },
-  { href: "/#work", label: "Проекты" },
-  { href: "/#process", label: "Процесс" },
-  { href: "/#skills", label: "Навыки" },
-];
+import { getDictionary } from "@/lib/dictionary";
+import { useLanguage } from "@/lib/language";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { lang, toggle } = useLanguage();
+  const t = getDictionary(lang);
+
+  const LINKS = [
+    { href: "/#about", label: t.nav.about },
+    { href: "/#experience", label: t.nav.experience },
+    { href: "/#work", label: t.nav.work },
+    { href: "/#process", label: t.nav.process },
+    { href: "/#skills", label: t.nav.skills },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -32,7 +36,7 @@ export default function Nav() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 md:h-20 md:px-10">
         <Link
           href="/"
-          aria-label="На главную"
+          aria-label={t.nav.home}
           className="flex items-center gap-2.5 transition-opacity hover:opacity-60"
           onClick={() => setOpen(false)}
         >
@@ -49,44 +53,57 @@ export default function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
-          {LINKS.map((link) => (
+        <div className="flex items-center gap-2 md:gap-4">
+          <nav className="hidden items-center gap-9 md:flex">
+            {LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[14px] text-muted transition-colors hover:text-ink"
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
-              key={link.href}
-              href={link.href}
-              className="text-[14px] text-muted transition-colors hover:text-ink"
+              href="/#contact"
+              className="rounded-full bg-ink px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-accent"
             >
-              {link.label}
+              {t.nav.contact}
             </Link>
-          ))}
-          <Link
-            href="/#contact"
-            className="rounded-full bg-ink px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-accent"
-          >
-            Связаться
-          </Link>
-        </nav>
+          </nav>
 
-        <button
-          type="button"
-          aria-label={open ? "Закрыть меню" : "Открыть меню"}
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="-mr-2 flex h-10 w-10 items-center justify-center md:hidden"
-        >
-          <span className="relative block h-3 w-5">
-            <span
-              className={`absolute left-0 block h-[1.5px] w-5 bg-ink transition-transform duration-300 ${
-                open ? "top-[5px] rotate-45" : "top-0"
-              }`}
-            />
-            <span
-              className={`absolute left-0 block h-[1.5px] w-5 bg-ink transition-transform duration-300 ${
-                open ? "top-[5px] -rotate-45" : "top-[10px]"
-              }`}
-            />
-          </span>
-        </button>
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label="RU / EN"
+            className="flex items-center gap-1 rounded-full border border-hairline px-3 py-1.5 text-[12px] font-medium tracking-wide transition-colors duration-300 hover:border-ink"
+          >
+            <span className={lang === "ru" ? "text-ink" : "text-muted"}>RU</span>
+            <span className="text-muted">/</span>
+            <span className={lang === "en" ? "text-ink" : "text-muted"}>EN</span>
+          </button>
+
+          <button
+            type="button"
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+            className="-mr-2 flex h-10 w-10 items-center justify-center md:hidden"
+          >
+            <span className="relative block h-3 w-5">
+              <span
+                className={`absolute left-0 block h-[1.5px] w-5 bg-ink transition-transform duration-300 ${
+                  open ? "top-[5px] rotate-45" : "top-0"
+                }`}
+              />
+              <span
+                className={`absolute left-0 block h-[1.5px] w-5 bg-ink transition-transform duration-300 ${
+                  open ? "top-[5px] -rotate-45" : "top-[10px]"
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -106,7 +123,7 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="mt-4 block rounded-full bg-ink px-5 py-3.5 text-center text-[15px] font-medium text-white"
           >
-            Связаться
+            {t.nav.contact}
           </Link>
         </nav>
       )}

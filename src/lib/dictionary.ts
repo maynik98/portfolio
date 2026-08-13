@@ -1,0 +1,346 @@
+import type { Lang } from "@/lib/language";
+
+export const dictionary = {
+  ru: {
+    nav: {
+      about: "Обо мне",
+      experience: "Опыт",
+      work: "Проекты",
+      process: "Процесс",
+      skills: "Навыки",
+      contact: "Связаться",
+      home: "На главную",
+      openMenu: "Открыть меню",
+      closeMenu: "Закрыть меню",
+    },
+    hero: {
+      role: "Lead Graphic Designer",
+      subtitle:
+        "Создаю визуальные решения для брендов, цифровых продуктов и маркетинговых коммуникаций.",
+      viewWork: "Посмотреть проекты",
+      contact: "Связаться",
+      stats: [
+        { value: "3+", label: "года коммерческого опыта" },
+        { value: "100+", label: "реализованных проектов" },
+        { value: "Web / Branding", label: "Motion / Print" },
+      ],
+    },
+    about: {
+      label: "Обо мне",
+      title: "Ведущий дизайнер отдела маркетинга Globalnet и GNM.",
+      paragraph1:
+        "Специализируюсь на создании визуальных решений для цифровых продуктов, корпоративных сайтов, лендингов, брендинга и маркетинговых материалов.",
+      paragraph2:
+        "Работаю над проектами полного цикла: от исследования и разработки концепции до подготовки финальных материалов и передачи в производство или разработку.",
+      directionsLabel: "Направления",
+      directions: [
+        "Graphic Design",
+        "Web Design",
+        "Landing Pages",
+        "UI/UX",
+        "Branding",
+        "Motion Design",
+        "Print Design",
+        "Presentation Design",
+        "Telegram Bot Design",
+        "AI-разработчик",
+      ],
+    },
+    experience: {
+      label: "Опыт работы",
+      title: "Где и над чем работаю.",
+      company: "Globalnet / GNM",
+      role: "Lead Graphic Designer",
+      department: "Marketing Department",
+      period: "2023 — н. в.",
+      responsibilitiesLabel: "Обязанности",
+      responsibilities: [
+        "Разработка печатной продукции",
+        "Создание баннеров для мероприятий и рекламных кампаний",
+        "Разработка фирменного мерча",
+        "Создание контента для социальных сетей",
+        "Создание и монтаж видеороликов",
+        "Разработка корпоративных презентаций",
+        "Разработка новых страниц сайта",
+        "Создание визуальных концепций лендингов",
+        "Оформление Telegram-ботов",
+        "Поддержание фирменного стиля компании",
+        "Взаимодействие с маркетингом, разработчиками и подрядчиками",
+      ],
+    },
+    process: {
+      label: "Процесс работы",
+      title: "Пять этапов от задачи до результата.",
+      steps: [
+        {
+          number: "01",
+          title: "Исследование",
+          detail: "Разбираю задачу, аудиторию и контекст: что должно измениться после проекта.",
+        },
+        {
+          number: "02",
+          title: "Концепция",
+          detail: "Формулирую визуальную идею и проверяю её на ключевых носителях.",
+        },
+        {
+          number: "03",
+          title: "Дизайн",
+          detail: "Прорабатываю решение до деталей: типографика, сетка, состояния элементов.",
+        },
+        {
+          number: "04",
+          title: "Подготовка",
+          detail: "Собираю финальные файлы под производство или передачу в разработку.",
+        },
+        {
+          number: "05",
+          title: "Реализация",
+          detail: "Сопровождаю выпуск и контролирую результат на выходе.",
+        },
+      ],
+    },
+    skills: {
+      label: "Навыки",
+      title: "Инструменты и зоны ответственности.",
+      groups: [
+        {
+          title: "Design",
+          items: ["Figma", "Adobe Photoshop", "Adobe Illustrator", "After Effects", "Adobe Premiere Pro"],
+        },
+        {
+          title: "Нейросети",
+          items: ["ChatGPT", "Perplexity", "Claude Code", "Kling", "Sora"],
+        },
+        {
+          title: "Полный цикл",
+          items: [
+            "Исследование задачи",
+            "Разработка концепции",
+            "Дизайн-системы и шаблоны",
+            "Подготовка к производству",
+            "Передача в разработку",
+          ],
+        },
+        {
+          title: "Взаимодействие",
+          items: ["Маркетинг", "Разработчики", "Подрядчики"],
+        },
+      ],
+    },
+    work: {
+      label: "Избранные проекты",
+      title: "Проекты, где дизайн решал задачу бизнеса.",
+      all: "Все",
+      other: "Other",
+      allCategories: "Все категории",
+      viewCase: "Смотреть кейс",
+      emptyHome: "По выбранному фильтру проектов пока нет.",
+      emptyCompany: "По выбранной категории проектов пока нет.",
+    },
+    contact: {
+      label: "Контакты",
+      title: "Открыт к новым проектам и сотрудничеству.",
+      subtitle: "Расскажите о задаче — обсудим, как её можно решить через дизайн.",
+      phoneLabel: "Телефон",
+    },
+    footer: {
+      rights: "Все права защищены.",
+    },
+    companyPage: {
+      allProjects: "Все проекты",
+      companyLabel: "Компания",
+      visitSite: "Сайт компании",
+    },
+    casePage: {
+      allProjects: "Все проекты",
+      project: "Проект",
+      projectType: "Тип проекта",
+      company: "Компания",
+      other: "Other",
+      year: "Год",
+      myRole: "Моя роль",
+      task: "Задача",
+      process: "Процесс",
+      solution: "Решение",
+      result: "Результат",
+      imageComingSoon: "Изображение будет добавлено",
+      previous: "← Предыдущий",
+      next: "Следующий →",
+      ctaTitle: "Нужен похожий проект?",
+      ctaButton: "Написать мне",
+    },
+  },
+  en: {
+    nav: {
+      about: "About",
+      experience: "Experience",
+      work: "Work",
+      process: "Process",
+      skills: "Skills",
+      contact: "Contact",
+      home: "Home",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+    },
+    hero: {
+      role: "Lead Graphic Designer",
+      subtitle:
+        "I create visual solutions for brands, digital products and marketing communications.",
+      viewWork: "View projects",
+      contact: "Get in touch",
+      stats: [
+        { value: "3+", label: "years of commercial experience" },
+        { value: "100+", label: "projects delivered" },
+        { value: "Web / Branding", label: "Motion / Print" },
+      ],
+    },
+    about: {
+      label: "About me",
+      title: "Lead designer of the marketing department at Globalnet and GNM.",
+      paragraph1:
+        "I specialize in visual solutions for digital products, corporate websites, landing pages, branding and marketing materials.",
+      paragraph2:
+        "I work on full-cycle projects: from research and concept development to final production files and handoff to production or engineering.",
+      directionsLabel: "Directions",
+      directions: [
+        "Graphic Design",
+        "Web Design",
+        "Landing Pages",
+        "UI/UX",
+        "Branding",
+        "Motion Design",
+        "Print Design",
+        "Presentation Design",
+        "Telegram Bot Design",
+        "AI Developer",
+      ],
+    },
+    experience: {
+      label: "Work experience",
+      title: "Where and what I work on.",
+      company: "Globalnet / GNM",
+      role: "Lead Graphic Designer",
+      department: "Marketing Department",
+      period: "2023 — present",
+      responsibilitiesLabel: "Responsibilities",
+      responsibilities: [
+        "Producing print materials",
+        "Designing banners for events and ad campaigns",
+        "Developing branded merch",
+        "Creating content for social media",
+        "Creating and editing video content",
+        "Designing corporate presentations",
+        "Designing new website pages",
+        "Creating visual concepts for landing pages",
+        "Designing Telegram bots",
+        "Maintaining the company's brand identity",
+        "Working with marketing, developers and contractors",
+      ],
+    },
+    process: {
+      label: "Work process",
+      title: "Five steps from brief to result.",
+      steps: [
+        {
+          number: "01",
+          title: "Research",
+          detail: "I break down the task, audience and context: what should change after the project.",
+        },
+        {
+          number: "02",
+          title: "Concept",
+          detail: "I formulate the visual idea and test it on the key touchpoints.",
+        },
+        {
+          number: "03",
+          title: "Design",
+          detail: "I refine the solution down to details: typography, grid, element states.",
+        },
+        {
+          number: "04",
+          title: "Prep",
+          detail: "I assemble final files for production or handoff to development.",
+        },
+        {
+          number: "05",
+          title: "Delivery",
+          detail: "I support the release and check the result once it's live.",
+        },
+      ],
+    },
+    skills: {
+      label: "Skills",
+      title: "Tools and areas of responsibility.",
+      groups: [
+        {
+          title: "Design",
+          items: ["Figma", "Adobe Photoshop", "Adobe Illustrator", "After Effects", "Adobe Premiere Pro"],
+        },
+        {
+          title: "Neural networks",
+          items: ["ChatGPT", "Perplexity", "Claude Code", "Kling", "Sora"],
+        },
+        {
+          title: "Full cycle",
+          items: [
+            "Research",
+            "Concept development",
+            "Design systems and templates",
+            "Production prep",
+            "Handoff to development",
+          ],
+        },
+        {
+          title: "Collaboration",
+          items: ["Marketing", "Developers", "Contractors"],
+        },
+      ],
+    },
+    work: {
+      label: "Selected Projects",
+      title: "Projects where design solved a business problem.",
+      all: "All",
+      other: "Other",
+      allCategories: "All categories",
+      viewCase: "View case",
+      emptyHome: "No projects match this filter yet.",
+      emptyCompany: "No projects in this category yet.",
+    },
+    contact: {
+      label: "Contact",
+      title: "Open to new projects and collaboration.",
+      subtitle: "Tell me about your task — let's discuss how design can solve it.",
+      phoneLabel: "Phone",
+    },
+    footer: {
+      rights: "All rights reserved.",
+    },
+    companyPage: {
+      allProjects: "All Projects",
+      companyLabel: "Company",
+      visitSite: "Company website",
+    },
+    casePage: {
+      allProjects: "All Projects",
+      project: "Project",
+      projectType: "Project type",
+      company: "Company",
+      other: "Other",
+      year: "Year",
+      myRole: "My role",
+      task: "Task",
+      process: "Process",
+      solution: "Solution",
+      result: "Result",
+      imageComingSoon: "Image coming soon",
+      previous: "← Previous",
+      next: "Next →",
+      ctaTitle: "Need a similar project?",
+      ctaButton: "Email me",
+    },
+  },
+} satisfies Record<Lang, unknown>;
+
+export function getDictionary(lang: Lang) {
+  return dictionary[lang];
+}

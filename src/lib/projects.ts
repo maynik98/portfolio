@@ -22,6 +22,20 @@ export type ProjectFile = {
   href: string;
 };
 
+/** English overrides for translatable text fields. Any field left out falls back to the Russian original. */
+export type ProjectTranslation = {
+  title?: string;
+  summary?: string;
+  role?: string;
+  task?: string;
+  process?: ProcessStep[];
+  solution?: string[];
+  /** Captions aligned by index with `results`. */
+  resultCaptions?: string[];
+  /** Labels aligned by index with `files`. */
+  fileLabels?: string[];
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -41,6 +55,8 @@ export type Project = {
   files?: ProjectFile[];
   /** Index into the cover-tone variants for this project's colour family (см. ProjectCover.tsx). */
   tone: number;
+  /** English translation overrides. */
+  en?: ProjectTranslation;
 };
 
 export const projects: Project[] = [
@@ -136,6 +152,57 @@ export const projects: Project[] = [
       { label: "Мерч — PDF макет", href: "/work/globalnet-gnm/merch-frame.pdf" },
     ],
     tone: 0,
+    en: {
+      title: "GNM — Brand Identity & Merch",
+      summary:
+        "End-to-end visual communications for the company: advertising materials, digital, print, presentations, merch, and event design.",
+      role: "Lead Graphic Designer, Marketing Department",
+      task: "The company's visual communications were assembled from materials made at different times by different freelancers and vendors. As a result, materials didn't connect well with each other, and every new task began with agreeing on style instead of working on content. What was needed was a unified system in which any material — from a conference banner to a presentation slide — reads as one brand.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Audit of all existing materials: digital, print, presentations, merch, social media. Breakdown of marketing tasks and which materials are requested most often.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Defining the brand's visual logic: how composition is built, how typography works, where accents are allowed and where restraint is needed.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Working through options on key materials — from an ad banner to a title slide — to test the system across different formats at once.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Building a library of templates and components in Figma: grids, typographic styles, modules for digital and print.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Preparing files for specific channels, handing off to production and development, and supporting every stage of release.",
+        },
+      ],
+      solution: [
+        "A unified typographic and compositional system that carries across digital, print, and presentations without being reinvented each time.",
+        "A template library for recurring marketing tasks — new materials are assembled faster and stay on-brand.",
+        "Rules for logo use, color, and spacing, fixed so that contractors can apply them without loss of quality.",
+        "Separate sets of materials for events, social media, and merch, connected by a shared visual logic.",
+      ],
+      resultCaptions: [
+        "GNM tote bags — design options",
+        "Sticker pack: artwork",
+        "Printed stickers",
+        "Tote bag \"Driving the Internet\"",
+        "Tote bag \"Ciao, Peers!\"",
+        "Lanyards",
+        "GNM hoodie",
+        "GNM hoodie — mockup (front, back, Pantone 274 C)",
+      ],
+      fileLabels: ["Merch — PDF layout"],
+    },
   },
   {
     slug: "corporate-website",
@@ -193,6 +260,50 @@ export const projects: Project[] = [
       },
     ],
     tone: 1,
+    en: {
+      title: "GNM-IX — Website",
+      summary:
+        "Design of the gnm.net corporate website homepage and the \"Exchange Locations & Network Coverage\" page with an interactive presence map.",
+      role: "Interface design, structure, developer handoff",
+      task: "The website lacked pages for new products and directions, and existing sections didn't answer all of a visitor's questions. New pages needed to be designed to meet marketing goals, fit into the site's existing architecture, and go into development without lengthy rework.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Review of the current site structure, page goals, and visitor scenarios. Gathering materials and requirements from marketing and product teams.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Designing the page structure: block sequence, narrative logic, placement of calls to action.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Wireframes of blocks and testing presentation options — what goes above the fold, how to show the product, where facts are needed versus visual explanation.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Working through desktop and mobile versions, element states, typographic hierarchy, and grid work.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Preparing mockups and assets for developers, answering implementation questions, checking the result against the design.",
+        },
+      ],
+      solution: [
+        "Page structure built around the visitor's journey: the offer's core first, then details, then a call to action.",
+        "A visual solution that inherits the company's brand identity but is adapted for the web — readability, information density, long-scroll performance.",
+        "Responsive layouts with worked-out element states, not just a desktop version.",
+        "Mockups assembled from components with prepared assets — so handoff to development required no clarification.",
+      ],
+      resultCaptions: [
+        "gnm.net homepage",
+        "\"Exchange Locations & Network Coverage\" page — presence map",
+      ],
+    },
   },
   {
     slug: "marketing-campaigns",
@@ -325,6 +436,65 @@ export const projects: Project[] = [
       },
     ],
     tone: 3,
+    en: {
+      title: "GNM — Marketing Campaigns",
+      summary:
+        "Development of banners, advertising materials, and visual communications to promote products.",
+      role: "Advertising material design, channel adaptation",
+      task: "Ad campaigns ran across different channels and formats, each with its own size and text-length requirements. What was needed was a solution where the message stays recognizable and legible everywhere, and preparing dozens of sizes doesn't turn into manual work on every file.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Breaking down the campaign brief, placement channels, and technical format requirements.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Finding the campaign's visual key: the main image, tone, and the role of text and accent.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Testing the key on the hardest format — narrow and small, with the least room for the message.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Drawing master layouts and laying out the size grid across channels while preserving composition and legibility.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Preparing final files to platform requirements and handing materials off for placement.",
+        },
+      ],
+      solution: [
+        "A visual key that holds across every format — from a wide banner to a vertical story.",
+        "Master layouts and size grids that new formats can be quickly assembled from for new placements.",
+        "Typographic constraints on text volume set in advance — the message stays legible at small sizes.",
+        "A unified system of accents linking ad materials to the rest of the brand communication.",
+      ],
+      resultCaptions: [
+        "\"Backbone Expansion in Key European PoPs\" creative",
+        "Social post: GNM in Germany",
+        "Vertical format: North America PoPs",
+        "Network map",
+        "News intro screen",
+        "Map: Germany",
+        "Social post — option 1",
+        "Map — option",
+        "Social post: \"Built for scale. Engineered for performance.\"",
+        "Targeted creative — option 1",
+        "Targeted creative — option 2",
+        "Targeted creative — option 3",
+        "Targeted creative — option 4",
+        "Targeted creative: map — option 1",
+        "Targeted creative: \"Connect from North America. Peer across Europe.\"",
+        "Targeted creative — option 5",
+        "Targeted creative — option 6",
+      ],
+    },
   },
   {
     slug: "motion-design",
@@ -422,6 +592,58 @@ export const projects: Project[] = [
       },
     ],
     tone: 4,
+    en: {
+      title: "GNM — Video & Motion Design",
+      summary:
+        "Animated clips and news intros for GNM-IX: promos, traffic reports, and announcements — used on social media and as placeholders for news digests on the site.",
+      role: "Concept, animation, editing",
+      task: "Some of the company's messages didn't work well as static images: products and processes needed to be explained in motion, while events and launches needed short clips for specific channels. Video needed to be produced in-house, in the same visual language as the rest of the communications.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Breaking down the clip's brief: what needs explaining, to whom, on which channel, and in how many seconds.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Script and storyboard: sequence of shots, pacing, the role of graphics and text.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Drawing key frames and testing the visual language before animation, to avoid reworking scenes later.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Animating scenes and graphics in After Effects, working with pacing, transitions, and typography in motion.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Editing, sound mixing, exporting to placement-channel requirements.",
+        },
+      ],
+      solution: [
+        "A unified motion language: pacing, transition style, and animated typography aligned with the brand identity.",
+        "Storyboarding before animation — decisions are discussed and approved at the stage where changes are cheapest.",
+        "A library of animated elements and titles that speeds up production of future clips.",
+        "Exports for different channels from a single project, including vertical formats.",
+      ],
+      resultCaptions: [
+        "Promo: GNM-IX Peering Plus",
+        "Promo: Connect to 700+ EU Networks from the USA",
+        "News intro: \"10 Tbps Reached\"",
+        "GNM logo animation",
+        "Promo: Direct Access to 700+ European ASNs",
+        "News intro: \"GNM expands into North America\"",
+        "Holiday intro: Happy New Year",
+        "Promo: GNM-IX Start2Peer",
+        "Background animation: light lines",
+        "News intro: GNM routes — Sofia, Belgrade, Budapest",
+      ],
+    },
   },
   {
     slug: "print-exhibition-design",
@@ -526,6 +748,59 @@ export const projects: Project[] = [
       },
     ],
     tone: 5,
+    en: {
+      title: "GNM-IX — Print & Exhibition Design",
+      summary:
+        "Development of print materials, stands, roll-ups, brochures, and event materials.",
+      role: "Design, prepress, vendor coordination",
+      task: "At events, the company competes for attention in physical space, where decisions are made in seconds from a distance. Print leaves no room for error: a layout with wrong bleeds or a wrong color profile comes back from production at a cost in time and budget. Stand banners were made for specific events roughly every six months — over that time GNM's brand identity evolved from a minimal set of elements into a fixed system.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Breaking down the venue and event scenario: viewing distance, foot-traffic flow, technical constraints.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Visual solution for the zone: what reads first from a distance, what reads on approach, and what should be picked up by hand.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Testing options at scale and laying out materials across the stand zone.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Drawing materials at real size: stands, roll-ups, brochures, handouts.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Preparing print-ready files — bleeds, color profiles, specific production requirements — coordinating with vendors and checking results.",
+        },
+      ],
+      solution: [
+        "A distance-based hierarchy: the big message reads from afar, details unfold on approach.",
+        "A set of materials assembled as one zone rather than a collection of separate layouts.",
+        "Layouts prepared to specific production requirements — with bleeds, profiles, and verified fonts.",
+        "Vendor coordination during printing and assembly: proof and final quality control.",
+      ],
+      fileLabels: ["Leaflet — PDF", "Sales one-pager — PDF"],
+      resultCaptions: [
+        "GNM-IX roll-up",
+        "GNM / GNM-IX leaflet — 2 pages",
+        "Sales one-pager — 2 pages",
+        "Banner, stage 1 — minimal brand elements",
+        "Banner, stage 2 — new style elements added",
+        "Banner, stage 3",
+        "Banner, stage 4",
+        "Banner, stage 5 — new event, refreshed presentation",
+        "Banner, stage 6",
+        "Banner, stage 7 — GNM's brand identity finalized",
+      ],
+    },
   },
   {
     slug: "presentation-design",
@@ -585,6 +860,47 @@ export const projects: Project[] = [
       },
     ],
     tone: 6,
+    en: {
+      title: "GNM — Presentations",
+      summary: "Creating presentations for clients, partners, and internal teams.",
+      role: "Structure, slide design, templates",
+      task: "Presentations were made by different departments, and quality varied widely: strong arguments got lost in overloaded slides, and external documents looked weaker than the company deserved. What was needed was a tool teams could use on their own and still get a polished result without a designer on every task.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Breaking down typical scenarios: sales, partner meetings, internal reports. Collecting the slide types needed most often.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Narrative logic and density rules: one slide, one idea; how data is presented; where an accent is needed.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Working through core slide types — title, thesis, data, diagram, closing call to action.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Drawing master slides, the typographic system, and graphics for data and diagrams.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Assembling the template with usage instructions and handing it to teams, supporting the first presentations.",
+        },
+      ],
+      solution: [
+        "A set of master slides built for real scenarios, not an abstract one-size-fits-all template.",
+        "A typographic system that holds hierarchy even with a lot of text.",
+        "A unified way of presenting data: charts and diagrams read without a legend.",
+        "Usage instructions — teams assemble presentations themselves and stay on-brand.",
+      ],
+      fileLabels: ["Press Kit — PDF, 9 slides", "Partner presentation — PDF, 12 slides"],
+      resultCaptions: ["Partner presentation: title slide"],
+    },
   },
   {
     slug: "telegram-bot-design",
@@ -637,6 +953,46 @@ export const projects: Project[] = [
       },
     ],
     tone: 7,
+    en: {
+      title: "GlobalNet — Telegram Bot with AI Assistant",
+      summary: "Design of the visual side of Telegram bots and user flows.",
+      role: "User flows, visual design",
+      task: "Part of the communication with users went through Telegram bots, but the messenger interface heavily constrains design: only text, buttons, and images. At the same time, the flow needs to be clear from the first message, and the bot itself needs to be recognizably on-brand.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Breaking down the bot's tasks and user flows: why someone came here and where they might get stuck.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Designing the dialogue logic: step sequence, menu structure, points of return.",
+        },
+        {
+          step: "Sketches",
+          detail:
+            "Flow diagrams and message drafts — checking the path has no dead ends.",
+        },
+        {
+          step: "Design",
+          detail:
+            "Visual design within Telegram's constraints: covers, message illustrations, icons, menu and button styling.",
+        },
+        {
+          step: "Final delivery",
+          detail:
+            "Preparing assets and copy for development, testing the bot in live scenarios.",
+        },
+      ],
+      solution: [
+        "Flows broken into steps, with clear navigation and the ability to go back at any stage.",
+        "Visual design that works within the messenger's constraints — legible at small size and in dark mode.",
+        "A message format where text and image work together rather than duplicating each other.",
+        "Styling that makes the bot recognizable as part of the brand.",
+      ],
+      resultCaptions: ["Bot screen with AI assistant"],
+    },
   },
   {
     slug: "gnm-app",
@@ -656,6 +1012,20 @@ export const projects: Project[] = [
       { caption: "Состояние интерфейса — 3", ratio: "portrait", src: "/work/gnm-app/screen-73.png" },
     ],
     tone: 0,
+    en: {
+      title: "GNM VPN — App",
+      summary:
+        "Visual design of the GNM VPN mobile app: login screen and interface states.",
+      role: "Interface visual design",
+      task: "Designing the screens of GNM's VPN mobile app within the company's overall visual system — the same logo, typeface, and accent color as the website and other materials.",
+      resultCaptions: [
+        "Login screen",
+        "Connected screen",
+        "Interface state — 1",
+        "Interface state — 2",
+        "Interface state — 3",
+      ],
+    },
   },
 
   // ---------------------------------------------------------------------
@@ -686,6 +1056,27 @@ export const projects: Project[] = [
       { caption: "Презентация — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/presentation.png" },
     ],
     tone: 1,
+    en: {
+      title: "GlobalNet — Presentations",
+      summary:
+        "Presentations for GlobalNet services: DDoS protection, CDN, the DATAIX traffic exchange point, and a general company overview.",
+      role: "Slide design",
+      task: "Preparing presentation materials for GlobalNet products — DDoS protection, CDN, and the DATAIX traffic exchange point — for external and internal communication.",
+      fileLabels: [
+        "DDoS Protection — PDF",
+        "CDN — PDF",
+        "GlobalNet: Company Overview — PDF",
+        "DATAIX — PDF",
+        "Presentation — PDF",
+      ],
+      resultCaptions: [
+        "DDoS Protection — title slide",
+        "CDN — title slide",
+        "GlobalNet: Company Overview — title slide",
+        "DATAIX — title slide",
+        "Presentation — title slide",
+      ],
+    },
   },
   {
     slug: "globalnet-website",
@@ -705,6 +1096,20 @@ export const projects: Project[] = [
       { caption: "Личный кабинет: заявка на подключение к IX", ratio: "wide", src: "/work/globalnet/merch-print/print-4.png" },
     ],
     tone: 2,
+    en: {
+      title: "GlobalNet — Website",
+      summary:
+        "GlobalNet corporate website screens: a DATAIX connection quality survey form and homepage variants.",
+      role: "Interface design",
+      task: "Designing individual screens of the GlobalNet website — from the DATAIX feedback form to homepage variants.",
+      resultCaptions: [
+        "DATAIX connection quality survey",
+        "Homepage — option 1",
+        "Homepage — option 2",
+        "Website screen",
+        "Account dashboard: IX connection request",
+      ],
+    },
   },
   {
     slug: "globalnet-marketing",
@@ -738,6 +1143,34 @@ export const projects: Project[] = [
       { caption: "Промо-флаер: DATAIX — Points of Presence", ratio: "portrait", src: "/work/globalnet/merch-print/banner-6.png" },
     ],
     tone: 3,
+    en: {
+      title: "GlobalNet — Marketing",
+      summary: "Targeted ads, promo flyers, and social media posts for GlobalNet.",
+      role: "Advertising material design",
+      task: "Preparing ad creatives, service promo flyers, and social media posts for the GlobalNet brand.",
+      fileLabels: ["Promo materials — PDF"],
+      resultCaptions: [
+        "Targeted creative",
+        "Social media post — 1",
+        "Social media post — 2",
+        "Social media post — 3",
+        "Social media post — 4",
+        "Social media post — 5",
+        "Social media post — 6",
+        "Social media post — 7",
+        "Promo flyer: one port for all network services",
+        "Promo flyer: full-cycle network solutions",
+        "Promo flyer: conference prize fund",
+        "Promo flyer: Apple Watch giveaway at the conference — 1",
+        "Promo flyer: Apple Watch giveaway at the conference — 2",
+        "Promo flyer: full range of network services",
+        "Promo flyer: full-cycle network solutions — option 2",
+        "Promo flyer: DATAIX / GlobalNet services",
+        "Promo flyer: services — option 4",
+        "Promo flyer: services — option 5",
+        "Promo flyer: DATAIX — Points of Presence",
+      ],
+    },
   },
   {
     slug: "globalnet-merch-print",
@@ -762,6 +1195,25 @@ export const projects: Project[] = [
       { caption: "Стикеры: Golf Day by GlobalNet", ratio: "landscape", src: "/work/globalnet/merch-print/caps-2.png" },
     ],
     tone: 4,
+    en: {
+      title: "GlobalNet — Merch",
+      summary: "Caps, hoodies, t-shirts, a backpack, and stickers featuring GlobalNet and DATAIX branding.",
+      role: "Merch design",
+      task: "Developing GlobalNet and DATAIX merch: caps, hoodies, t-shirts, a backpack, and stickers for employees, clients, and events.",
+      resultCaptions: [
+        "GlobalNet caps — selection",
+        "GlobalNet caps — selection 2",
+        "DATAIX GlobalNet caps — 9 variants",
+        "DATAIX GlobalNet backpack",
+        "GlobalNet and GlobalCoin hoodies",
+        "DATAIX t-shirts — prints",
+        "\"TSPU\" stickers — satirical series 1",
+        "\"TSPU\" stickers — satirical series 2",
+        "GlobalNet stickers",
+        "\"Big Wave Hunter\" stickers",
+        "Stickers: Golf Day by GlobalNet",
+      ],
+    },
   },
   {
     slug: "globalnet-motion",
@@ -792,6 +1244,23 @@ export const projects: Project[] = [
       },
     ],
     tone: 5,
+    en: {
+      title: "GlobalNet — Video",
+      summary: "GlobalNet video content: an annual report, technical clips, and event recordings.",
+      role: "Video and motion",
+      task: "Producing GlobalNet's video content — from the annual report to supporting technical clips.",
+      resultCaptions: [
+        "Annual Report 2025",
+        "DATAIX: 10 Tbps peak load",
+        "Composition",
+        "Screen recording — 1",
+        "Screen recording — 2",
+        "Video — 1",
+        "Video — 2",
+        "Clip: company growth — \"500 is not the limit\", 18,000 km of owned network",
+        "GlobalNet logo animation on the map",
+      ],
+    },
   },
 
   // ---------------------------------------------------------------------
@@ -807,6 +1276,11 @@ export const projects: Project[] = [
     files: [{ label: "Juzzle — PDF", href: "/work/other/juzzle/juzzle.pdf" }],
     results: [],
     tone: 0,
+    en: {
+      summary: "Defense of the creative part of the \"Juzzle\" project. Institute of Business and Design, 05.16.2023.",
+      role: "Project author",
+      fileLabels: ["Juzzle — PDF"],
+    },
   },
   {
     slug: "qummy",
@@ -817,6 +1291,11 @@ export const projects: Project[] = [
     files: [{ label: "Qummy — PDF", href: "/work/other/qummy/qummy.pdf" }],
     results: [],
     tone: 1,
+    en: {
+      summary: "Qummy — a concept for a cook- and kitchen-free food technology. Institute of Business and Design.",
+      role: "Project author",
+      fileLabels: ["Qummy — PDF"],
+    },
   },
   {
     slug: "yoyote",
@@ -827,6 +1306,12 @@ export const projects: Project[] = [
     files: [{ label: "yoyote — PDF", href: "/work/other/yoyote/yoyote.pdf" }],
     results: [],
     tone: 2,
+    en: {
+      title: "Brand \"yoyote\"",
+      summary: "Development of the \"yoyote\" brand. Institute of Business and Design, co-authored with Daria Ivanova.",
+      role: "Brand design (with Daria Ivanova)",
+      fileLabels: ["yoyote — PDF"],
+    },
   },
   {
     slug: "mojo-cacao",
@@ -837,6 +1322,12 @@ export const projects: Project[] = [
     files: [{ label: "Брендбук MOJO — PDF", href: "/work/other/mojo-cacao/brandbook.pdf" }],
     results: [],
     tone: 3,
+    en: {
+      title: "MOJO Cacao — Brand Book",
+      summary: "MOJO Cacao brand book. Institute of Business and Design.",
+      role: "Project author",
+      fileLabels: ["MOJO Brand Book — PDF"],
+    },
   },
   {
     slug: "orange-toys",
@@ -850,6 +1341,12 @@ export const projects: Project[] = [
     ],
     results: [],
     tone: 4,
+    en: {
+      title: "Orange Toys — \"Project of the Year\"",
+      summary: "\"Project of the Year\" presentation for Orange Toys. Institute of Business and Design.",
+      role: "Presentation design",
+      fileLabels: ["Orange Toys — PDF", "Orange Toys — original PPTX"],
+    },
   },
   {
     slug: "beryozki-diploma",
@@ -864,6 +1361,13 @@ export const projects: Project[] = [
       { caption: "Рекламные постеры", ratio: "landscape", src: "/work/other/diploma/screen-2.png" },
     ],
     tone: 5,
+    en: {
+      title: "Beryozki — Tea House Chain Identity",
+      summary: "Thesis project: brand identity for the \"Beryozki\" tea house chain — signage, menu, and advertising materials.",
+      role: "Project author",
+      fileLabels: ["Thesis — DOCX"],
+      resultCaptions: ["Signage", "Menu", "Advertising posters"],
+    },
   },
   {
     slug: "tea-launch",
@@ -880,6 +1384,12 @@ export const projects: Project[] = [
       { caption: "Видео", ratio: "landscape", video: "/work/other/tea-launch/video.mp4" },
     ],
     tone: 6,
+    en: {
+      title: "Tea Brand Launch, 2023",
+      summary: "Development of visual materials for a tea brand launch, 2023.",
+      role: "Project author",
+      resultCaptions: ["Artboard — 1", "Artboard — 2", "Artboard — 3", "Artboard — 4", "Video"],
+    },
   },
   {
     slug: "artflash",
@@ -908,6 +1418,31 @@ export const projects: Project[] = [
       { caption: "Спорт", ratio: "portrait", src: "/work/other/artflash/sport.png" },
     ],
     tone: 7,
+    en: {
+      title: "Artflash — Merch & Creative",
+      summary: "Prints for Artflash merch: t-shirts with artistic and original prints.",
+      role: "Print design",
+      resultCaptions: [
+        "\"Blue Crest\" t-shirt",
+        "T-shirt — option 2",
+        "T-shirt — option 3",
+        "T-shirt — option 5",
+        "T-shirt — option 6",
+        "T-shirt — option 7",
+        "T-shirt — option 8",
+        "T-shirt — option 9",
+        "T-shirt — option 10",
+        "T-shirt — option 11",
+        "T-shirt — option 12",
+        "T-shirt — option 13",
+        "T-shirt — option 14",
+        "T-shirt — option 15",
+        "Tsoi",
+        "Misha Most",
+        "Misha Most — t-shirt",
+        "Sport",
+      ],
+    },
   },
   {
     slug: "metro",
@@ -925,6 +1460,20 @@ export const projects: Project[] = [
       { caption: "Публикация — 3", ratio: "portrait", src: "/work/other/metro/screen-3.png" },
     ],
     tone: 0,
+    en: {
+      title: "METRO — Ad Creatives",
+      summary: "Social media ad creatives for METRO Cash & Carry.",
+      role: "Advertising material design",
+      resultCaptions: [
+        "Promo creative",
+        "Promo — option 2",
+        "Wines",
+        "Mulled wine",
+        "Post — 1",
+        "Post — 2",
+        "Post — 3",
+      ],
+    },
   },
 ];
 
@@ -956,3 +1505,35 @@ export function getOtherProjects(): Project[] {
 export const allCategories = Array.from(
   new Set(projects.flatMap((project) => project.categories)),
 );
+
+/**
+ * Returns a flattened, language-appropriate Project object.
+ * For "ru" (or when no translation exists) this just returns the project unchanged.
+ * For "en" it applies the `en` overrides on top of the Russian original.
+ */
+export function localizeProject(project: Project, lang: "ru" | "en"): Project {
+  if (lang !== "en" || !project.en) return project;
+  const t = project.en;
+
+  return {
+    ...project,
+    title: t.title ?? project.title,
+    summary: t.summary ?? project.summary,
+    role: t.role ?? project.role,
+    task: t.task ?? project.task,
+    process: t.process ?? project.process,
+    solution: t.solution ?? project.solution,
+    results: t.resultCaptions
+      ? project.results.map((result, index) => ({
+          ...result,
+          caption: t.resultCaptions?.[index] ?? result.caption,
+        }))
+      : project.results,
+    files: t.fileLabels
+      ? project.files?.map((file, index) => ({
+          ...file,
+          label: t.fileLabels?.[index] ?? file.label,
+        }))
+      : project.files,
+  };
+}
