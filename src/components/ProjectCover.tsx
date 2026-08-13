@@ -10,11 +10,11 @@ const PURPLE: Tone[] = [
   { bg: "linear-gradient(200deg,#100b30 0%,#2c2566 60%,#463aa0 100%)", dark: true },
 ];
 
-/** GlobalNet — синий градиент (как было). */
+/** GlobalNet — синий градиент, все варианты в одной светлой гамме. */
 const BLUE: Tone[] = [
-  { bg: "linear-gradient(135deg,#081437 0%,#15307e 52%,#1d4ed8 100%)", dark: true },
+  { bg: "linear-gradient(135deg,#12266b 0%,#1d4ed8 55%,#4f7ef5 100%)", dark: true },
   { bg: "linear-gradient(135deg,#12266b 0%,#2d5ce6 100%)", dark: true },
-  { bg: "linear-gradient(135deg,#060d24 0%,#1739a8 100%)", dark: true },
+  { bg: "linear-gradient(135deg,#173f9e 0%,#2d5ce6 60%,#5b8cf5 100%)", dark: true },
   { bg: "linear-gradient(135deg,#15307e 0%,#1d4ed8 60%,#4f7ef5 100%)", dark: true },
 ];
 

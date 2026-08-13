@@ -905,6 +905,43 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "gnm-app",
+    title: "GNM VPN — приложение",
+    categories: ["Product Design"],
+    companyId: "gnm",
+    summary:
+      "Визуальное оформление мобильного приложения GNM VPN: экран входа и рабочие состояния интерфейса.",
+    year: "2023 — н. в.",
+    role: "Визуальное оформление интерфейса",
+    task: "Оформление экранов мобильного приложения VPN-сервиса GNM в рамках общей визуальной системы компании — с тем же логотипом, шрифтом и акцентным цветом, что и на сайте и в остальных материалах.",
+    results: [
+      { caption: "Экран входа", ratio: "portrait", src: "/work/gnm-app/login.png" },
+      { caption: "Экран подключения", ratio: "portrait", src: "/work/gnm-app/screen-connected.png" },
+      { caption: "Состояние интерфейса — 1", ratio: "portrait", src: "/work/gnm-app/screen-60.png" },
+      { caption: "Состояние интерфейса — 2", ratio: "portrait", src: "/work/gnm-app/screen-65.png" },
+      { caption: "Состояние интерфейса — 3", ratio: "portrait", src: "/work/gnm-app/screen-73.png" },
+    ],
+    tone: 0,
+    en: {
+      title: "GNM VPN — App",
+      summary:
+        "Visual design of the GNM VPN mobile app: login screen and interface states.",
+      role: "Interface visual design",
+      task: "Designing the screens of GNM's VPN mobile app within the company's overall visual system — the same logo, typeface, and accent color as the website and other materials.",
+      resultCaptions: [
+        "Login screen",
+        "Connected screen",
+        "Interface state — 1",
+        "Interface state — 2",
+        "Interface state — 3",
+      ],
+    },
+  },
+
+  // ---------------------------------------------------------------------
+  // GlobalNet
+  // ---------------------------------------------------------------------
+  {
     slug: "telegram-bot-design",
     title: "GlobalNet — Telegram-бот с ИИ-ассистентом",
     categories: ["Product Design"],
@@ -996,43 +1033,6 @@ export const projects: Project[] = [
       resultCaptions: ["Bot screen with AI assistant"],
     },
   },
-  {
-    slug: "gnm-app",
-    title: "GNM VPN — приложение",
-    categories: ["Product Design"],
-    companyId: "gnm",
-    summary:
-      "Визуальное оформление мобильного приложения GNM VPN: экран входа и рабочие состояния интерфейса.",
-    year: "2023 — н. в.",
-    role: "Визуальное оформление интерфейса",
-    task: "Оформление экранов мобильного приложения VPN-сервиса GNM в рамках общей визуальной системы компании — с тем же логотипом, шрифтом и акцентным цветом, что и на сайте и в остальных материалах.",
-    results: [
-      { caption: "Экран входа", ratio: "portrait", src: "/work/gnm-app/login.png" },
-      { caption: "Экран подключения", ratio: "portrait", src: "/work/gnm-app/screen-connected.png" },
-      { caption: "Состояние интерфейса — 1", ratio: "portrait", src: "/work/gnm-app/screen-60.png" },
-      { caption: "Состояние интерфейса — 2", ratio: "portrait", src: "/work/gnm-app/screen-65.png" },
-      { caption: "Состояние интерфейса — 3", ratio: "portrait", src: "/work/gnm-app/screen-73.png" },
-    ],
-    tone: 0,
-    en: {
-      title: "GNM VPN — App",
-      summary:
-        "Visual design of the GNM VPN mobile app: login screen and interface states.",
-      role: "Interface visual design",
-      task: "Designing the screens of GNM's VPN mobile app within the company's overall visual system — the same logo, typeface, and accent color as the website and other materials.",
-      resultCaptions: [
-        "Login screen",
-        "Connected screen",
-        "Interface state — 1",
-        "Interface state — 2",
-        "Interface state — 3",
-      ],
-    },
-  },
-
-  // ---------------------------------------------------------------------
-  // GlobalNet
-  // ---------------------------------------------------------------------
   {
     slug: "globalnet-presentations",
     title: "GlobalNet — презентации",
