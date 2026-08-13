@@ -122,21 +122,6 @@ export const projects: Project[] = [
         src: "/work/globalnet-gnm/lanyards.jpg",
       },
       {
-        caption: "Ланъярды GNM в упаковке",
-        ratio: "landscape",
-        src: "/work/globalnet-gnm/merch-flat.jpeg",
-      },
-      {
-        caption: "Шопер «Driving the Internet» — деталь",
-        ratio: "portrait",
-        src: "/work/globalnet-gnm/tote-merch.jpeg",
-      },
-      {
-        caption: "Шопер «Ciao, Peers!» — фото",
-        ratio: "portrait",
-        src: "/work/globalnet-gnm/tote-photo-2.jpeg",
-      },
-      {
         caption: "Худи GNM",
         ratio: "portrait",
         src: "/work/globalnet-gnm/merch-screen.png",
@@ -154,14 +139,14 @@ export const projects: Project[] = [
   },
   {
     slug: "corporate-website",
-    title: "GNM-IX — корпоративный сайт",
+    title: "GNM-IX — сайт",
     categories: ["Web Design"],
     companyId: "gnm",
     summary:
-      "Разработка новых страниц корпоративного сайта, создание структуры, визуального решения и подготовка макетов для разработки.",
+      "Дизайн главной страницы корпоративного сайта gnm.net и страницы «Exchange Locations & Network Coverage» с интерактивной картой точек присутствия.",
     year: "2023 — н. в.",
     role: "Дизайн интерфейсов, структура, передача в разработку",
-    task: "Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы посетителя. Требовалось спроектировать новые страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
+    task: "Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы посетителя. Требовалось спроектировать страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
     process: [
       {
         step: "Исследование",
@@ -197,64 +182,17 @@ export const projects: Project[] = [
     ],
     results: [
       {
-        caption: "Секция «Built for scale. Engineered for performance.»",
+        caption: "Главная страница сайта gnm.net",
+        ratio: "tall",
+        src: "/work/corporate-website/homepage.jpg",
+      },
+      {
+        caption: "Страница «Exchange Locations & Network Coverage» — карта точек присутствия",
         ratio: "wide",
-        src: "/work/corporate-website/built-for-scale.png",
+        src: "/work/corporate-website/network-map.png",
       },
     ],
     tone: 1,
-  },
-  {
-    slug: "landing-pages",
-    title: "GNM-IX — лендинги",
-    categories: ["Web Design"],
-    companyId: "gnm",
-    summary:
-      "Создание лендингов под маркетинговые задачи: структура, визуальная концепция, интерфейс и адаптация под разные устройства.",
-    year: "2023 — н. в.",
-    role: "Структура, визуальная концепция, адаптив",
-    task: "Маркетинговым кампаниям нужны были отдельные страницы под конкретные предложения и аудитории. Каждая такая страница должна была быстро объяснить ценность продукта и привести посетителя к целевому действию — при этом собираться в сжатые сроки и не выпадать из фирменного стиля.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор предложения, аудитории и канала трафика: с каким запросом человек приходит и что должно убедить его на странице.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Выстраивание сценария страницы — какой аргумент идёт первым, чем он подкрепляется, где стоит целевое действие.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Быстрые варианты первого экрана и ключевых блоков для выбора направления до детальной проработки.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Проработка визуальной концепции, типографики и блоков в desktop и мобильной версии, акцентные элементы под целевое действие.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Адаптация под разные устройства, подготовка макетов и ассетов для разработки, финальная проверка страницы.",
-      },
-    ],
-    solution: [
-      "Повторяемая структура лендинга: первый экран с предложением, аргументация, подтверждение, целевое действие.",
-      "Визуальная иерархия, в которой кнопка целевого действия остаётся заметной без агрессивных приёмов.",
-      "Модульные блоки, из которых собираются новые страницы под новые кампании — без вёрстки с нуля.",
-      "Проработанный адаптив: страница читается и работает на мобильных, откуда приходит значительная часть трафика.",
-    ],
-    results: [
-      {
-        caption: "Блок «Connect from North America. Peer across Europe.»",
-        ratio: "wide",
-        src: "/work/landing-pages/connect-north-america.png",
-      },
-    ],
-    tone: 2,
   },
   {
     slug: "marketing-campaigns",
@@ -336,18 +274,13 @@ export const projects: Project[] = [
         src: "/work/marketing-campaigns/gnm-social-4.png",
       },
       {
-        caption: "Публикация в соцсетях — вариант 2",
-        ratio: "square",
-        src: "/work/marketing-campaigns/gnm-social-5.png",
-      },
-      {
         caption: "Карта — вариант",
         ratio: "landscape",
         src: "/work/marketing-campaigns/gnm-social-6.png",
       },
       {
-        caption: "Публикация в соцсетях — вариант 3",
-        ratio: "square",
+        caption: "Публикация в соцсетях: «Built for scale. Engineered for performance.»",
+        ratio: "landscape",
         src: "/work/marketing-campaigns/gnm-social-7.png",
       },
       {
@@ -376,7 +309,7 @@ export const projects: Project[] = [
         src: "/work/marketing-campaigns/gnm-target-5.png",
       },
       {
-        caption: "Таргетированный креатив: карта — вариант 2",
+        caption: "Таргетированный креатив: «Connect from North America. Peer across Europe.»",
         ratio: "landscape",
         src: "/work/marketing-campaigns/gnm-target-6.png",
       },
@@ -587,14 +520,9 @@ export const projects: Project[] = [
         src: "/work/print-exhibition-design/banner-6.png",
       },
       {
-        caption: "Баннер, этап 7 — стиль близок к финальному",
+        caption: "Баннер, этап 7 — фирменный стиль GNM зафиксирован",
         ratio: "landscape",
         src: "/work/print-exhibition-design/banner-7.png",
-      },
-      {
-        caption: "Баннер, этап 8 — фирменный стиль GNM зафиксирован",
-        ratio: "landscape",
-        src: "/work/print-exhibition-design/banner-8.png",
       },
     ],
     tone: 5,
