@@ -1475,6 +1475,102 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: "tenchat",
+    title: "TenChat — креативы, презентации и 3D-моушн",
+    categories: ["Marketing", "Presentation Design", "Motion"],
+    summary:
+      "Рекламные креативы для соцсетей, бизнес- и инвесторские презентации и 3D-ролик с макетом интерфейса деловой социальной сети TenChat.",
+    year: "2023",
+    role: "Стажёр-дизайнер",
+    task: "Трёхмесячная стажировка в маркетинге TenChat: подготовка рекламных постов и таргетированных креативов для соцсетей, вёрстка презентаций для бизнес-аудитории и инвесторов, а также участие в производстве 3D-ролика с макетом интерфейса платформы на ноутбуке и телефоне.",
+    files: [
+      {
+        label: "Презентация «TenChat для бизнеса» — PDF",
+        href: "/work/other/tenchat/business-presentation.pdf",
+      },
+      {
+        label: "Презентация «Pre-IPO Альянс» — PDF",
+        href: "/work/other/tenchat/preipo-presentation.pdf",
+      },
+    ],
+    results: [
+      {
+        caption: "Промо офлайн-встречи «Поддержи своих» в Новокузнецке",
+        ratio: "portrait",
+        src: "/work/other/tenchat/support-poster.jpg",
+      },
+      {
+        caption: "Реклама: заработок на фрилансе в TenChat",
+        ratio: "square",
+        src: "/work/other/tenchat/freelance-ad.jpg",
+      },
+      {
+        caption: "Таргетированный креатив для конференции AI Russia 2023",
+        ratio: "square",
+        src: "/work/other/tenchat/ai-russia-ad.jpg",
+      },
+      {
+        caption: "Обзор возможностей платформы: инвестиции, ИИ, репутация, госзакупки",
+        ratio: "landscape",
+        src: "/work/other/tenchat/features-graphic.jpg",
+      },
+      {
+        caption: "Кампания «Lady TenChat» — всемирный флешмоб",
+        ratio: "square",
+        src: "/work/other/tenchat/lady-tenchat.jpg",
+      },
+      {
+        caption: "Презентация «TenChat для бизнеса» — титульный слайд",
+        ratio: "wide",
+        src: "/work/other/tenchat/business-presentation.jpg",
+      },
+      {
+        caption: "Презентация «Pre-IPO Альянс» — титульный слайд",
+        ratio: "wide",
+        src: "/work/other/tenchat/preipo-presentation.jpg",
+      },
+      {
+        caption: "3D-сцена для рекламного ролика — рабочий файл (Cinema 4D)",
+        ratio: "wide",
+        src: "/work/other/tenchat/3d-wip-1.jpg",
+      },
+      {
+        caption: "3D-сцена для рекламного ролика — рабочий файл (Blender)",
+        ratio: "wide",
+        src: "/work/other/tenchat/3d-wip-2.jpg",
+      },
+      {
+        caption: "Рекламный 3D-ролик: интерфейс TenChat на макетах ноутбука и телефона",
+        ratio: "square",
+        video: "/work/other/tenchat/mockup-motion.mp4",
+      },
+    ],
+    tone: 1,
+    en: {
+      title: "TenChat — Creatives, Decks & 3D Motion",
+      summary:
+        "Social media ad creatives, business and investor presentations, and a 3D motion piece showcasing the interface of TenChat, a Russian professional social network.",
+      role: "Design Intern",
+      task: "A three-month internship on TenChat's marketing team: producing ad posts and targeted creatives for social media, building presentations for business and investor audiences, and contributing to a 3D promo video featuring a laptop and phone mockup of the platform's interface.",
+      fileLabels: [
+        "\"TenChat for Business\" presentation — PDF",
+        "\"Pre-IPO Alliance\" presentation — PDF",
+      ],
+      resultCaptions: [
+        "Promo for the \"Support Your Own\" offline meetup in Novokuznetsk",
+        "Ad: earning money freelancing on TenChat",
+        "Targeted creative for the AI Russia 2023 conference",
+        "Platform features overview: investments, AI, reputation, public procurement",
+        "\"Lady TenChat\" campaign — worldwide flash mob",
+        "\"TenChat for Business\" presentation — title slide",
+        "\"Pre-IPO Alliance\" presentation — title slide",
+        "3D scene for the promo video — work in progress (Cinema 4D)",
+        "3D scene for the promo video — work in progress (Blender)",
+        "3D promo video: TenChat interface on laptop and phone mockups",
+      ],
+    },
+  },
 ];
 
 export const projectSlugs = projects.map((project) => project.slug);
