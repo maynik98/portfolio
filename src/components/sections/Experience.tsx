@@ -1,13 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import { companies } from "@/lib/companies";
 import { getDictionary } from "@/lib/dictionary";
 import { useLanguage } from "@/lib/language";
+
+function CompanyMark({ name, size = "md" }: { name: string; size?: "md" | "sm" }) {
+  const dimensions = size === "md" ? "h-11 w-11 text-[16px]" : "h-9 w-9 text-[14px]";
+  return (
+    <span
+      aria-hidden
+      className={`flex ${dimensions} shrink-0 items-center justify-center rounded-xl border border-hairline bg-white font-medium tracking-tight text-ink`}
+    >
+      {name.charAt(0).toUpperCase()}
+    </span>
+  );
+}
 
 export default function Experience() {
   const { lang } = useLanguage();
   const t = getDictionary(lang);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="experience" className="scroll-mt-20 border-t border-hairline bg-surface">
@@ -26,6 +41,27 @@ export default function Experience() {
                 <p className="mt-6 inline-flex rounded-full bg-accent-soft px-3.5 py-1.5 text-[13px] font-medium text-accent">
                   {t.experience.period}
                 </p>
+
+                <div className="mt-6 flex flex-wrap gap-2.5">
+                  {companies.map((company) => (
+                    <a
+                      key={company.id}
+                      href={company.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center gap-2 rounded-full border border-hairline py-1.5 pl-1.5 pr-3.5 transition-colors duration-300 hover:border-ink"
+                    >
+                      <CompanyMark name={company.name} size="sm" />
+                      <span className="text-[13px] font-medium">{company.name}</span>
+                      <span
+                        aria-hidden
+                        className="text-[12px] text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-accent"
+                      >
+                        ↗
+                      </span>
+                    </a>
+                  ))}
+                </div>
               </div>
 
               <div className="md:col-span-8">
@@ -48,42 +84,82 @@ export default function Experience() {
           </div>
         </Reveal>
 
-        <Reveal as="p" delay={160} className="mt-14 md:mt-20">
-          <span className="block text-[12px] font-medium uppercase tracking-[0.18em] text-muted">
-            {t.experience.previousLabel}
-          </span>
+        <Reveal as="div" delay={160} className="mt-8 md:mt-10">
+          <button
+            type="button"
+            onClick={() => setExpanded((value) => !value)}
+            aria-expanded={expanded}
+            className="flex w-full items-center justify-between gap-4 rounded-3xl border border-hairline bg-white px-7 py-6 text-left transition-colors duration-300 hover:border-ink md:px-8"
+          >
+            <span className="flex items-center gap-3">
+              <span className="text-[19px] font-medium tracking-tight md:text-[21px]">
+                {t.experience.previousLabel}
+              </span>
+              <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[12px] font-medium text-accent">
+                {t.experience.previous.length}
+              </span>
+            </span>
+            <span
+              aria-hidden
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-hairline text-[15px] transition-transform duration-300 ${
+                expanded ? "rotate-180" : ""
+              }`}
+            >
+              ↓
+            </span>
+          </button>
         </Reveal>
 
-        <div className="mt-6 grid gap-6 md:mt-8 md:grid-cols-2">
-          {t.experience.previous.map((job, index) => (
-            <Reveal
-              key={job.company}
-              as="article"
-              delay={200 + index * 70}
-              className="rounded-3xl border border-hairline p-7 md:p-8"
-            >
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <p className="text-[18px] font-medium tracking-tight md:text-[20px]">
-                  {job.company}
-                </p>
-                <span className="text-[13px] text-muted">{job.period}</span>
-              </div>
-              <p className="mt-1 text-[15px] text-muted">{job.role}</p>
+        {expanded && (
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {t.experience.previous.map((job, index) => (
+              <Reveal
+                key={job.company}
+                as="article"
+                delay={index * 70}
+                className="rounded-3xl border border-hairline p-7 md:p-8"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3.5">
+                    <CompanyMark name={job.company} />
+                    <div>
+                      <a
+                        href={job.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group inline-flex items-center gap-1.5"
+                      >
+                        <span className="text-[18px] font-medium tracking-tight transition-colors duration-300 group-hover:text-accent md:text-[20px]">
+                          {job.company}
+                        </span>
+                        <span
+                          aria-hidden
+                          className="text-[13px] text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-accent"
+                        >
+                          ↗
+                        </span>
+                      </a>
+                      <p className="text-[15px] text-muted">{job.role}</p>
+                    </div>
+                  </div>
+                  <span className="shrink-0 text-[13px] text-muted">{job.period}</span>
+                </div>
 
-              <ul className="mt-5 space-y-2.5">
-                {job.highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-[15px] leading-[1.5]"
-                  >
-                    <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </div>
+                <ul className="mt-5 space-y-2.5">
+                  {job.highlights.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-[15px] leading-[1.5]"
+                    >
+                      <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -75,7 +75,19 @@ export const dictionary = {
       previousLabel: "Другой опыт",
       previous: [
         {
+          company: "Cheeseberry",
+          url: "https://cheeseberry.ru/",
+          role: "Дизайнер",
+          period: "2023 — 1 месяц",
+          highlights: [
+            "Дизайн упаковки продукта",
+            "Вёрстка презентаций",
+            "Рекламный баннер",
+          ],
+        },
+        {
           company: "TenChat",
+          url: "https://tenchat.ru/",
           role: "Стажёр-дизайнер",
           period: "2023 — 3 месяца",
           highlights: [
@@ -85,17 +97,8 @@ export const dictionary = {
           ],
         },
         {
-          company: "Artflash",
-          role: "Дизайнер принтов и одежды",
-          period: "2022 — 4 месяца",
-          highlights: [
-            "Дизайн одежды и создание креативных принтов",
-            "Составление офферов для коллабораций с художниками",
-            "Разработка коллаборационных эскизов",
-          ],
-        },
-        {
           company: "METRO Cash & Carry",
+          url: "https://www.metro-cc.ru/",
           role: "Дизайнер, отдел маркетинга",
           period: "2022 — 3 месяца",
           highlights: [
@@ -105,13 +108,14 @@ export const dictionary = {
           ],
         },
         {
-          company: "Cheeseberry",
-          role: "Дизайнер",
-          period: "2023 — 1 месяц",
+          company: "Artflash",
+          url: "https://www.artflash.me/",
+          role: "Дизайнер принтов и одежды",
+          period: "2022 — 4 месяца",
           highlights: [
-            "Дизайн упаковки продукта",
-            "Вёрстка презентаций",
-            "Рекламный баннер",
+            "Дизайн одежды и создание креативных принтов",
+            "Составление офферов для коллабораций с художниками",
+            "Разработка коллаборационных эскизов",
           ],
         },
       ],
@@ -292,7 +296,19 @@ export const dictionary = {
       previousLabel: "Other experience",
       previous: [
         {
+          company: "Cheeseberry",
+          url: "https://cheeseberry.ru/",
+          role: "Designer",
+          period: "2023 — 1 month",
+          highlights: [
+            "Product packaging design",
+            "Presentation design",
+            "Ad banner",
+          ],
+        },
+        {
           company: "TenChat",
+          url: "https://tenchat.ru/",
           role: "Design Intern",
           period: "2023 — 3 months",
           highlights: [
@@ -302,17 +318,8 @@ export const dictionary = {
           ],
         },
         {
-          company: "Artflash",
-          role: "Apparel & Print Designer",
-          period: "2022 — 4 months",
-          highlights: [
-            "Apparel design and original print creation",
-            "Drafted collaboration offers for artist partnerships",
-            "Designed collaboration sketches",
-          ],
-        },
-        {
           company: "METRO Cash & Carry",
+          url: "https://www.metro-cc.ru/",
           role: "Designer, Marketing Department",
           period: "2022 — 3 months",
           highlights: [
@@ -322,13 +329,14 @@ export const dictionary = {
           ],
         },
         {
-          company: "Cheeseberry",
-          role: "Designer",
-          period: "2023 — 1 month",
+          company: "Artflash",
+          url: "https://www.artflash.me/",
+          role: "Apparel & Print Designer",
+          period: "2022 — 4 months",
           highlights: [
-            "Product packaging design",
-            "Presentation design",
-            "Ad banner",
+            "Apparel design and original print creation",
+            "Drafted collaboration offers for artist partnerships",
+            "Designed collaboration sketches",
           ],
         },
       ],
