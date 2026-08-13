@@ -72,6 +72,49 @@ export const dictionary = {
         "Поддержание фирменного стиля компании",
         "Взаимодействие с маркетингом, разработчиками и подрядчиками",
       ],
+      previousLabel: "Другой опыт",
+      previous: [
+        {
+          company: "TenChat",
+          role: "Стажёр-дизайнер",
+          period: "2023 — 3 месяца",
+          highlights: [
+            "Разработка рекламных креативов и постов",
+            "Участие в доработке сайта",
+            "3D-анимации для рекламы",
+          ],
+        },
+        {
+          company: "Artflash",
+          role: "Дизайнер принтов и одежды",
+          period: "2022 — 4 месяца",
+          highlights: [
+            "Дизайн одежды и создание креативных принтов",
+            "Составление офферов для коллабораций с художниками",
+            "Разработка коллаборационных эскизов",
+          ],
+        },
+        {
+          company: "METRO Cash & Carry",
+          role: "Дизайнер, отдел маркетинга",
+          period: "2022 — 3 месяца",
+          highlights: [
+            "Дизайн рекламных креативов и SMM",
+            "Работа с Telegram-каналами для публикации рекламы",
+            "Мерч METRO для мероприятий",
+          ],
+        },
+        {
+          company: "Cheeseberry",
+          role: "Дизайнер",
+          period: "2023 — 1 месяц",
+          highlights: [
+            "Дизайн упаковки продукта",
+            "Вёрстка презентаций",
+            "Рекламный баннер",
+          ],
+        },
+      ],
     },
     process: {
       label: "Процесс работы",
@@ -245,6 +288,49 @@ export const dictionary = {
         "Designing Telegram bots",
         "Maintaining the company's brand identity",
         "Working with marketing, developers and contractors",
+      ],
+      previousLabel: "Other experience",
+      previous: [
+        {
+          company: "TenChat",
+          role: "Design Intern",
+          period: "2023 — 3 months",
+          highlights: [
+            "Designed ad creatives and social posts",
+            "Contributed to website updates",
+            "Created 3D animations for ads",
+          ],
+        },
+        {
+          company: "Artflash",
+          role: "Apparel & Print Designer",
+          period: "2022 — 4 months",
+          highlights: [
+            "Apparel design and original print creation",
+            "Drafted collaboration offers for artist partnerships",
+            "Designed collaboration sketches",
+          ],
+        },
+        {
+          company: "METRO Cash & Carry",
+          role: "Designer, Marketing Department",
+          period: "2022 — 3 months",
+          highlights: [
+            "Ad creative design and social media management",
+            "Managed Telegram channels for ad publishing",
+            "METRO event merch",
+          ],
+        },
+        {
+          company: "Cheeseberry",
+          role: "Designer",
+          period: "2023 — 1 month",
+          highlights: [
+            "Product packaging design",
+            "Presentation design",
+            "Ad banner",
+          ],
+        },
       ],
     },
     process: {

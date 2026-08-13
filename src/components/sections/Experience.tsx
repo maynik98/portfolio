@@ -47,6 +47,43 @@ export default function Experience() {
             </div>
           </div>
         </Reveal>
+
+        <Reveal as="p" delay={160} className="mt-14 md:mt-20">
+          <span className="block text-[12px] font-medium uppercase tracking-[0.18em] text-muted">
+            {t.experience.previousLabel}
+          </span>
+        </Reveal>
+
+        <div className="mt-6 grid gap-6 md:mt-8 md:grid-cols-2">
+          {t.experience.previous.map((job, index) => (
+            <Reveal
+              key={job.company}
+              as="article"
+              delay={200 + index * 70}
+              className="rounded-3xl border border-hairline p-7 md:p-8"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <p className="text-[18px] font-medium tracking-tight md:text-[20px]">
+                  {job.company}
+                </p>
+                <span className="text-[13px] text-muted">{job.period}</span>
+              </div>
+              <p className="mt-1 text-[15px] text-muted">{job.role}</p>
+
+              <ul className="mt-5 space-y-2.5">
+                {job.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-[15px] leading-[1.5]"
+                  >
+                    <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
