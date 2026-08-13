@@ -17,12 +17,6 @@ export type ResultShot = {
   video?: string;
 };
 
-export type ProjectCoverImage = {
-  src: string;
-  /** Фон рамки: тёмный для тёмных макетов, светлый для светлых. */
-  frame: "dark" | "light";
-};
-
 export type ProjectFile = {
   label: string;
   href: string;
@@ -43,11 +37,9 @@ export type Project = {
   process?: ProcessStep[];
   solution?: string[];
   results: ResultShot[];
-  /** Реальная обложка. Если её нет — рисуется типографическая заглушка. */
-  cover?: ProjectCoverImage;
   /** Файлы, которые можно открыть целиком (PDF, DOCX и т.д.). */
   files?: ProjectFile[];
-  /** Index into the cover presets in ProjectCover.tsx (0–7). */
+  /** Index into the cover-tone variants for this project's colour family (см. ProjectCover.tsx). */
   tone: number;
 };
 
@@ -98,8 +90,12 @@ export const projects: Project[] = [
       "Правила использования логотипа, цвета и отступов, зафиксированные так, чтобы их могли применять подрядчики без потери качества.",
       "Отдельные наборы носителей под мероприятия, соцсети и мерч, связанные общей визуальной логикой.",
     ],
-    cover: { src: "/work/globalnet-gnm/merch-frame.png", frame: "dark" },
     results: [
+      {
+        caption: "Шоперы GNM — варианты дизайна",
+        ratio: "landscape",
+        src: "/work/globalnet-gnm/merch-frame.png",
+      },
       {
         caption: "Стикер-пак: макеты",
         ratio: "landscape",
@@ -144,6 +140,11 @@ export const projects: Project[] = [
         caption: "Худи GNM",
         ratio: "portrait",
         src: "/work/globalnet-gnm/merch-screen.png",
+      },
+      {
+        caption: "Худи GNM — макет (перед, спина, цвет Pantone 274 C)",
+        ratio: "wide",
+        src: "/work/globalnet-gnm/hoodie-mockup.png",
       },
     ],
     files: [
@@ -194,7 +195,6 @@ export const projects: Project[] = [
       "Адаптивные макеты с проработанными состояниями элементов, а не только desktop-версия.",
       "Макеты, собранные по компонентам, с подготовленными ассетами — чтобы передача в разработку не требовала уточнений.",
     ],
-    cover: { src: "/work/corporate-website/cover.png", frame: "light" },
     results: [
       {
         caption: "Секция «Built for scale. Engineered for performance.»",
@@ -247,7 +247,6 @@ export const projects: Project[] = [
       "Модульные блоки, из которых собираются новые страницы под новые кампании — без вёрстки с нуля.",
       "Проработанный адаптив: страница читается и работает на мобильных, откуда приходит значительная часть трафика.",
     ],
-    cover: { src: "/work/landing-pages/cover.png", frame: "dark" },
     results: [
       {
         caption: "Блок «Connect from North America. Peer across Europe.»",
@@ -300,7 +299,6 @@ export const projects: Project[] = [
       "Типографические ограничения по объёму текста, заданные заранее, — сообщение остаётся читаемым в мелких размерах.",
       "Единая система акцентов, связывающая рекламные материалы с остальной коммуникацией бренда.",
     ],
-    cover: { src: "/work/marketing-campaigns/cover.png", frame: "dark" },
     results: [
       {
         caption: "Креатив «Backbone Expansion in Key European PoPs»",
@@ -438,7 +436,6 @@ export const projects: Project[] = [
       "Библиотека анимированных элементов и титров, ускоряющая производство следующих роликов.",
       "Экспорт под разные каналы из одного проекта, включая вертикальные форматы.",
     ],
-    cover: { src: "/work/motion-design/gnm-clip-2.jpg", frame: "light" },
     results: [
       {
         caption: "Промо: GNM-IX Peering Plus",
@@ -536,7 +533,6 @@ export const projects: Project[] = [
       "Макеты, подготовленные под требования конкретного производства — с вылетами, профилями и проверенными шрифтами.",
       "Работа с подрядчиками на этапе печати и сборки: контроль цветопробы и финального качества.",
     ],
-    cover: { src: "/work/print-exhibition-design/event-banner.png", frame: "dark" },
     files: [
       { label: "Лифлет — PDF", href: "/work/print-exhibition-design/leaflet.pdf" },
       {
@@ -646,7 +642,6 @@ export const projects: Project[] = [
       "Единый стиль подачи данных: графики и схемы читаются без расшифровки.",
       "Инструкция по применению — команды собирают презентации самостоятельно и остаются в стиле.",
     ],
-    cover: { src: "/work/presentation-design/press-kit.png", frame: "dark" },
     files: [
       { label: "Press Kit — PDF, 9 слайдов", href: "/work/presentation-design/press-kit.pdf" },
       {
@@ -665,9 +660,9 @@ export const projects: Project[] = [
   },
   {
     slug: "telegram-bot-design",
-    title: "GNM — Telegram-бот с ИИ-ассистентом",
+    title: "GlobalNet — Telegram-бот с ИИ-ассистентом",
     categories: ["Product Design"],
-    companyId: "gnm",
+    companyId: "globalnet",
     summary:
       "Разработка визуальной части Telegram-ботов и пользовательских сценариев.",
     year: "2023 — н. в.",
@@ -732,7 +727,6 @@ export const projects: Project[] = [
       { caption: "Состояние интерфейса — 2", ratio: "portrait", src: "/work/gnm-app/screen-65.png" },
       { caption: "Состояние интерфейса — 3", ratio: "portrait", src: "/work/gnm-app/screen-73.png" },
     ],
-    cover: { src: "/work/gnm-app/cover.png", frame: "light" },
     tone: 0,
   },
 
@@ -763,7 +757,6 @@ export const projects: Project[] = [
       { caption: "DATAIX — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/dataix-2026.png" },
       { caption: "Презентация — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/presentation.png" },
     ],
-    cover: { src: "/work/globalnet/presentation-design/cover.png", frame: "light" },
     tone: 1,
   },
   {
@@ -783,7 +776,6 @@ export const projects: Project[] = [
       { caption: "Экран сайта", ratio: "wide", src: "/work/globalnet/website/frame.png" },
       { caption: "Личный кабинет: заявка на подключение к IX", ratio: "wide", src: "/work/globalnet/merch-print/print-4.png" },
     ],
-    cover: { src: "/work/globalnet/website/cover.png", frame: "light" },
     tone: 2,
   },
   {
@@ -817,7 +809,6 @@ export const projects: Project[] = [
       { caption: "Промо-флаер: услуги — вариант 5", ratio: "landscape", src: "/work/globalnet/merch-print/banner-5.png" },
       { caption: "Промо-флаер: DATAIX — Points of Presence", ratio: "portrait", src: "/work/globalnet/merch-print/banner-6.png" },
     ],
-    cover: { src: "/work/globalnet/marketing/cover.png", frame: "light" },
     tone: 3,
   },
   {
@@ -842,7 +833,6 @@ export const projects: Project[] = [
       { caption: "Стикеры «Big Wave Hunter»", ratio: "landscape", src: "/work/globalnet/merch-print/stickers-4.png" },
       { caption: "Стикеры: Golf Day by GlobalNet", ratio: "landscape", src: "/work/globalnet/merch-print/caps-2.png" },
     ],
-    cover: { src: "/work/globalnet/merch-print/cover.png", frame: "light" },
     tone: 4,
   },
   {
@@ -863,7 +853,6 @@ export const projects: Project[] = [
       { caption: "Видео — 1", ratio: "portrait", video: "/work/globalnet/motion/clip-1.mp4" },
       { caption: "Видео — 2", ratio: "portrait", video: "/work/globalnet/motion/clip-2.mp4" },
     ],
-    cover: { src: "/work/globalnet/motion/cover.png", frame: "light" },
     tone: 5,
   },
 
@@ -879,7 +868,6 @@ export const projects: Project[] = [
     role: "Автор проекта",
     files: [{ label: "Juzzle — PDF", href: "/work/other/juzzle/juzzle.pdf" }],
     results: [],
-    cover: { src: "/work/other/juzzle/cover.png", frame: "dark" },
     tone: 0,
   },
   {
@@ -890,7 +878,6 @@ export const projects: Project[] = [
     role: "Автор проекта",
     files: [{ label: "Qummy — PDF", href: "/work/other/qummy/qummy.pdf" }],
     results: [],
-    cover: { src: "/work/other/qummy/cover.png", frame: "light" },
     tone: 1,
   },
   {
@@ -901,7 +888,6 @@ export const projects: Project[] = [
     role: "Дизайн бренда (совместно с Дарьей Ивановой)",
     files: [{ label: "yoyote — PDF", href: "/work/other/yoyote/yoyote.pdf" }],
     results: [],
-    cover: { src: "/work/other/yoyote/cover.png", frame: "light" },
     tone: 2,
   },
   {
@@ -912,7 +898,6 @@ export const projects: Project[] = [
     role: "Автор проекта",
     files: [{ label: "Брендбук MOJO — PDF", href: "/work/other/mojo-cacao/brandbook.pdf" }],
     results: [],
-    cover: { src: "/work/other/mojo-cacao/cover.png", frame: "light" },
     tone: 3,
   },
   {
@@ -926,7 +911,6 @@ export const projects: Project[] = [
       { label: "Orange Toys — оригинал PPTX", href: "/work/other/orange-toys/orange-toys.pptx" },
     ],
     results: [],
-    cover: { src: "/work/other/orange-toys/cover.png", frame: "light" },
     tone: 4,
   },
   {
@@ -941,7 +925,6 @@ export const projects: Project[] = [
       { caption: "Меню", ratio: "portrait", src: "/work/other/diploma/screen-1.png" },
       { caption: "Рекламные постеры", ratio: "landscape", src: "/work/other/diploma/screen-2.png" },
     ],
-    cover: { src: "/work/other/diploma/cover.png", frame: "light" },
     tone: 5,
   },
   {
@@ -958,7 +941,6 @@ export const projects: Project[] = [
       { caption: "Артборд — 4", ratio: "landscape", src: "/work/other/tea-launch/board-4.jpeg" },
       { caption: "Видео", ratio: "landscape", video: "/work/other/tea-launch/video.mp4" },
     ],
-    cover: { src: "/work/other/tea-launch/cover.png", frame: "light" },
     tone: 6,
   },
   {
@@ -987,7 +969,6 @@ export const projects: Project[] = [
       { caption: "Миша Мост — футболка", ratio: "portrait", src: "/work/other/artflash/misha-most-tee.png" },
       { caption: "Спорт", ratio: "portrait", src: "/work/other/artflash/sport.png" },
     ],
-    cover: { src: "/work/other/artflash/cover.png", frame: "light" },
     tone: 7,
   },
   {
@@ -1005,7 +986,6 @@ export const projects: Project[] = [
       { caption: "Публикация — 2", ratio: "portrait", src: "/work/other/metro/screen-2.png" },
       { caption: "Публикация — 3", ratio: "portrait", src: "/work/other/metro/screen-3.png" },
     ],
-    cover: { src: "/work/other/metro/cover.png", frame: "light" },
     tone: 0,
   },
 ];

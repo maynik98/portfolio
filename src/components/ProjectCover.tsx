@@ -1,31 +1,50 @@
-import Image from "next/image";
 import type { Project } from "@/lib/projects";
 
-/** Фон рамки под обложкой. Тёмный — под тёмные макеты, светлый — под светлые. */
-const FRAME = {
-  dark: "bg-[#0a0f2b]",
-  light: "bg-surface ring-1 ring-inset ring-hairline",
-} as const;
+type Tone = { bg: string; dark: boolean };
 
-/**
- * Градиентные заглушки — остаются только у кейсов без реальных материалов.
- */
-const TONES = [
+/** GNM — фиолетовый градиент (в цвете фирменного Pantone 274 C). */
+const PURPLE: Tone[] = [
+  { bg: "linear-gradient(135deg,#0e0a2e 0%,#282555 55%,#4b3fa8 100%)", dark: true },
+  { bg: "linear-gradient(160deg,#151034 0%,#332a6e 100%)", dark: true },
+  { bg: "linear-gradient(135deg,#1c1640 0%,#3a2f82 55%,#5b4bc4 100%)", dark: true },
+  { bg: "linear-gradient(200deg,#100b30 0%,#2c2566 60%,#463aa0 100%)", dark: true },
+];
+
+/** GlobalNet — синий градиент (как было). */
+const BLUE: Tone[] = [
   { bg: "linear-gradient(135deg,#081437 0%,#15307e 52%,#1d4ed8 100%)", dark: true },
-  { bg: "linear-gradient(135deg,#fafafb 0%,#eef2ff 100%)", dark: false },
-  { bg: "linear-gradient(160deg,#eef2ff 0%,#dae2fa 100%)", dark: false },
   { bg: "linear-gradient(135deg,#12266b 0%,#2d5ce6 100%)", dark: true },
   { bg: "linear-gradient(135deg,#060d24 0%,#1739a8 100%)", dark: true },
-  { bg: "linear-gradient(135deg,#f6f6f7 0%,#e7ecf8 100%)", dark: false },
-  { bg: "linear-gradient(200deg,#eef2ff 0%,#e2e8fb 100%)", dark: false },
   { bg: "linear-gradient(135deg,#15307e 0%,#1d4ed8 60%,#4f7ef5 100%)", dark: true },
 ];
+
+/**
+ * Остальные проекты — свой цвет под каждый, взятый из фактического цвета
+ * прежней обложки/материалов проекта.
+ */
+const OTHER: Record<string, Tone> = {
+  juzzle: { bg: "linear-gradient(135deg,#0c0a2e 0%,#211c57 100%)", dark: true },
+  qummy: { bg: "linear-gradient(135deg,#ff8a00 0%,#ff5a1f 100%)", dark: true },
+  yoyote: { bg: "linear-gradient(160deg,#fafafb 0%,#e7e7ea 100%)", dark: false },
+  "mojo-cacao": { bg: "linear-gradient(160deg,#e7e0d2 0%,#cfc3ab 100%)", dark: false },
+  "orange-toys": { bg: "linear-gradient(150deg,#fff4e8 0%,#ffd9ad 100%)", dark: false },
+  "beryozki-diploma": { bg: "linear-gradient(150deg,#8a7215 0%,#b6961e 55%,#efe6c2 100%)", dark: true },
+  "tea-launch": { bg: "linear-gradient(135deg,#e23b6a 0%,#c94fae 55%,#f2c94c 100%)", dark: true },
+  artflash: { bg: "linear-gradient(150deg,#3c4a6b 0%,#5b6f9c 100%)", dark: true },
+  metro: { bg: "linear-gradient(135deg,#5865c9 0%,#8b93e8 60%,#f4e04d 100%)", dark: true },
+};
+
+function getTone(project: Project): Tone {
+  if (project.companyId === "gnm") return PURPLE[project.tone % PURPLE.length];
+  if (project.companyId === "globalnet") return BLUE[project.tone % BLUE.length];
+  return OTHER[project.slug] ?? PURPLE[0];
+}
 
 type ProjectCoverProps = {
   project: Project;
   index: number;
   className?: string;
-  /** Крупная подача — featured-карточка и обложка кейса. */
+  /** Крупная подача — обложка кейса. */
   large?: boolean;
   /** Для первой картинки на экране — грузить без задержки. */
   priority?: boolean;
@@ -36,30 +55,8 @@ export default function ProjectCover({
   index,
   className = "",
   large = false,
-  priority = false,
 }: ProjectCoverProps) {
-  if (project.cover) {
-    return (
-      <div
-        className={`relative isolate overflow-hidden ${FRAME[project.cover.frame]} ${className}`}
-      >
-        <Image
-          src={project.cover.src}
-          alt={`${project.title} — ${project.categories[0]}`}
-          fill
-          sizes={
-            large
-              ? "(max-width: 768px) 100vw, 1152px"
-              : "(max-width: 768px) 100vw, 576px"
-          }
-          className="object-contain"
-          priority={priority}
-        />
-      </div>
-    );
-  }
-
-  const tone = TONES[project.tone % TONES.length];
+  const tone = getTone(project);
 
   return (
     <div
