@@ -213,7 +213,7 @@ export const projects: Project[] = [
       "Дизайн главной страницы корпоративного сайта gnm.net и страницы «Exchange Locations & Network Coverage» с интерактивной картой точек присутствия.",
     year: "2023 — н. в.",
     role: "Дизайн интерфейсов, структура, передача в разработку",
-    task: "Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы посетителя. Требовалось спроектировать страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
+    task: "Передо мной стояла задача — улучшить сайт gnm.net и сделать его удобнее для посетителя. Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы. Нужно было спроектировать страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
     process: [
       {
         step: "Исследование",
@@ -246,6 +246,7 @@ export const projects: Project[] = [
       "Визуальное решение, наследующее фирменный стиль компании, но адаптированное под задачи веба — читаемость, плотность информации, работа на длинном скролле.",
       "Адаптивные макеты с проработанными состояниями элементов, а не только desktop-версия.",
       "Макеты, собранные по компонентам, с подготовленными ассетами — чтобы передача в разработку не требовала уточнений.",
+      "По итогу сайт стал удобнее: посетитель быстрее находит нужный раздел, а страницы под новые продукты закрывают вопросы, которые раньше оставались без ответа.",
     ],
     results: [
       {
@@ -265,7 +266,7 @@ export const projects: Project[] = [
       summary:
         "Design of the gnm.net corporate website homepage and the \"Exchange Locations & Network Coverage\" page with an interactive presence map.",
       role: "Interface design, structure, developer handoff",
-      task: "The website lacked pages for new products and directions, and existing sections didn't answer all of a visitor's questions. New pages needed to be designed to meet marketing goals, fit into the site's existing architecture, and go into development without lengthy rework.",
+      task: "My task was to improve the gnm.net website and make it more convenient for visitors. The site lacked pages for new products and directions, and existing sections didn't answer all of a visitor's questions. New pages needed to be designed to meet marketing goals, fit into the site's existing architecture, and go into development without lengthy rework.",
       process: [
         {
           step: "Research",
@@ -298,6 +299,7 @@ export const projects: Project[] = [
         "A visual solution that inherits the company's brand identity but is adapted for the web — readability, information density, long-scroll performance.",
         "Responsive layouts with worked-out element states, not just a desktop version.",
         "Mockups assembled from components with prepared assets — so handoff to development required no clarification.",
+        "As a result, the site became more convenient: visitors find the section they need faster, and the new product pages answer questions that used to go unanswered.",
       ],
       resultCaptions: [
         "gnm.net homepage",
@@ -1087,7 +1089,10 @@ export const projects: Project[] = [
       "Экраны корпоративного сайта GlobalNet: форма опроса по качеству подключения к DATAIX и варианты главной страницы.",
     year: "2023 — н. в.",
     role: "Дизайн интерфейса",
-    task: "Оформление отдельных экранов сайта GlobalNet — от формы обратной связи по DATAIX до вариантов главной страницы.",
+    task: "Передо мной стояла задача — улучшить сайт GlobalNet и сделать его удобнее для пользователя: от формы обратной связи по DATAIX до вариантов главной страницы и личного кабинета.",
+    solution: [
+      "По итогу сайт стал удобнее: понятнее сценарии, чище интерфейс, проще работа с формами и заявками на подключение.",
+    ],
     results: [
       { caption: "Опрос по качеству подключения к DATAIX", ratio: "wide", src: "/work/globalnet/website/dataix-survey.png" },
       { caption: "Главная страница — вариант 1", ratio: "wide", src: "/work/globalnet/website/homepage-light-1.png" },
@@ -1101,7 +1106,10 @@ export const projects: Project[] = [
       summary:
         "GlobalNet corporate website screens: a DATAIX connection quality survey form and homepage variants.",
       role: "Interface design",
-      task: "Designing individual screens of the GlobalNet website — from the DATAIX feedback form to homepage variants.",
+      task: "My task was to improve the GlobalNet website and make it more convenient for users: from the DATAIX feedback form to homepage variants and the account dashboard.",
+      solution: [
+        "As a result, the site became more convenient: clearer user flows, a cleaner interface, and simpler forms and connection requests.",
+      ],
       resultCaptions: [
         "DATAIX connection quality survey",
         "Homepage — option 1",
