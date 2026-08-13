@@ -182,6 +182,12 @@ export const dictionary = {
           items: ["Маркетинг", "Разработчики", "Подрядчики"],
         },
       ],
+      aiHighlight: {
+        label: "ИИ в работе",
+        title: "Нейросети — не эксперимент, а часть процесса.",
+        body: "Продвинуто использую нейросети на каждом этапе: от быстрых референсов и черновых концептов до 3D-визуализаций, видео и текстов. Инструменты работают в связке друг с другом и с классическими программами — это ускоряет путь от идеи до готового результата, не теряя в качестве.",
+        tools: ["ChatGPT", "Claude Code", "Perplexity", "Kling", "Sora"],
+      },
     },
     work: {
       label: "Избранные проекты",
@@ -407,6 +413,12 @@ export const dictionary = {
           items: ["Marketing", "Developers", "Contractors"],
         },
       ],
+      aiHighlight: {
+        label: "AI in the workflow",
+        title: "Neural networks aren't a novelty — they're part of the process.",
+        body: "I'm an advanced user of AI tools at every stage of the work: from quick references and rough concepts to 3D visuals, video, and copy. The tools work together with each other and with classic design software, speeding up the path from idea to finished result without losing quality.",
+        tools: ["ChatGPT", "Claude Code", "Perplexity", "Kling", "Sora"],
+      },
     },
     work: {
       label: "Selected Projects",

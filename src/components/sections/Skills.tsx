@@ -40,6 +40,45 @@ export default function Skills() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal as="div" delay={t.skills.groups.length * 90} className="mt-6">
+          <div className="relative overflow-hidden rounded-3xl bg-ink p-8 text-white md:p-12">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(29,78,216,0.5) 0%, rgba(29,78,216,0) 70%)",
+              }}
+            />
+
+            <div className="relative flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/50">
+                {t.skills.aiHighlight.label}
+              </span>
+            </div>
+
+            <h3 className="relative mt-4 max-w-[36ch] text-[24px] font-medium leading-[1.15] tracking-tight md:text-[30px]">
+              {t.skills.aiHighlight.title}
+            </h3>
+
+            <p className="relative mt-4 max-w-[62ch] text-[16px] leading-[1.65] text-white/65 md:text-[17px]">
+              {t.skills.aiHighlight.body}
+            </p>
+
+            <div className="relative mt-7 flex flex-wrap gap-2.5">
+              {t.skills.aiHighlight.tools.map((tool) => (
+                <span
+                  key={tool}
+                  className="rounded-full border border-white/20 px-4 py-2 text-[14px] font-medium"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
