@@ -23,7 +23,7 @@ const BLUE: Tone[] = [
  * прежней обложки/материалов проекта.
  */
 const OTHER: Record<string, Tone> = {
-  juzzle: { bg: "linear-gradient(135deg,#0c0a2e 0%,#211c57 100%)", dark: true },
+  juzzle: { bg: "linear-gradient(135deg,#040a1f 0%,#0c2354 55%,#123a8f 100%)", dark: true },
   qummy: { bg: "linear-gradient(135deg,#ff8a00 0%,#ff5a1f 100%)", dark: true },
   yoyote: { bg: "linear-gradient(160deg,#fafafb 0%,#e7e7ea 100%)", dark: false },
   "mojo-cacao": { bg: "linear-gradient(160deg,#e7e0d2 0%,#cfc3ab 100%)", dark: false },
@@ -32,6 +32,7 @@ const OTHER: Record<string, Tone> = {
   "tea-launch": { bg: "linear-gradient(135deg,#e23b6a 0%,#c94fae 55%,#f2c94c 100%)", dark: true },
   artflash: { bg: "linear-gradient(150deg,#3c4a6b 0%,#5b6f9c 100%)", dark: true },
   metro: { bg: "linear-gradient(135deg,#5865c9 0%,#8b93e8 60%,#f4e04d 100%)", dark: true },
+  tenchat: { bg: "linear-gradient(135deg,#6e0f0f 0%,#c31c1c 55%,#ff4433 100%)", dark: true },
 };
 
 function getTone(project: Project): Tone {
