@@ -852,6 +852,16 @@ export const projects: Project[] = [
       { caption: "Запись экрана — 2", ratio: "landscape", video: "/work/globalnet/motion/screen-recording-2.mp4" },
       { caption: "Видео — 1", ratio: "portrait", video: "/work/globalnet/motion/clip-1.mp4" },
       { caption: "Видео — 2", ratio: "portrait", video: "/work/globalnet/motion/clip-2.mp4" },
+      {
+        caption: "Ролик: рост компании — «500 is not the limit», 18 000 км собственной сети",
+        ratio: "landscape",
+        video: "/work/globalnet/motion/growth-milestone.mp4",
+      },
+      {
+        caption: "Анимация логотипа GlobalNet на карте",
+        ratio: "square",
+        video: "/work/globalnet/motion/logo-map.mp4",
+      },
     ],
     tone: 5,
   },
