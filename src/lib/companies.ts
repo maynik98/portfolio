@@ -5,6 +5,7 @@ export type Company = {
   name: string;
   description: string;
   url: string;
+  logo: string;
   en?: {
     description: string;
   };
@@ -17,6 +18,7 @@ export const companies: Company[] = [
     description:
       "Оператор пиринговой инфраструктуры и точки обмена трафиком GNM-IX. Визуальный язык и дизайн-система бренда — от логотипа до сайта, презентаций и мерча — разрабатывались с нуля.",
     url: "https://gnm.net",
+    logo: "/logos/gnm.png",
     en: {
       description:
         "Operator of peering infrastructure and the GNM-IX traffic exchange point. The brand's visual language and design system — from the logo to the website, presentations, and merch — were built from the ground up.",
@@ -28,6 +30,7 @@ export const companies: Company[] = [
     description:
       "Оператор сетевой инфраструктуры и дата-центровых сервисов: магистральные каналы, CDN, DDoS-защита и точка обмена трафиком DATAIX.",
     url: "https://gblnet.ru/ru",
+    logo: "/logos/globalnet.png",
     en: {
       description:
         "Operator of network infrastructure and data-center services: backbone links, CDN, DDoS protection, and the DATAIX traffic exchange point.",

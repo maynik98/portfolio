@@ -77,6 +77,7 @@ export const dictionary = {
         {
           company: "Cheeseberry",
           url: "https://cheeseberry.ru/",
+          logo: "/logos/cheeseberry.png",
           role: "Дизайнер",
           period: "2023 — 1 месяц",
           highlights: [
@@ -88,6 +89,7 @@ export const dictionary = {
         {
           company: "TenChat",
           url: "https://tenchat.ru/",
+          logo: "/logos/tenchat.png",
           role: "Стажёр-дизайнер",
           period: "2023 — 3 месяца",
           highlights: [
@@ -99,6 +101,7 @@ export const dictionary = {
         {
           company: "METRO Cash & Carry",
           url: "https://www.metro-cc.ru/",
+          logo: "/logos/metro.png",
           role: "Дизайнер, отдел маркетинга",
           period: "2022 — 3 месяца",
           highlights: [
@@ -109,7 +112,8 @@ export const dictionary = {
         },
         {
           company: "Artflash",
-          url: "https://www.artflash.me/",
+          url: "https://artflash.art/",
+          logo: "/logos/artflash.png",
           role: "Дизайнер принтов и одежды",
           period: "2022 — 4 месяца",
           highlights: [
@@ -298,6 +302,7 @@ export const dictionary = {
         {
           company: "Cheeseberry",
           url: "https://cheeseberry.ru/",
+          logo: "/logos/cheeseberry.png",
           role: "Designer",
           period: "2023 — 1 month",
           highlights: [
@@ -309,6 +314,7 @@ export const dictionary = {
         {
           company: "TenChat",
           url: "https://tenchat.ru/",
+          logo: "/logos/tenchat.png",
           role: "Design Intern",
           period: "2023 — 3 months",
           highlights: [
@@ -320,6 +326,7 @@ export const dictionary = {
         {
           company: "METRO Cash & Carry",
           url: "https://www.metro-cc.ru/",
+          logo: "/logos/metro.png",
           role: "Designer, Marketing Department",
           period: "2022 — 3 months",
           highlights: [
@@ -330,7 +337,8 @@ export const dictionary = {
         },
         {
           company: "Artflash",
-          url: "https://www.artflash.me/",
+          url: "https://artflash.art/",
+          logo: "/logos/artflash.png",
           role: "Apparel & Print Designer",
           period: "2022 — 4 months",
           highlights: [

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -7,8 +8,27 @@ import { companies } from "@/lib/companies";
 import { getDictionary } from "@/lib/dictionary";
 import { useLanguage } from "@/lib/language";
 
-function CompanyMark({ name, size = "md" }: { name: string; size?: "md" | "sm" }) {
+function CompanyMark({
+  name,
+  logo,
+  size = "md",
+}: {
+  name: string;
+  logo?: string;
+  size?: "md" | "sm";
+}) {
   const dimensions = size === "md" ? "h-11 w-11 text-[16px]" : "h-9 w-9 text-[14px]";
+
+  if (logo) {
+    return (
+      <span
+        className={`relative flex ${dimensions} shrink-0 overflow-hidden rounded-xl border border-hairline bg-white p-1.5`}
+      >
+        <Image src={logo} alt={name} fill sizes="44px" className="object-contain" />
+      </span>
+    );
+  }
+
   return (
     <span
       aria-hidden
@@ -51,7 +71,7 @@ export default function Experience() {
                       rel="noreferrer"
                       className="group inline-flex items-center gap-2 rounded-full border border-hairline py-1.5 pl-1.5 pr-3.5 transition-colors duration-300 hover:border-ink"
                     >
-                      <CompanyMark name={company.name} size="sm" />
+                      <CompanyMark name={company.name} logo={company.logo} size="sm" />
                       <span className="text-[13px] font-medium">{company.name}</span>
                       <span
                         aria-hidden
@@ -121,7 +141,7 @@ export default function Experience() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3.5">
-                    <CompanyMark name={job.company} />
+                    <CompanyMark name={job.company} logo={job.logo} />
                     <div>
                       <a
                         href={job.url}
