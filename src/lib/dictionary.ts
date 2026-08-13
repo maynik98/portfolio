@@ -22,7 +22,7 @@ export const dictionary = {
       stats: [
         { value: "3+", label: "года коммерческого опыта" },
         { value: "100+", label: "реализованных проектов" },
-        { value: "Web / Branding", label: "Motion / Print" },
+        { value: "Graphic Design", label: "Branding / Print" },
       ],
     },
     about: {
@@ -247,7 +247,7 @@ export const dictionary = {
       stats: [
         { value: "3+", label: "years of commercial experience" },
         { value: "100+", label: "projects delivered" },
-        { value: "Web / Branding", label: "Motion / Print" },
+        { value: "Graphic Design", label: "Branding / Print" },
       ],
     },
     about: {
