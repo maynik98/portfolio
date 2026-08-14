@@ -268,7 +268,7 @@ export default function CasePageContent({
                   className={SHOT_SPAN[shot.ratio]}
                 >
                   <div
-                    className={`relative overflow-hidden rounded-3xl border border-hairline bg-surface ${SHOT_ASPECT[shot.ratio]}`}
+                    className={`group/shot relative overflow-hidden rounded-3xl border border-hairline bg-surface ${SHOT_ASPECT[shot.ratio]} ${shot.href ? "block" : ""}`}
                   >
                     {shot.video ? (
                       <video
@@ -280,17 +280,56 @@ export default function CasePageContent({
                         className="absolute inset-0 h-full w-full object-contain p-2"
                       />
                     ) : shot.src ? (
-                      <Image
-                        src={shot.src}
-                        alt={shot.caption}
-                        fill
-                        sizes={
-                          shot.ratio === "wide"
-                            ? "(max-width: 768px) 100vw, 1152px"
-                            : "(max-width: 768px) 100vw, 560px"
-                        }
-                        className="object-contain p-4 md:p-6"
-                      />
+                      shot.href ? (
+                        <a
+                          href={shot.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="absolute inset-0 block"
+                        >
+                          <Image
+                            src={shot.src}
+                            alt={shot.caption}
+                            fill
+                            sizes={
+                              shot.ratio === "wide"
+                                ? "(max-width: 768px) 100vw, 1152px"
+                                : "(max-width: 768px) 100vw, 560px"
+                            }
+                            className="object-contain p-4 transition-transform duration-300 group-hover/shot:scale-[1.02] md:p-6"
+                          />
+                          <span className="pointer-events-none absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-ink/85 px-3 py-1.5 text-[12px] font-medium text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover/shot:opacity-100">
+                            {t.casePage.openPdf}
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              aria-hidden
+                            >
+                              <path
+                                d="M3 9L9 3M9 3H4.5M9 3V7.5"
+                                stroke="currentColor"
+                                strokeWidth="1.4"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      ) : (
+                        <Image
+                          src={shot.src}
+                          alt={shot.caption}
+                          fill
+                          sizes={
+                            shot.ratio === "wide"
+                              ? "(max-width: 768px) 100vw, 1152px"
+                              : "(max-width: 768px) 100vw, 560px"
+                          }
+                          className="object-contain p-4 md:p-6"
+                        />
+                      )
                     ) : (
                       <div className="flex h-full w-full items-center justify-center p-6">
                         <span className="text-[14px] text-muted">

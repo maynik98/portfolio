@@ -15,6 +15,8 @@ export type ResultShot = {
   src?: string;
   /** Путь к видео (mp4) внутри /public. Рендерится как <video>, без звука. */
   video?: string;
+  /** Ссылка на полный PDF (например, для обложки многостраничного лифлета/презентации) — картинка становится кликабельной. */
+  href?: string;
 };
 
 export type ProjectFile = {
@@ -707,11 +709,13 @@ export const projects: Project[] = [
         caption: "Лифлет GNM / GNM-IX — 2 страницы",
         ratio: "landscape",
         src: "/work/print-exhibition-design/leaflet.png",
+        href: "/work/print-exhibition-design/leaflet.pdf",
       },
       {
         caption: "Sales one-pager — 2 страницы",
         ratio: "landscape",
         src: "/work/print-exhibition-design/sales-onepager.png",
+        href: "/work/print-exhibition-design/sales-onepager.pdf",
       },
       {
         caption: "Баннер, этап 1 — минимум фирменных элементов",
@@ -859,6 +863,7 @@ export const projects: Project[] = [
         caption: "Презентация для партнёров: титульный слайд",
         ratio: "wide",
         src: "/work/presentation-design/partners.png",
+        href: "/work/presentation-design/partners.pdf",
       },
     ],
     tone: 6,
@@ -1051,11 +1056,11 @@ export const projects: Project[] = [
       { label: "Презентация — PDF", href: "/work/globalnet/presentation-design/presentation.pdf" },
     ],
     results: [
-      { caption: "DDoS Protection — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/ddos-protection.png" },
-      { caption: "CDN — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/cdn.png" },
-      { caption: "GlobalNet: обзор компании — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/overview-2026.png" },
-      { caption: "DATAIX — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/dataix-2026.png" },
-      { caption: "Презентация — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/presentation.png" },
+      { caption: "DDoS Protection — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/ddos-protection.png", href: "/work/globalnet/presentation-design/ddos-protection.pdf" },
+      { caption: "CDN — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/cdn.png", href: "/work/globalnet/presentation-design/cdn.pdf" },
+      { caption: "GlobalNet: обзор компании — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/overview-2026.png", href: "/work/globalnet/presentation-design/overview-2026.pdf" },
+      { caption: "DATAIX — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/dataix-2026.png", href: "/work/globalnet/presentation-design/dataix-2026.pdf" },
+      { caption: "Презентация — титульный слайд", ratio: "wide", src: "/work/globalnet/presentation-design/presentation.png", href: "/work/globalnet/presentation-design/presentation.pdf" },
     ],
     tone: 1,
     en: {
@@ -1532,11 +1537,13 @@ export const projects: Project[] = [
         caption: "Презентация «TenChat для бизнеса» — титульный слайд",
         ratio: "wide",
         src: "/work/other/tenchat/business-presentation.jpg",
+        href: "/work/other/tenchat/business-presentation.pdf",
       },
       {
         caption: "Презентация «Pre-IPO Альянс» — титульный слайд",
         ratio: "wide",
         src: "/work/other/tenchat/preipo-presentation.jpg",
+        href: "/work/other/tenchat/preipo-presentation.pdf",
       },
       {
         caption: "3D-сцена для рекламного ролика — рабочий файл (Cinema 4D)",
