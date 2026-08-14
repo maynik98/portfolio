@@ -952,20 +952,20 @@ export const projects: Project[] = [
     categories: ["Product Design"],
     companyId: "globalnet",
     summary:
-      "Разработка визуальной части Telegram-ботов и пользовательских сценариев.",
+      "Разработка Telegram-бота с ИИ-ассистентом: бот обрабатывает клиентские запросы через базу знаний и передаёт сложные обращения менеджеру.",
     year: "2023 — н. в.",
-    role: "Пользовательские сценарии, визуальное оформление",
-    task: "Часть коммуникации с пользователями шла через Telegram-ботов, но интерфейс мессенджера сильно ограничивает дизайн: только текст, кнопки и изображения. При этом сценарий должен быть понятным с первого сообщения, а сам бот — узнаваемо принадлежать бренду.",
+    role: "Разработка бота, интеграция ИИ-ассистента",
+    task: "Часть коммуникации с клиентами GlobalNet нужно было перевести в Telegram — не в виде статичного меню, а как полноценного помощника, способного отвечать на вопросы самостоятельно. Я не оформлял готового бота, а собрал его целиком: логику сценариев, сами диалоги и ИИ-ассистента, который понимает вопрос клиента и ищет ответ по базе знаний компании.",
     process: [
       {
         step: "Исследование",
         detail:
-          "Разбор задач бота и пользовательских сценариев: зачем человек сюда пришёл и где он может застрять.",
+          "Разбор задач бота и пользовательских сценариев: с какими вопросами обращаются клиенты и какая часть базы знаний закрывает большинство из них.",
       },
       {
         step: "Концепция",
         detail:
-          "Проектирование логики диалога: последовательность шагов, структура меню, точки возврата.",
+          "Проектирование логики диалога и логики ИИ-ассистента: когда он отвечает сам по базе знаний, а когда передаёт обращение менеджеру.",
       },
       {
         step: "Эскизы",
@@ -973,21 +973,21 @@ export const projects: Project[] = [
           "Схемы сценариев и черновики сообщений — проверка, что путь проходится без тупиков.",
       },
       {
-        step: "Создание дизайна",
+        step: "Разработка",
         detail:
-          "Визуальное оформление в рамках возможностей Telegram: обложки, иллюстрации сообщений, иконки, оформление меню и кнопок.",
+          "Сборка бота и его сценариев, подключение ИИ-ассистента к базе знаний, визуальное оформление в рамках возможностей Telegram: обложки, иллюстрации сообщений, иконки, оформление меню и кнопок.",
       },
       {
         step: "Финальная реализация",
         detail:
-          "Подготовка ассетов и текстов для разработки, проверка бота в живых сценариях.",
+          "Настройка передачи заявки менеджеру, когда ассистент не может закрыть вопрос сам, и проверка бота в живых сценариях.",
       },
     ],
     solution: [
+      "ИИ-ассистент, который отвечает клиенту по базе знаний компании — без ожидания оператора.",
+      "Если ассистент не может закрыть вопрос сам, он оставляет заявку и передаёт её менеджеру для дальнейшей коммуникации.",
       "Сценарии, разложенные по шагам, с понятной навигацией и возможностью вернуться назад на любом этапе.",
-      "Визуальное оформление, работающее в ограничениях мессенджера — читаемое в мелком размере и на тёмной теме.",
-      "Формат сообщений, в котором текст и изображение работают вместе, а не дублируют друг друга.",
-      "Оформление, по которому бот узнаётся как часть бренда.",
+      "Оформление, по которому бот узнаётся как часть бренда, даже в рамках ограничений мессенджера.",
     ],
     results: [
       {
@@ -999,19 +999,20 @@ export const projects: Project[] = [
     tone: 7,
     en: {
       title: "GlobalNet — Telegram Bot with AI Assistant",
-      summary: "Design of the visual side of Telegram bots and user flows.",
-      role: "User flows, visual design",
-      task: "Part of the communication with users went through Telegram bots, but the messenger interface heavily constrains design: only text, buttons, and images. At the same time, the flow needs to be clear from the first message, and the bot itself needs to be recognizably on-brand.",
+      summary:
+        "Built a Telegram bot with an AI assistant: it answers client questions from a knowledge base and escalates complex requests to a manager.",
+      role: "Bot development, AI assistant integration",
+      task: "Part of the communication with GlobalNet clients needed to move to Telegram — not as a static menu, but as a real assistant able to answer questions on its own. I didn't just style a ready-made bot: I built it end to end — the scenario logic, the dialogues themselves, and an AI assistant that understands a client's question and looks up the answer in the company's knowledge base.",
       process: [
         {
           step: "Research",
           detail:
-            "Breaking down the bot's tasks and user flows: why someone came here and where they might get stuck.",
+            "Breaking down the bot's tasks and user flows: what clients actually ask, and how much of it the knowledge base already covers.",
         },
         {
           step: "Concept",
           detail:
-            "Designing the dialogue logic: step sequence, menu structure, points of return.",
+            "Designing both the dialogue logic and the assistant's decision logic: when it answers from the knowledge base itself, and when it hands the request to a manager.",
         },
         {
           step: "Sketches",
@@ -1019,23 +1020,150 @@ export const projects: Project[] = [
             "Flow diagrams and message drafts — checking the path has no dead ends.",
         },
         {
-          step: "Design",
+          step: "Development",
           detail:
-            "Visual design within Telegram's constraints: covers, message illustrations, icons, menu and button styling.",
+            "Building the bot and its scenarios, connecting the AI assistant to the knowledge base, and visual design within Telegram's constraints: covers, message illustrations, icons, menu and button styling.",
         },
         {
           step: "Final delivery",
           detail:
-            "Preparing assets and copy for development, testing the bot in live scenarios.",
+            "Setting up hand-off to a manager when the assistant can't resolve a question itself, and testing the bot in live scenarios.",
         },
       ],
       solution: [
+        "An AI assistant that answers clients from the company's knowledge base — no waiting for an operator.",
+        "When the assistant can't resolve a question itself, it leaves a request and hands it to a manager for follow-up.",
         "Flows broken into steps, with clear navigation and the ability to go back at any stage.",
-        "Visual design that works within the messenger's constraints — legible at small size and in dark mode.",
-        "A message format where text and image work together rather than duplicating each other.",
-        "Styling that makes the bot recognizable as part of the brand.",
+        "Styling that makes the bot recognizable as part of the brand, even within the messenger's constraints.",
       ],
       resultCaptions: ["Bot screen with AI assistant"],
+    },
+  },
+  {
+    slug: "chat-monitor-bot",
+    title: "GlobalNet — бот-аналитик клиентских чатов",
+    categories: ["Product Design"],
+    companyId: "globalnet",
+    summary:
+      "Telegram-бот, который мониторит клиентские чаты, структурирует переписку в базу данных и автоматически сообщает руководителям о жалобах, конфликтах и просроченных ответах.",
+    year: "2026",
+    role: "Разработка бота, аналитика на базе ИИ",
+    task: "Часть обращений клиентов GlobalNet идёт через групповые чаты в Telegram, и в потоке переписки легко пропустить важное: жалобу, конфликт или сообщение, оставшееся без ответа. Я разработал бота, который подключается к этим чатам, различает сотрудника и клиента, структурирует переписку в базе данных и обрабатывает каждое клиентское сообщение через нейросеть — а при негативном сигнале сразу уведомляет руководителя.",
+    process: [
+      {
+        step: "Исследование",
+        detail:
+          "Разбор того, какие события в переписке критичны для бизнеса — жалобы, конфликты, сообщения без ответа — и как отличить их от обычной переписки.",
+      },
+      {
+        step: "Концепция",
+        detail:
+          "Проектирование структуры данных: отдельные таблицы для администраторов, чатов, сообщений и событий — и логика, по которой каждое сообщение попадает в нужную таблицу.",
+      },
+      {
+        step: "Разработка",
+        detail:
+          "Сборка бота: определение отправителя (клиент или сотрудник), запись сообщений в базу, обработка текста через нейросеть с краткой сводкой и классификацией по типу события.",
+      },
+      {
+        step: "Мониторинг просрочки",
+        detail:
+          "Отдельный сценарий, который каждые 30 минут проверяет чаты и фиксирует как отдельное событие ситуацию, когда клиентское сообщение остаётся без ответа администратора дольше 8 часов.",
+      },
+      {
+        step: "Уведомления и приложение",
+        detail:
+          "Настройка автоматической отправки руководителям уведомлений о негативных событиях и разработка отдельного приложения для просмотра всех сообщений, событий и статистики.",
+      },
+    ],
+    solution: [
+      "Бот, который читает подключённые чаты, различает сотрудника и клиента и сохраняет переписку в структурированном виде.",
+      "Каждое клиентское сообщение проходит через нейросеть, которая делает краткую сводку и определяет тип события: похвала, жалоба, конфликт или просрочка ответа.",
+      "При негативном событии руководитель получает уведомление автоматически, не дожидаясь ручной проверки чатов.",
+      "Отдельное приложение для просмотра сообщений и событий: все сообщения, позитивные и негативные события, обращения без ответа.",
+    ],
+    results: [
+      {
+        caption:
+          "Схема работы бота: чтение чата, определение клиента, обработка через нейросеть, уведомление руководителя",
+        ratio: "wide",
+        src: "/work/globalnet/chat-monitor-bot/workflow-main.jpg",
+      },
+      {
+        caption: "Сценарий мониторинга просрочки ответа — проверка каждые 30 минут",
+        ratio: "landscape",
+        src: "/work/globalnet/chat-monitor-bot/workflow-timeout.jpg",
+      },
+      {
+        caption: "Структура базы данных: таблица подключённых чатов",
+        ratio: "wide",
+        src: "/work/globalnet/chat-monitor-bot/chats-table.jpg",
+      },
+      {
+        caption: "Приложение для просмотра сообщений и событий",
+        ratio: "tall",
+        src: "/work/globalnet/chat-monitor-bot/app-dashboard.jpg",
+      },
+      {
+        caption: "Автоматическое уведомление руководителю о жалобе клиента",
+        ratio: "square",
+        src: "/work/globalnet/chat-monitor-bot/notification-example.jpg",
+      },
+    ],
+    files: [
+      {
+        label: "Описание системы — PDF",
+        href: "/work/globalnet/chat-monitor-bot/chat-monitor-bot.pdf",
+      },
+    ],
+    tone: 6,
+    en: {
+      title: "GlobalNet — Client Chat Monitoring Bot",
+      summary:
+        "A Telegram bot that monitors client chats, structures the conversation into a database, and automatically alerts managers about complaints, conflicts, and overdue replies.",
+      role: "Bot development, AI-driven analysis",
+      task: "Part of GlobalNet's client communication runs through group chats in Telegram, and it's easy to miss what matters in the stream of messages — a complaint, a conflict, or a message left without a reply. I built a bot that connects to these chats, tells staff and clients apart, structures the conversation into a database, and runs every client message through a neural network — alerting a manager immediately on a negative signal.",
+      process: [
+        {
+          step: "Research",
+          detail:
+            "Breaking down which events in a conversation actually matter to the business — complaints, conflicts, unanswered messages — and how to tell them apart from routine chat.",
+        },
+        {
+          step: "Concept",
+          detail:
+            "Designing the data structure: separate tables for admins, chats, messages, and events — and the logic that routes each message to the right table.",
+        },
+        {
+          step: "Development",
+          detail:
+            "Building the bot: identifying the sender (client or staff), logging messages to the database, and running the text through a neural network for a short summary and event classification.",
+        },
+        {
+          step: "Response-time monitoring",
+          detail:
+            "A separate scenario that checks chats every 30 minutes and logs a dedicated event whenever a client message goes unanswered by an admin for more than 8 hours.",
+        },
+        {
+          step: "Notifications and app",
+          detail:
+            "Setting up automatic manager notifications for negative events, and building a companion app for reviewing all messages, events, and stats.",
+        },
+      ],
+      solution: [
+        "A bot that reads the connected chats, tells staff and clients apart, and stores the conversation in structured form.",
+        "Every client message runs through a neural network that produces a short summary and classifies the event: praise, complaint, conflict, or overdue reply.",
+        "On a negative event, a manager is notified automatically, without waiting for someone to check the chats by hand.",
+        "A companion app for reviewing messages and events: all messages, positive and negative events, unanswered requests.",
+      ],
+      resultCaptions: [
+        "Bot workflow: reading the chat, identifying the client, processing through a neural network, notifying the manager",
+        "Response-time monitoring scenario — checked every 30 minutes",
+        "Database structure: connected chats table",
+        "Companion app for reviewing messages and events",
+        "Automatic manager notification about a client complaint",
+      ],
+      fileLabels: ["System overview — PDF"],
     },
   },
   {
