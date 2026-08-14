@@ -3,17 +3,24 @@
 import { useEffect } from "react";
 
 /**
- * Браузеры по умолчанию восстанавливают прежнюю позицию скролла при
- * обновлении страницы (history.scrollRestoration = "auto"). На этом сайте
- * это не нужно — при обновлении страница всегда должна открываться сверху,
- * если только в адресе нет якоря (#work, #about и т.д.).
+ * Разграничивает два случая, которые браузер по умолчанию не различает:
+ *
+ * 1. Первый заход на сайт и обновление страницы (F5) — всегда должны
+ *    открывать страницу сверху (если в адресе нет якоря вроде #work).
+ * 2. Переход кнопкой «Назад» из кейса/страницы компании на главную — должен
+ *    вернуть туда, где пользователь был (например, к сетке кейсов), а не
+ *    наверх. Это штатное поведение браузера, и его трогать не нужно —
+ *    достаточно не мешать ему, оставив history.scrollRestoration = "auto".
  */
 export default function ScrollTopOnLoad() {
   useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-    if (!window.location.hash) {
+    const [navigation] = performance.getEntriesByType(
+      "navigation",
+    ) as PerformanceNavigationTiming[];
+
+    const isBackForward = navigation?.type === "back_forward";
+
+    if (!isBackForward && !window.location.hash) {
       window.scrollTo(0, 0);
     }
   }, []);

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getDictionary } from "@/lib/dictionary";
 import { useLanguage } from "@/lib/language";
+import { handleHashLinkClick } from "@/lib/scrollToHash";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -59,6 +60,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(event) => handleHashLinkClick(event, link.href)}
                 className="text-[14px] text-muted transition-colors hover:text-ink"
               >
                 {link.label}
@@ -66,6 +68,7 @@ export default function Nav() {
             ))}
             <Link
               href="/#contact"
+              onClick={(event) => handleHashLinkClick(event, "/#contact")}
               className="rounded-full bg-ink px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-accent"
             >
               {t.nav.contact}
@@ -112,7 +115,10 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(event) => {
+                setOpen(false);
+                handleHashLinkClick(event, link.href);
+              }}
               className="block border-b border-hairline py-4 text-[17px] tracking-tight last:border-0"
             >
               {link.label}
@@ -120,7 +126,10 @@ export default function Nav() {
           ))}
           <Link
             href="/#contact"
-            onClick={() => setOpen(false)}
+            onClick={(event) => {
+              setOpen(false);
+              handleHashLinkClick(event, "/#contact");
+            }}
             className="mt-4 block rounded-full bg-ink px-5 py-3.5 text-center text-[15px] font-medium text-white"
           >
             {t.nav.contact}

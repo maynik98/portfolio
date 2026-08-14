@@ -5,6 +5,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { getDictionary } from "@/lib/dictionary";
 import { useLanguage } from "@/lib/language";
+import { handleHashLinkClick } from "@/lib/scrollToHash";
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -41,13 +42,15 @@ export default function Hero() {
 
             <Reveal as="div" delay={200} className="mt-10 flex flex-wrap gap-3 md:mt-14">
               <Link
-                href="#work"
+                href="/#work"
+                onClick={(event) => handleHashLinkClick(event, "/#work")}
                 className="rounded-full bg-ink px-7 py-3.5 text-[15px] font-medium text-white transition-colors duration-300 hover:bg-accent"
               >
                 {t.hero.viewWork}
               </Link>
               <Link
-                href="#contact"
+                href="/#contact"
+                onClick={(event) => handleHashLinkClick(event, "/#contact")}
                 className="rounded-full border border-hairline px-7 py-3.5 text-[15px] font-medium transition-colors duration-300 hover:border-ink"
               >
                 {t.hero.contact}
