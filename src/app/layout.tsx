@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ScrollTopOnLoad from "@/components/ScrollTopOnLoad";
 import { LanguageProvider } from "@/lib/language";
 
 const inter = Inter({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col bg-white font-sans text-ink">
         <LanguageProvider>
+          <ScrollTopOnLoad />
           <Nav />
           <main className="flex-1">{children}</main>
           <Footer />
