@@ -1734,6 +1734,125 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: "illustrations",
+    title: "Иллюстрации Illustrator",
+    categories: ["Illustration"],
+    summary:
+      "Персонажи, иллюстрации и стикеры, нарисованные в Illustrator для разных проектов и заказчиков.",
+    year: "2024",
+    role: "Иллюстратор",
+    task: "Подборка иллюстраторских работ разных заказов: персонажи, стикеры и постеры. Часть иллюстраций с детскими персонажами сделана для сайта, который определяет тип личности (MBTI) у детей — ракета с юными инженерами открывает этот блок работ.",
+    results: [
+      {
+        caption:
+          "Ракета с юными инженерами — общая иллюстрация блока «Сайт по определению MBTI у детей»",
+        ratio: "wide",
+        src: "/work/other/illustrations/kids-rocket-cover.jpg",
+      },
+      {
+        caption: "Для сайта MBTI у детей: ученица с медалями и кубками",
+        ratio: "landscape",
+        src: "/work/other/illustrations/kids-trophies.jpg",
+      },
+      {
+        caption: "Для сайта MBTI у детей: ребёнок делает уроки",
+        ratio: "landscape",
+        src: "/work/other/illustrations/kids-homework.jpg",
+      },
+      {
+        caption: "Для сайта MBTI у детей: бег и скейтборд",
+        ratio: "landscape",
+        src: "/work/other/illustrations/kids-running-skateboard.jpg",
+      },
+      {
+        caption: "Для сайта MBTI у детей: подростки в худи",
+        ratio: "landscape",
+        src: "/work/other/illustrations/kids-hoodies.jpg",
+      },
+      {
+        caption: "Для сайта MBTI у детей: дети с книгами",
+        ratio: "landscape",
+        src: "/work/other/illustrations/kids-reading.jpg",
+      },
+      {
+        caption: "Для сайта MBTI у детей: идея на сцене",
+        ratio: "landscape",
+        src: "/work/other/illustrations/kids-podium-idea.jpg",
+      },
+      {
+        caption: "Персонаж с гитарой",
+        ratio: "landscape",
+        src: "/work/other/illustrations/guitar-guy.jpg",
+      },
+      {
+        caption: "Стикеры для Telegram",
+        ratio: "landscape",
+        src: "/work/other/illustrations/sticker-sheet.jpg",
+      },
+      {
+        caption: "Концепт-скетчи: формы, ДНК, фигуры",
+        ratio: "landscape",
+        src: "/work/other/illustrations/concept-sketches.jpg",
+      },
+      {
+        caption: "Мишки в коробке — иллюстрация к 14 февраля",
+        ratio: "landscape",
+        src: "/work/other/illustrations/teddy-bears.jpg",
+      },
+      {
+        caption: "Портрет для проекта про MBTI / соционику",
+        ratio: "landscape",
+        src: "/work/other/illustrations/mbti-portrait-1.jpg",
+      },
+      {
+        caption: "Портрет для проекта про MBTI / соционику — деталь",
+        ratio: "landscape",
+        src: "/work/other/illustrations/mbti-portrait-2.jpg",
+      },
+      {
+        caption: "Персонаж: ограбление банка",
+        ratio: "landscape",
+        src: "/work/other/illustrations/heist-character.jpg",
+      },
+      {
+        caption: "Портрет в поп-арт стиле",
+        ratio: "landscape",
+        src: "/work/other/illustrations/pop-art-portrait.jpg",
+      },
+      {
+        caption: "Типографический постер «Мой релиз»",
+        ratio: "landscape",
+        src: "/work/other/illustrations/typographic-poster.jpg",
+      },
+    ],
+    tone: 2,
+    en: {
+      title: "Illustrations — Illustrator",
+      summary:
+        "Characters, illustrations, and stickers drawn in Illustrator for various projects and clients.",
+      role: "Illustrator",
+      task: "A collection of illustration work from different commissions: characters, stickers, and posters. Some of the illustrations with child characters were made for a website that determines personality type (MBTI) for kids — the rocket with young engineers opens this block.",
+      resultCaptions: [
+        "Rocket with young engineers — general cover illustration for the \"MBTI-for-kids website\" block",
+        "For the MBTI-for-kids website: a student with medals and trophies",
+        "For the MBTI-for-kids website: a kid doing homework",
+        "For the MBTI-for-kids website: running and skateboarding",
+        "For the MBTI-for-kids website: teens in hoodies",
+        "For the MBTI-for-kids website: kids with books",
+        "For the MBTI-for-kids website: an idea on stage",
+        "Character with a guitar",
+        "Telegram sticker pack",
+        "Concept sketches: shapes, DNA, figures",
+        "Teddy bears in a box — Valentine's Day illustration",
+        "Portrait for an MBTI / socionics project",
+        "Portrait for an MBTI / socionics project — detail",
+        "Character: bank heist",
+        "Pop-art style portrait",
+        "Typographic poster \"My Release\"",
+      ],
+    },
+  },
 ];
 
 export const projectSlugs = projects.map((project) => project.slug);
