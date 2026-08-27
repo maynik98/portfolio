@@ -1740,14 +1740,14 @@ export const projects: Project[] = [
     categories: ["Illustration"],
     summary:
       "Персонажи, иллюстрации и стикеры, нарисованные в Illustrator для разных проектов и заказчиков.",
-    year: "2024",
-    role: "Иллюстратор",
-    task: "Подборка иллюстраторских работ разных заказов: персонажи, стикеры и постеры. Часть иллюстраций с детскими персонажами сделана для сайта, который определяет тип личности (MBTI) у детей — ракета с юными инженерами открывает этот блок работ.",
+    year: "2018 — 2022",
+    role: "Иллюстратор-фрилансер",
+    task: "Подборка иллюстраторских работ по фриланс-заказам разных лет: персонажи, стикеры и постеры. Часть иллюстраций с детскими персонажами сделана для сайта, который определяет тип личности (MBTI) у детей — ракета с юными инженерами открывает этот блок работ.",
     results: [
       {
         caption:
           "Ракета с юными инженерами — общая иллюстрация блока «Сайт по определению MBTI у детей»",
-        ratio: "wide",
+        ratio: "portrait",
         src: "/work/other/illustrations/kids-rocket-cover.jpg",
       },
       {
@@ -1757,7 +1757,7 @@ export const projects: Project[] = [
       },
       {
         caption: "Для сайта MBTI у детей: ребёнок делает уроки",
-        ratio: "landscape",
+        ratio: "wide",
         src: "/work/other/illustrations/kids-homework.jpg",
       },
       {
@@ -1767,22 +1767,22 @@ export const projects: Project[] = [
       },
       {
         caption: "Для сайта MBTI у детей: подростки в худи",
-        ratio: "landscape",
+        ratio: "wide",
         src: "/work/other/illustrations/kids-hoodies.jpg",
       },
       {
         caption: "Для сайта MBTI у детей: дети с книгами",
-        ratio: "landscape",
+        ratio: "wide",
         src: "/work/other/illustrations/kids-reading.jpg",
       },
       {
         caption: "Для сайта MBTI у детей: идея на сцене",
-        ratio: "landscape",
+        ratio: "wide",
         src: "/work/other/illustrations/kids-podium-idea.jpg",
       },
       {
         caption: "Персонаж с гитарой",
-        ratio: "landscape",
+        ratio: "wide",
         src: "/work/other/illustrations/guitar-guy.jpg",
       },
       {
@@ -1807,7 +1807,7 @@ export const projects: Project[] = [
       },
       {
         caption: "Портрет для проекта про MBTI / соционику — деталь",
-        ratio: "landscape",
+        ratio: "square",
         src: "/work/other/illustrations/mbti-portrait-2.jpg",
       },
       {
@@ -1831,8 +1831,8 @@ export const projects: Project[] = [
       title: "Illustrations — Illustrator",
       summary:
         "Characters, illustrations, and stickers drawn in Illustrator for various projects and clients.",
-      role: "Illustrator",
-      task: "A collection of illustration work from different commissions: characters, stickers, and posters. Some of the illustrations with child characters were made for a website that determines personality type (MBTI) for kids — the rocket with young engineers opens this block.",
+      role: "Freelance Illustrator",
+      task: "A collection of freelance illustration work from different years: characters, stickers, and posters. Some of the illustrations with child characters were made for a website that determines personality type (MBTI) for kids — the rocket with young engineers opens this block.",
       resultCaptions: [
         "Rocket with young engineers — general cover illustration for the \"MBTI-for-kids website\" block",
         "For the MBTI-for-kids website: a student with medals and trophies",
