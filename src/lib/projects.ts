@@ -1001,6 +1001,16 @@ export const projects: Project[] = [
         ratio: "portrait",
         src: "/work/telegram-bot-design/screen.png",
       },
+      {
+        caption: "Промо-постер ИИ-ассистента GlobalNet",
+        ratio: "square",
+        src: "/work/telegram-bot-design/promo-square.jpg",
+      },
+      {
+        caption: "Диалог с ботом: подбор услуги и расчёт стоимости порта DATAIX",
+        ratio: "tall",
+        src: "/work/telegram-bot-design/ai-chat-example.jpg",
+      },
     ],
     tone: 7,
     en: {
@@ -1042,7 +1052,11 @@ export const projects: Project[] = [
         "Flows broken into steps, with clear navigation and the ability to go back at any stage.",
         "Styling that makes the bot recognizable as part of the brand, even within the messenger's constraints.",
       ],
-      resultCaptions: ["Bot screen with AI assistant"],
+      resultCaptions: [
+        "Bot screen with AI assistant",
+        "GlobalNet AI assistant promo poster",
+        "Chat with the bot: picking a service and pricing a DATAIX port",
+      ],
     },
   },
   {
