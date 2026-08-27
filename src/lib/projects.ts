@@ -925,6 +925,11 @@ export const projects: Project[] = [
       { caption: "Состояние интерфейса — 1", ratio: "portrait", src: "/work/gnm-app/screen-60.png" },
       { caption: "Состояние интерфейса — 2", ratio: "portrait", src: "/work/gnm-app/screen-65.png" },
       { caption: "Состояние интерфейса — 3", ratio: "portrait", src: "/work/gnm-app/screen-73.png" },
+      {
+        caption: "Видео-макет: вход и подключение к VPN",
+        ratio: "tall",
+        video: "/work/gnm-app/app-demo.mp4",
+      },
     ],
     tone: 0,
     en: {
@@ -939,6 +944,7 @@ export const projects: Project[] = [
         "Interface state — 1",
         "Interface state — 2",
         "Interface state — 3",
+        "Video mockup: login and VPN connection flow",
       ],
     },
   },
