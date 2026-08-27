@@ -1777,7 +1777,7 @@ export const projects: Project[] = [
       },
       {
         caption: "Портрет в поп-арт стиле",
-        ratio: "landscape",
+        ratio: "tall",
         src: "/work/other/illustrations/pop-art-portrait.jpg",
       },
       {
