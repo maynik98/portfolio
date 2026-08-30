@@ -19,6 +19,7 @@ export default function Nav() {
     { href: "/#work", label: t.nav.work },
     { href: "/#process", label: t.nav.process },
     { href: "/#skills", label: t.nav.skills },
+    { href: "/resume", label: t.nav.resume },
   ];
 
   useEffect(() => {

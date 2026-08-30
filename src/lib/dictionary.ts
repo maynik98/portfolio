@@ -8,6 +8,7 @@ export const dictionary = {
       work: "Проекты",
       process: "Процесс",
       skills: "Навыки",
+      resume: "Резюме",
       contact: "Связаться",
       home: "На главную",
       openMenu: "Открыть меню",
@@ -224,6 +225,7 @@ export const dictionary = {
       task: "Задача",
       process: "Процесс",
       solution: "Решение",
+      contribution: "Мой вклад",
       result: "Результат",
       imageComingSoon: "Изображение будет добавлено",
       openPdf: "Открыть PDF",
@@ -231,6 +233,15 @@ export const dictionary = {
       next: "Следующий →",
       ctaTitle: "Нужен похожий проект?",
       ctaButton: "Написать мне",
+    },
+    resumePage: {
+      eyebrow: "Резюме",
+      title: "Резюме Антона Майника",
+      subtitle:
+        "PDF-версия резюме с опытом, кейсами и контактами — можно посмотреть прямо здесь или скачать и переслать.",
+      download: "Скачать PDF",
+      openTab: "Открыть в новой вкладке",
+      backHome: "На главную",
     },
   },
   en: {
@@ -240,6 +251,7 @@ export const dictionary = {
       work: "Work",
       process: "Process",
       skills: "Skills",
+      resume: "Resume",
       contact: "Contact",
       home: "Home",
       openMenu: "Open menu",
@@ -456,6 +468,7 @@ export const dictionary = {
       task: "Task",
       process: "Process",
       solution: "Solution",
+      contribution: "My contribution",
       result: "Result",
       imageComingSoon: "Image coming soon",
       openPdf: "Open PDF",
@@ -463,6 +476,15 @@ export const dictionary = {
       next: "Next →",
       ctaTitle: "Need a similar project?",
       ctaButton: "Email me",
+    },
+    resumePage: {
+      eyebrow: "Resume",
+      title: "Anton Maynik's resume",
+      subtitle:
+        "A PDF resume with experience, case studies, and contacts — view it right here or download it to send along.",
+      download: "Download PDF",
+      openTab: "Open in new tab",
+      backHome: "Home",
     },
   },
 } satisfies Record<Lang, unknown>;

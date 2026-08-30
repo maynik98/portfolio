@@ -190,6 +190,29 @@ export default function CasePageContent({
         </section>
       )}
 
+      {/* Мой вклад */}
+      {project.contribution && (
+        <section className="border-t border-hairline bg-ink text-white">
+          <div className="mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-20">
+            <div className="grid gap-10 md:grid-cols-12 md:gap-16">
+              <Reveal as="div" className="flex items-center gap-2.5 md:col-span-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/60">
+                  {t.casePage.contribution}
+                </span>
+              </Reveal>
+              <div className="md:col-span-9 md:col-start-4">
+                <Reveal as="p" delay={80}>
+                  <span className="block max-w-[62ch] text-[17px] leading-[1.65] text-white/90 md:text-[19px]">
+                    {project.contribution}
+                  </span>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Процесс */}
       {project.process && project.process.length > 0 && (
         <section className="border-t border-hairline bg-surface">
