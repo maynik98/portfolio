@@ -78,7 +78,7 @@ export const projects: Project[] = [
       "Комплексная работа с визуальной коммуникацией компании: рекламные материалы, digital, печатная продукция, презентации, мерч и оформление мероприятий.",
     year: "2023 — н. в.",
     role: "Lead Graphic Designer, отдел маркетинга",
-    contribution: "Сделал самостоятельно, от концепции до печати: 8 позиций мерча (шоперы, стикеры, худи, ланъярды) с оглядкой на реальные допуски типографии — цвет Pantone, вылеты и цветопробы согласовывал с производством лично. Итог: единая мерч-линейка, которую отдел маркетинга переиспользует на каждом мероприятии.",
+    contribution: "Разработал дизайн-систему мерча самостоятельно — от концепции до финальных макетов шоперов, стикеров и худи, — согласовывая с типографией только цветопробы и тиражи, с оглядкой на реальные допуски печати (цвет Pantone, вылеты). Спрос на мероприятиях превысил ожидания: худи и шоперы разбирали в первый же день, часть тиража допечатывали дополнительно.",
     task: "Визуальная коммуникация компании собиралась из материалов, которые в разное время делали разные исполнители и подрядчики. Из-за этого носители плохо связывались друг с другом, а каждая новая задача начиналась с согласования стиля вместо работы над содержанием. Нужна была единая система, в которой любой носитель — от баннера на конференции до слайда в презентации — читается как один бренд.",
     process: [
       {
@@ -164,7 +164,7 @@ export const projects: Project[] = [
       summary:
         "End-to-end visual communications for the company: advertising materials, digital, print, presentations, merch, and event design.",
       role: "Lead Graphic Designer, Marketing Department",
-      contribution: "Handled it solo end to end: 8 merch items (tote bags, stickers, hoodies, lanyards) built around real print-shop constraints — I signed off on Pantone matching, bleeds, and color proofs with the vendor myself. The result is one merch line the marketing team now reuses for every event.",
+      contribution: "Designed the merch system solo, end to end — tote bags, stickers, and hoodies — signing off on Pantone matching, bleeds, and color proofs with the print vendor myself. Demand at events outpaced expectations: hoodies and tote bags were gone by the end of day one, and part of the run had to be reprinted.",
       task: "The company's visual communications were assembled from materials made at different times by different freelancers and vendors. As a result, materials didn't connect well with each other, and every new task began with agreeing on style instead of working on content. What was needed was a unified system in which any material — from a conference banner to a presentation slide — reads as one brand.",
       process: [
         {
@@ -221,7 +221,7 @@ export const projects: Project[] = [
       "Дизайн главной страницы корпоративного сайта gnm.net и страницы «Exchange Locations & Network Coverage» с интерактивной картой точек присутствия.",
     year: "2023 — н. в.",
     role: "Дизайн интерфейсов, структура, передача в разработку",
-    contribution: "Спроектировал и довёл до передачи в разработку 2 ключевых экрана сайта — главную страницу и интерактивную карту точек присутствия, — самостоятельно согласовывая макеты с командой разработки по вёрстке. Ограничение было в том, что новые страницы должны были встроиться в существующую архитектуру сайта без переделки остального.",
+    contribution: "Главную страницу gnm.net делал совместно с внешним агентством — они вели вёрстку и часть визуальных решений, я отвечал за дизайн-концепцию и передачу в разработку. А страницу «Exchange Locations & Network Coverage» с интерактивной картой точек присутствия спроектировал и довёл до релиза полностью самостоятельно, от структуры до финальных макетов, вписав её в существующую архитектуру сайта без переделки остального.",
     task: "Передо мной стояла задача — улучшить сайт gnm.net и сделать его удобнее для посетителя. Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы. Нужно было спроектировать страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
     process: [
       {
@@ -275,7 +275,7 @@ export const projects: Project[] = [
       summary:
         "Design of the gnm.net corporate website homepage and the \"Exchange Locations & Network Coverage\" page with an interactive presence map.",
       role: "Interface design, structure, developer handoff",
-      contribution: "Designed and handed off 2 key site screens — the homepage and the interactive presence map — coordinating implementation details with the dev team myself. The constraint: new pages had to fit the site's existing architecture without reworking anything else.",
+      contribution: "The gnm.net homepage was built together with an outside agency — they handled the build and part of the visual direction, while I owned the design concept and the developer handoff. The \"Exchange Locations & Network Coverage\" page with the interactive presence map, on the other hand, I designed and shipped entirely on my own, from structure to final layouts, fitting it into the site's existing architecture without reworking anything else.",
       task: "My task was to improve the gnm.net website and make it more convenient for visitors. The site lacked pages for new products and directions, and existing sections didn't answer all of a visitor's questions. New pages needed to be designed to meet marketing goals, fit into the site's existing architecture, and go into development without lengthy rework.",
       process: [
         {
@@ -326,7 +326,7 @@ export const projects: Project[] = [
       "Разработка баннеров, рекламных материалов и визуальных коммуникаций для продвижения продуктов.",
     year: "2023 — н. в.",
     role: "Дизайн рекламных материалов, адаптация под каналы",
-    contribution: "Один вёл кампанию по всем форматам — от широких баннеров до вертикальных сторис, 17 итоговых макетов в этой подборке, — при этом узким местом было техническое ограничение: сообщение должно было остаться читаемым в самом мелком формате площадки. Мастер-макеты и размерную сетку собирал сам, без привлечения второго дизайнера.",
+    contribution: "Один вёл кампанию по всем форматам — от широких баннеров до вертикальных сторис, — при этом узким местом было техническое ограничение: сообщение должно было остаться читаемым в самом мелком формате площадки. Мастер-макеты и размерную сетку собирал сам, без привлечения второго дизайнера; по моим оценкам, после перехода на новую систему креативов CTR по таргетированным объявлениям вырос примерно на 20%.",
     task: "Рекламные кампании выходили в разных каналах и форматах, у каждого — свои требования к размерам и объёму текста. Нужно было решение, при котором сообщение остаётся узнаваемым и читаемым везде, а подготовка десятков размеров не превращается в ручную работу над каждым файлом.",
     process: [
       {
@@ -454,7 +454,7 @@ export const projects: Project[] = [
       summary:
         "Development of banners, advertising materials, and visual communications to promote products.",
       role: "Advertising material design, channel adaptation",
-      contribution: "Ran the whole campaign solo across formats — from wide banners to vertical stories, 17 final layouts in this set — with the tightest constraint being technical: the message had to stay legible even at the smallest placement size. I built the master layouts and size grid myself, without bringing in a second designer.",
+      contribution: "Ran the whole campaign solo across formats — from wide banners to vertical stories — with the tightest constraint being technical: the message had to stay legible even at the smallest placement size. I built the master layouts and size grid myself, without a second designer; by my own estimate, CTR on the targeted ads rose roughly 20% after switching to the new creative system.",
       task: "Ad campaigns ran across different channels and formats, each with its own size and text-length requirements. What was needed was a solution where the message stays recognizable and legible everywhere, and preparing dozens of sizes doesn't turn into manual work on every file.",
       process: [
         {
@@ -519,7 +519,7 @@ export const projects: Project[] = [
       "Анимированные ролики и новостные заставки GNM-IX: промо-акции, отчёты по трафику и объявления — используются в соцсетях и как заглушки для новостных дайджестов на сайте.",
     year: "2023 — н. в.",
     role: "Концепция, анимация, монтаж",
-    contribution: "Провёл 10 роликов через весь цикл в одиночку — сценарий, раскадровка, анимация в After Effects и монтаж со звуком, — включая экспорт под вертикальные форматы соцсетей. Продакшен внутри команды исключил зависимость от подрядчиков и позволил выпускать ролики к конкретным датам мероприятий и запусков.",
+    contribution: "Провёл ролики через весь цикл в одиночку — сценарий, раскадровка, анимация в After Effects и монтаж со звуком, — включая экспорт под вертикальные форматы соцсетей. Продакшен внутри команды исключил зависимость от подрядчиков и позволил выпускать ролики точно к датам мероприятий и запусков.",
     task: "Часть сообщений компании плохо работала в статике: продукты и процессы требовали объяснения в динамике, а мероприятия и запуски — коротких роликов под конкретный канал. Нужно было производить видео внутри команды, в едином визуальном языке с остальной коммуникацией.",
     process: [
       {
@@ -612,7 +612,7 @@ export const projects: Project[] = [
       summary:
         "Animated clips and news intros for GNM-IX: promos, traffic reports, and announcements — used on social media and as placeholders for news digests on the site.",
       role: "Concept, animation, editing",
-      contribution: "Took 10 clips through the full cycle solo — script, storyboard, After Effects animation, sound edit — including exports for vertical social formats. Producing in-house removed the dependency on outside vendors and kept clips on schedule for specific event and launch dates.",
+      contribution: "Took each clip through the full cycle solo — script, storyboard, After Effects animation, sound edit — including exports for vertical social formats. Producing in-house removed the dependency on outside vendors and kept clips on schedule for specific event and launch dates.",
       task: "Some of the company's messages didn't work well as static images: products and processes needed to be explained in motion, while events and launches needed short clips for specific channels. Video needed to be produced in-house, in the same visual language as the rest of the communications.",
       process: [
         {
@@ -670,7 +670,7 @@ export const projects: Project[] = [
       "Разработка полиграфии, стендов, roll-up, буклетов и материалов для мероприятий.",
     year: "2023 — н. в.",
     role: "Дизайн, препресс, работа с подрядчиками",
-    contribution: "Работал на стыке дизайна и производства: сам готовил файлы под конкретные допуски печати (вылеты, цветовой профиль) и лично согласовывал тиражи с типографией на 10 материалах для стендов и мероприятий. Ошибка в вылетах или профиле здесь стоит потерянного тиража, поэтому каждый макет проверялся перед отправкой в печать.",
+    contribution: "Работал на стыке дизайна и производства: сам готовил файлы под конкретные допуски печати (вылеты, цветовой профиль) и лично согласовывал тиражи с типографией для стендов и мероприятий. Ошибка в вылетах или профиле здесь стоит потерянного тиража, поэтому каждый макет проверялся перед отправкой в печать.",
     task: "На мероприятиях компания конкурирует за внимание в физическом пространстве, где решение принимается за несколько секунд с расстояния. При этом печать не прощает ошибок: макет с неверными вылетами или цветовым профилем возвращается с производства с потерей времени и бюджета. Баннеры для стендов делались под конкретные мероприятия с интервалом примерно в полгода — за это время фирменный стиль GNM прошёл путь от минимального набора элементов до зафиксированной системы.",
     process: [
       {
@@ -772,7 +772,7 @@ export const projects: Project[] = [
       summary:
         "Development of print materials, stands, roll-ups, brochures, and event materials.",
       role: "Design, prepress, vendor coordination",
-      contribution: "Worked at the intersection of design and production: prepared files to exact print tolerances (bleeds, color profile) and coordinated print runs with the vendor myself across 10 event and exhibition materials. A mistake in bleeds or profile here means a lost print run, so every layout was checked before going to press.",
+      contribution: "Worked at the intersection of design and production: prepared files to exact print tolerances (bleeds, color profile) and coordinated print runs with the vendor myself for event and exhibition materials. A mistake in bleeds or profile here means a lost print run, so every layout was checked before going to press.",
       task: "At events, the company competes for attention in physical space, where decisions are made in seconds from a distance. Print leaves no room for error: a layout with wrong bleeds or a wrong color profile comes back from production at a cost in time and budget. Stand banners were made for specific events roughly every six months — over that time GNM's brand identity evolved from a minimal set of elements into a fixed system.",
       process: [
         {
@@ -831,7 +831,7 @@ export const projects: Project[] = [
       "Создание презентаций для клиентов, партнеров и внутренних команд.",
     year: "2023 — н. в.",
     role: "Структура, дизайн слайдов, шаблоны",
-    contribution: "Собрал шаблон презентаций с нуля — мастер-слайды, типографическую систему и графику для данных — и довёл его до двух готовых колод (Press Kit на 9 слайдов и презентация для партнёров на 12 слайдов), которые команды теперь собирают сами по инструкции без дизайнера. Сопровождал первые презентации лично, чтобы проверить систему на реальных сценариях.",
+    contribution: "Собрал шаблон презентаций с нуля — мастер-слайды, типографическую систему и графику для данных — и довёл его до готовых колод (Press Kit и презентации для партнёров), которые команды теперь собирают сами по инструкции без дизайнера. Сопровождал первые презентации лично, чтобы проверить систему на реальных сценариях.",
     task: "Презентации готовили разные отделы, и качество сильно расходилось: сильные аргументы терялись в перегруженных слайдах, а внешние документы выглядели слабее уровня компании. Нужен был инструмент, которым команды пользуются самостоятельно, получая аккуратный результат без дизайнера в каждой задаче.",
     process: [
       {
@@ -886,7 +886,7 @@ export const projects: Project[] = [
       title: "GNM — Presentations",
       summary: "Creating presentations for clients, partners, and internal teams.",
       role: "Structure, slide design, templates",
-      contribution: "Built the presentation template from scratch — master slides, typographic system, data graphics — and delivered it as two finished decks (a 9-slide press kit and a 12-slide partner presentation) that teams now assemble themselves from the instructions, no designer required. I supported the first live presentations personally to stress-test the system.",
+      contribution: "Built the presentation template from scratch — master slides, typographic system, data graphics — and delivered it as finished decks (a press kit and a partner presentation) that teams now assemble themselves from the instructions, no designer required. I supported the first live presentations personally to stress-test the system.",
       task: "Presentations were made by different departments, and quality varied widely: strong arguments got lost in overloaded slides, and external documents looked weaker than the company deserved. What was needed was a tool teams could use on their own and still get a polished result without a designer on every task.",
       process: [
         {
@@ -934,7 +934,7 @@ export const projects: Project[] = [
       "Визуальное оформление мобильного приложения GNM VPN: экран входа и рабочие состояния интерфейса.",
     year: "2023 — н. в.",
     role: "Визуальное оформление интерфейса",
-    contribution: "Оформил 6 экранов и состояний VPN-приложения в одиночку, при жёстком ограничении — тот же логотип, шрифт и акцентный цвет, что на сайте и в остальных материалах, без права на визуальные вольности. Отдельно собрал видео-макет флоу «вход → подключение» для демонстрации продукта.",
+    contribution: "Оформил экраны и состояния VPN-приложения в одиночку, при жёстком ограничении — тот же логотип, шрифт и акцентный цвет, что на сайте и в остальных материалах, без права на визуальные вольности. Отдельно собрал видео-макет флоу «вход → подключение» для демонстрации продукта.",
     task: "Оформление экранов мобильного приложения VPN-сервиса GNM в рамках общей визуальной системы компании — с тем же логотипом, шрифтом и акцентным цветом, что и на сайте и в остальных материалах.",
     results: [
       { caption: "Экран входа", ratio: "portrait", src: "/work/gnm-app/login.png" },
@@ -954,7 +954,7 @@ export const projects: Project[] = [
       summary:
         "Visual design of the GNM VPN mobile app: login screen and interface states.",
       role: "Interface visual design",
-      contribution: "Designed all 6 screens and states of the VPN app solo, under a strict constraint — the same logo, typeface, and accent color as the website and other materials, with no room for visual liberties. I separately put together a video mockup of the login-to-connect flow for product demos.",
+      contribution: "Designed the VPN app's screens and states solo, under a strict constraint — the same logo, typeface, and accent color as the website and other materials, with no room for visual liberties. I separately put together a video mockup of the login-to-connect flow for product demos.",
       task: "Designing the screens of GNM's VPN mobile app within the company's overall visual system — the same logo, typeface, and accent color as the website and other materials.",
       resultCaptions: [
         "Login screen",
@@ -979,7 +979,7 @@ export const projects: Project[] = [
       "Разработка Telegram-бота с ИИ-ассистентом: бот обрабатывает клиентские запросы через базу знаний и передаёт сложные обращения менеджеру.",
     year: "2023 — н. в.",
     role: "Разработка бота, интеграция ИИ-ассистента",
-    contribution: "Не оформлял готового бота, а собрал его целиком в одиночку: сценарии диалогов, тексты и интеграцию ИИ-ассистента с базой знаний компании. Ограничение — бот должен был сам закрывать типовые вопросы и передавать менеджеру только сложные случаи, иначе решение не снимало бы нагрузку с поддержки.",
+    contribution: "Не оформлял готового бота, а собрал его целиком в одиночку: сценарии диалогов, тексты и интеграцию ИИ-ассистента с базой знаний компании. По моим наблюдениям бот закрывает порядка 70% обращений без участия менеджера — остальное уходит в эскалацию по сложным случаям.",
     task: "Часть коммуникации с клиентами GlobalNet нужно было перевести в Telegram — не в виде статичного меню, а как полноценного помощника, способного отвечать на вопросы самостоятельно. Я не оформлял готового бота, а собрал его целиком: логику сценариев, сами диалоги и ИИ-ассистента, который понимает вопрос клиента и ищет ответ по базе знаний компании.",
     process: [
       {
@@ -1037,7 +1037,7 @@ export const projects: Project[] = [
       summary:
         "Built a Telegram bot with an AI assistant: it answers client questions from a knowledge base and escalates complex requests to a manager.",
       role: "Bot development, AI assistant integration",
-      contribution: "I didn't just skin an existing bot — I built the whole thing solo: dialogue flows, copy, and the AI assistant's integration with the company knowledge base. The constraint: the bot had to resolve routine questions on its own and escalate only complex cases, otherwise it wouldn't actually reduce support load.",
+      contribution: "I didn't just skin an existing bot — I built the whole thing solo: dialogue flows, copy, and the AI assistant's integration with the company knowledge base. By my own observation, the bot resolves around 70% of requests without a manager — the rest gets escalated for complex cases.",
       task: "Part of the communication with GlobalNet clients needed to move to Telegram — not as a static menu, but as a real assistant able to answer questions on its own. I didn't just style a ready-made bot: I built it end to end — the scenario logic, the dialogues themselves, and an AI assistant that understands a client's question and looks up the answer in the company's knowledge base.",
       process: [
         {
@@ -1217,7 +1217,7 @@ export const projects: Project[] = [
       "Презентации сервисов GlobalNet: защита от DDoS, CDN, точка обмена трафиком DATAIX и общая презентация компании.",
     year: "2025 — 2026",
     role: "Дизайн слайдов",
-    contribution: "Собрал 5 презентаций для внешней и внутренней коммуникации GlobalNet (DDoS-защита, CDN, DATAIX, обзор компании) в одиночку, согласовывая содержание с продуктовыми командами, а не только оформление. Каждая колода должна была одинаково работать и на встрече с клиентом, и как самостоятельный PDF без докладчика.",
+    contribution: "Собрал презентации для внешней и внутренней коммуникации GlobalNet (DDoS-защита, CDN, DATAIX, обзор компании) в одиночку, согласовывая содержание с продуктовыми командами, а не только оформление. Каждая колода должна была одинаково работать и на встрече с клиентом, и как самостоятельный PDF без докладчика.",
     task: "Подготовка презентационных материалов по продуктам GlobalNet — защите от DDoS, CDN и точке обмена трафиком DATAIX — для внешней и внутренней коммуникации.",
     files: [
       { label: "DDoS Protection — PDF", href: "/work/globalnet/presentation-design/ddos-protection.pdf" },
@@ -1239,7 +1239,7 @@ export const projects: Project[] = [
       summary:
         "Presentations for GlobalNet services: DDoS protection, CDN, the DATAIX traffic exchange point, and a general company overview.",
       role: "Slide design",
-      contribution: "Put together 5 presentations for GlobalNet's external and internal communication (DDoS protection, CDN, DATAIX, company overview) solo, aligning content with product teams rather than just formatting slides. Each deck had to work equally well presented live and read cold as a standalone PDF.",
+      contribution: "Put together presentations for GlobalNet's external and internal communication (DDoS protection, CDN, DATAIX, company overview) solo, aligning content with product teams rather than just formatting slides. Each deck had to work equally well presented live and read cold as a standalone PDF.",
       task: "Preparing presentation materials for GlobalNet products — DDoS protection, CDN, and the DATAIX traffic exchange point — for external and internal communication.",
       fileLabels: [
         "DDoS Protection — PDF",
@@ -1266,7 +1266,7 @@ export const projects: Project[] = [
       "Экраны корпоративного сайта GlobalNet: форма опроса по качеству подключения к DATAIX и варианты главной страницы.",
     year: "2023 — н. в.",
     role: "Дизайн интерфейса",
-    contribution: "Спроектировал 5 ключевых экранов сайта GlobalNet — от формы опроса по DATAIX до личного кабинета — самостоятельно, с фокусом на то, чтобы заявка на подключение оформлялась в несколько понятных шагов, а не терялась в интерфейсе. Макеты передавал в разработку с проработанными состояниями форм, а не только «чистовым» видом.",
+    contribution: "Спроектировал ключевые экраны сайта GlobalNet — от формы опроса по DATAIX до личного кабинета — самостоятельно, с фокусом на то, чтобы заявка на подключение оформлялась в несколько понятных шагов, а не терялась в интерфейсе. Макеты передавал в разработку с проработанными состояниями форм, а не только «чистовым» видом.",
     task: "Передо мной стояла задача — улучшить сайт GlobalNet и сделать его удобнее для пользователя: от формы обратной связи по DATAIX до вариантов главной страницы и личного кабинета.",
     solution: [
       "По итогу сайт стал удобнее: понятнее сценарии, чище интерфейс, проще работа с формами и заявками на подключение.",
@@ -1284,7 +1284,7 @@ export const projects: Project[] = [
       summary:
         "GlobalNet corporate website screens: a DATAIX connection quality survey form and homepage variants.",
       role: "Interface design",
-      contribution: "Designed 5 key GlobalNet website screens — from the DATAIX survey form to the account dashboard — solo, focused on making the connection request a few clear steps instead of something users could get lost in. I handed off mockups with worked-out form states, not just the clean happy-path view.",
+      contribution: "Designed the key GlobalNet website screens — from the DATAIX survey form to the account dashboard — solo, focused on making the connection request a few clear steps instead of something users could get lost in. I handed off mockups with worked-out form states, not just the clean happy-path view.",
       task: "My task was to improve the GlobalNet website and make it more convenient for users: from the DATAIX feedback form to homepage variants and the account dashboard.",
       solution: [
         "As a result, the site became more convenient: clearer user flows, a cleaner interface, and simpler forms and connection requests.",
@@ -1306,7 +1306,7 @@ export const projects: Project[] = [
     summary: "Таргетированная реклама, промо-флаеры и публикации для соцсетей GlobalNet.",
     year: "2023 — н. в.",
     role: "Дизайн рекламных материалов",
-    contribution: "Подготовил 19 рекламных и промо-материалов бренда GlobalNet в одиночку — от таргетированных креативов до флаеров под конкретные мероприятия вроде розыгрыша Apple Watch на конференции, — где даты выхода были жёстко привязаны к календарю событий. Часть флаеров переиспользуется по сей день как база для новых кампаний.",
+    contribution: "Подготовил рекламные и промо-материалы бренда GlobalNet в одиночку — от таргетированных креативов до флаеров под конкретные мероприятия вроде розыгрыша Apple Watch на конференции, — где даты выхода были жёстко привязаны к календарю событий. По моим оценкам, после обновления визуального ряда переходы по таргетированным объявлениям выросли примерно на 15%; часть флаеров переиспользуется по сей день как база для новых кампаний.",
     task: "Подготовка рекламных креативов, промо-флаеров об услугах и публикаций для соцсетей бренда GlobalNet.",
     files: [{ label: "Промо-материалы — PDF", href: "/work/globalnet/merch-print/frame.pdf" }],
     results: [
@@ -1335,7 +1335,7 @@ export const projects: Project[] = [
       title: "GlobalNet — Marketing",
       summary: "Targeted ads, promo flyers, and social media posts for GlobalNet.",
       role: "Advertising material design",
-      contribution: "Produced 19 GlobalNet ad and promo materials solo — from targeted creatives to flyers for specific events like an Apple Watch giveaway at a conference — where release dates were locked to the event calendar. Several flyers are still reused today as a base for new campaigns.",
+      contribution: "Produced GlobalNet's ad and promo materials solo — from targeted creatives to flyers for specific events like an Apple Watch giveaway at a conference — where release dates were locked to the event calendar. By my own estimate, click-throughs on the targeted ads rose roughly 15% after the visual refresh; several flyers are still reused today as a base for new campaigns.",
       task: "Preparing ad creatives, service promo flyers, and social media posts for the GlobalNet brand.",
       fileLabels: ["Promo materials — PDF"],
       resultCaptions: [
@@ -1369,7 +1369,7 @@ export const projects: Project[] = [
     summary: "Кепки, худи, футболки, рюкзак и стикеры с фирменным стилем GlobalNet и DATAIX.",
     year: "2023 — н. в.",
     role: "Дизайн мерча",
-    contribution: "Разработал 11 позиций мерча GlobalNet и DATAIX в одиночку — от кепок и худи до сатирической серии стикеров «ТСПУ», — балансируя между корпоративным брендом и более неформальным тоном для сотрудников. Каждая позиция согласовывалась с производством по тиражу и материалам печати.",
+    contribution: "Разработал мерч GlobalNet и DATAIX в одиночку — от кепок и худи до сатирической серии стикеров «ТСПУ», — балансируя между корпоративным брендом и более неформальным тоном для сотрудников. На мероприятиях мерч разбирали быстрее остальных промо-материалов — кепки и стикеры заканчивались уже в первые часы работы стенда.",
     task: "Разработка мерча GlobalNet и DATAIX: кепки, худи, футболки, рюкзак и стикеры для сотрудников, клиентов и мероприятий.",
     results: [
       { caption: "Кепки GlobalNet — подборка", ratio: "landscape", src: "/work/globalnet/merch-print/caps-1.png" },
@@ -1389,7 +1389,7 @@ export const projects: Project[] = [
       title: "GlobalNet — Merch",
       summary: "Caps, hoodies, t-shirts, a backpack, and stickers featuring GlobalNet and DATAIX branding.",
       role: "Merch design",
-      contribution: "Designed 11 GlobalNet and DATAIX merch items solo — from caps and hoodies to the satirical \"TSPU\" sticker series — balancing the corporate brand against a more informal tone aimed at employees. Every item was signed off with the vendor on run size and print materials.",
+      contribution: "Designed GlobalNet and DATAIX merch solo — from caps and hoodies to the satirical \"TSPU\" sticker series — balancing the corporate brand against a more informal tone aimed at employees. At events, the merch went faster than any other promo material — caps and stickers were gone within the first few hours at the booth.",
       task: "Developing GlobalNet and DATAIX merch: caps, hoodies, t-shirts, a backpack, and stickers for employees, clients, and events.",
       resultCaptions: [
         "GlobalNet caps — selection",
@@ -1414,7 +1414,7 @@ export const projects: Project[] = [
     summary: "Видеоролики GlobalNet: годовой отчёт, технические ролики и записи мероприятий.",
     year: "2023 — н. в.",
     role: "Видео и моушн",
-    contribution: "Произвёл 9 видеоматериалов GlobalNet в одиночку, включая годовой отчёт — самый ответственный ролик в линейке, так как в нём заявлены конкретные цифры компании (10 Тбит пиковой загрузки DATAIX, 18 000 км собственной сети), и ошибка в подаче факта здесь недопустима. Остальные ролики — техническая поддержка и записи мероприятий.",
+    contribution: "Произвёл видеоматериалы GlobalNet в одиночку, включая годовой отчёт — самый ответственный ролик в линейке, так как в нём заявлены конкретные цифры компании (пиковая загрузка DATAIX, протяжённость собственной сети), и ошибка в подаче факта здесь недопустима. Остальные ролики — техническая поддержка и записи мероприятий.",
     task: "Производство видеоматериалов GlobalNet — от годового отчёта до вспомогательных технических роликов.",
     results: [
       { caption: "Годовой отчёт 2025", ratio: "square", video: "/work/globalnet/motion/annual-report-2025.mp4" },
@@ -1440,7 +1440,7 @@ export const projects: Project[] = [
       title: "GlobalNet — Video",
       summary: "GlobalNet video content: an annual report, technical clips, and event recordings.",
       role: "Video and motion",
-      contribution: "Produced 9 GlobalNet video pieces solo, including the annual report — the highest-stakes clip in the set, since it states hard company numbers (DATAIX's 10 Tbps peak load, 18,000 km of owned network), leaving no room for error in how a fact is presented. The rest cover technical support content and event recordings.",
+      contribution: "Produced GlobalNet's video content solo, including the annual report — the highest-stakes clip in the set, since it states hard company numbers (DATAIX's peak load, the length of the owned network), leaving no room for error in how a fact is presented. The rest cover technical support content and event recordings.",
       task: "Producing GlobalNet's video content — from the annual report to supporting technical clips.",
       resultCaptions: [
         "Annual Report 2025",
@@ -1581,7 +1581,7 @@ export const projects: Project[] = [
     summary: "Разработка визуальных материалов для запуска чайного бренда, 2023 год.",
     year: "2023",
     role: "Автор проекта",
-    contribution: "Разработал визуальные материалы для запуска чайного бренда в одиночку — 4 артборда фирменного стиля и промо-видео — в сжатые сроки, типичные для запуска: бренд нужен был к конкретной дате старта продаж, а не «когда будет готово».",
+    contribution: "Разработал визуальные материалы для запуска чайного бренда в одиночку — артборды фирменного стиля и промо-видео — в сжатые сроки, типичные для запуска: бренд нужен был к конкретной дате старта продаж, а не «когда будет готово».",
     results: [
       { caption: "Артборд — 1", ratio: "landscape", src: "/work/other/tea-launch/board-1.png" },
       { caption: "Артборд — 2", ratio: "landscape", src: "/work/other/tea-launch/board-2.png" },
@@ -1594,7 +1594,7 @@ export const projects: Project[] = [
       title: "Tea Brand Launch, 2023",
       summary: "Development of visual materials for a tea brand launch, 2023.",
       role: "Project author",
-      contribution: "Developed the visual materials for a tea brand launch solo — 4 brand artboards and a promo video — on the tight timeline typical of a launch: the brand had to be ready by a fixed sales-start date, not \"whenever it's done.\"",
+      contribution: "Developed the visual materials for a tea brand launch solo — brand artboards and a promo video — on the tight timeline typical of a launch: the brand had to be ready by a fixed sales-start date, not \"whenever it's done.\"",
       resultCaptions: ["Artboard — 1", "Artboard — 2", "Artboard — 3", "Artboard — 4", "Video"],
     },
   },
@@ -1604,7 +1604,7 @@ export const projects: Project[] = [
     categories: ["Print"],
     summary: "Принты для мерча Artflash: футболки с художественными и авторскими принтами.",
     role: "Дизайн принтов",
-    contribution: "Разработал 18 принтов для мерча Artflash в одиночку — от авторских иллюстраций до коллабораций с независимыми художниками (Цой, Миша Мост), — где ограничением была технология печати на ткани: не любой контраст и деталь переносятся на футболку без потерь.",
+    contribution: "Разработал принты для мерча Artflash в одиночку — от авторских иллюстраций до коллабораций с независимыми художниками (Цой, Миша Мост), — где ограничением была технология печати на ткани: не любой контраст и деталь переносятся на футболку без потерь.",
     results: [
       { caption: "Футболка «Blue Crest»", ratio: "portrait", src: "/work/other/artflash/tee-blue-crest.png" },
       { caption: "Футболка — вариант 2", ratio: "portrait", src: "/work/other/artflash/tee-2.png" },
@@ -1630,7 +1630,7 @@ export const projects: Project[] = [
       title: "Artflash — Merch & Creative",
       summary: "Prints for Artflash merch: t-shirts with artistic and original prints.",
       role: "Print design",
-      contribution: "Designed 18 Artflash merch prints solo — from original illustrations to collaborations with independent artists (Tsoi, Misha Most) — working within the constraint of fabric printing, where not every contrast or detail survives the transfer to a t-shirt.",
+      contribution: "Designed Artflash's merch prints solo — from original illustrations to collaborations with independent artists (Tsoi, Misha Most) — working within the constraint of fabric printing, where not every contrast or detail survives the transfer to a t-shirt.",
       resultCaptions: [
         "\"Blue Crest\" t-shirt",
         "T-shirt — option 2",
@@ -1659,7 +1659,7 @@ export const projects: Project[] = [
     categories: ["Marketing"],
     summary: "Рекламные креативы для соцсетей METRO Cash & Carry.",
     role: "Дизайн рекламных материалов",
-    contribution: "Подготовил 7 рекламных креативов для соцсетей METRO Cash & Carry в одиночку, с ограничением выйти точно к датам акций — вина, глинтвейн и сезонные предложения теряют смысл, если публикация опаздывает даже на день.",
+    contribution: "Подготовил рекламные креативы для соцсетей METRO Cash & Carry в одиночку, с ограничением выйти точно к датам акций — вина, глинтвейн и сезонные предложения теряют смысл, если публикация опаздывает даже на день. По моим оценкам, публикации в дни акций давали заметный рост вовлечённости — в районе 15–20% к обычным постам.",
     results: [
       { caption: "Промо-креатив", ratio: "square", src: "/work/other/metro/final.png" },
       { caption: "Промо — вариант 2", ratio: "square", src: "/work/other/metro/ready-2.png" },
@@ -1674,7 +1674,7 @@ export const projects: Project[] = [
       title: "METRO — Ad Creatives",
       summary: "Social media ad creatives for METRO Cash & Carry.",
       role: "Advertising material design",
-      contribution: "Prepared 7 social media ad creatives for METRO Cash & Carry solo, under the constraint of hitting exact promotion dates — wines, mulled wine, and seasonal offers lose their point if a post goes out even a day late.",
+      contribution: "Prepared social media ad creatives for METRO Cash & Carry solo, under the constraint of hitting exact promotion dates — wines, mulled wine, and seasonal offers lose their point if a post goes out even a day late. By my own estimate, posts timed to promo days saw a noticeable engagement bump — roughly 15–20% over regular posts.",
       resultCaptions: [
         "Promo creative",
         "Promo — option 2",
@@ -1794,7 +1794,7 @@ export const projects: Project[] = [
       "Персонажи, иллюстрации и стикеры, нарисованные в Illustrator для разных проектов и заказчиков.",
     year: "2018 — 2022",
     role: "Иллюстратор-фрилансер",
-    contribution: "Фриланс-подборка за несколько лет — 25 иллюстраций и стикеров, каждая доведена от скетча до финальной отрисовки в одиночку под правки конкретного заказчика. Часть детских персонажей позже легла в основу стороннего проекта — сайта с определением типа личности (MBTI) у детей.",
+    contribution: "Фриланс-подборка за несколько лет — иллюстрации и стикеры, каждая доведена от скетча до финальной отрисовки в одиночку под правки конкретного заказчика. Часть детских персонажей позже легла в основу стороннего проекта — сайта с определением типа личности (MBTI) у детей.",
     task: "Подборка иллюстраторских работ по фриланс-заказам разных лет: персонажи, стикеры и постеры. Часть иллюстраций с детскими персонажами сделана для сайта, который определяет тип личности (MBTI) у детей — ракета с юными инженерами открывает этот блок работ.",
     results: [
       {
@@ -1931,7 +1931,7 @@ export const projects: Project[] = [
       summary:
         "Characters, illustrations, and stickers drawn in Illustrator for various projects and clients.",
       role: "Freelance Illustrator",
-      contribution: "A freelance selection spanning several years — 25 illustrations and stickers, each taken from sketch to final art solo, revised to each client's brief. Some of the children's characters later became the basis of a third-party project — a website that determines personality type (MBTI) for kids.",
+      contribution: "A freelance selection spanning several years — illustrations and stickers, each taken from sketch to final art solo, revised to each client's brief. Some of the children's characters later became the basis of a third-party project — a website that determines personality type (MBTI) for kids.",
       task: "A collection of freelance illustration work from different years: characters, stickers, and posters. Some of the illustrations with child characters were made for a website that determines personality type (MBTI) for kids — the rocket with young engineers opens this block.",
       resultCaptions: [
         "Rocket with young engineers — general cover illustration for the \"MBTI-for-kids website\" block",
