@@ -27,6 +27,8 @@ export type ProjectFile = {
  */
 export type Contribution = {
   role: string;
+  /** Short 2-4 word tags for a compact card preview, e.g. ["Visual concept", "Graphic design", "Merch", "Production"]. */
+  tags: string[];
   /** What I personally owned — bullet list. */
   scope: string[];
   /** Who else was involved and what they owned — bullet list. Omitted for solo projects. */
@@ -94,11 +96,12 @@ export const projects: Project[] = [
     categories: ["Branding", "Print"],
     companyId: "gnm",
     summary:
-      "Комплексная работа с визуальной коммуникацией компании: рекламные материалы, digital, печатная продукция, презентации, мерч и оформление мероприятий.",
+      "Единая визуальная система GNM для рекламы, digital, печати, презентаций, мерча и мероприятий — вместо разрозненных материалов от разных подрядчиков.",
     year: "2023 — н. в.",
     role: "Lead Graphic Designer, отдел маркетинга",
     contribution: {
       role: "Lead Graphic Designer, отдел маркетинга",
+      tags: ["Visual concept", "Graphic design", "Merch", "Production"],
       scope: [
         "Разработал визуальную концепцию мерч-линейки",
         "Сделал дизайн и подготовил печатные макеты",
@@ -169,10 +172,11 @@ export const projects: Project[] = [
     en: {
       title: "GNM — Brand Identity & Merch",
       summary:
-        "End-to-end visual communications for the company: advertising materials, digital, print, presentations, merch, and event design.",
+        "A unified GNM visual system across advertising, digital, print, presentations, merch, and events — replacing disconnected materials from different vendors.",
       role: "Lead Graphic Designer, Marketing Department",
       contribution: {
         role: "Lead Graphic Designer, Marketing Department",
+        tags: ["Visual concept", "Graphic design", "Merch", "Production"],
         scope: [
           "Developed the merch line's visual concept",
           "Designed and prepared the print-ready layouts",
@@ -219,6 +223,7 @@ export const projects: Project[] = [
     role: "Дизайн интерфейсов, структура, передача в разработку",
     contribution: {
       role: "Дизайн интерфейсов, структура, передача в разработку",
+      tags: ["UI design", "Web", "Handoff"],
       scope: [
         "Спроектировал структуру и UI страницы «Exchange Locations & Network Coverage»",
         "Подготовил адаптивные макеты и состояния элементов",
@@ -259,6 +264,7 @@ export const projects: Project[] = [
       role: "Interface design, structure, developer handoff",
       contribution: {
         role: "Interface design, structure, developer handoff",
+        tags: ["UI design", "Web", "Handoff"],
         scope: [
           "Designed the structure and UI of the \"Exchange Locations & Network Coverage\" page",
           "Prepared responsive layouts and element states",
@@ -292,11 +298,12 @@ export const projects: Project[] = [
     categories: ["Marketing"],
     companyId: "gnm",
     summary:
-      "Разработка баннеров, рекламных материалов и визуальных коммуникаций для продвижения продуктов.",
+      "Система рекламных креативов GNM, которая держит одно сообщение во всех форматах — от баннеров до вертикальных сторис — без пересборки каждого размера с нуля.",
     year: "2023 — н. в.",
     role: "Дизайн рекламных материалов, адаптация под каналы",
     contribution: {
       role: "Дизайн рекламных материалов, адаптация под каналы",
+      tags: ["Key visual", "Ad design", "Adaptation"],
       scope: [
         "Нашёл визуальный ключ кампании",
         "Собрал мастер-макеты и размерную сетку",
@@ -407,10 +414,11 @@ export const projects: Project[] = [
     en: {
       title: "GNM — Marketing Campaigns",
       summary:
-        "Development of banners, advertising materials, and visual communications to promote products.",
+        "An ad-creative system for GNM that keeps one message consistent across every format — from banners to vertical stories — without rebuilding each size from scratch.",
       role: "Advertising material design, channel adaptation",
       contribution: {
         role: "Advertising material design, channel adaptation",
+        tags: ["Key visual", "Ad design", "Adaptation"],
         scope: [
           "Found the campaign's visual key",
           "Built the master layouts and size grid",
@@ -463,6 +471,7 @@ export const projects: Project[] = [
     role: "Концепция, анимация, монтаж",
     contribution: {
       role: "Концепция, анимация, монтаж",
+      tags: ["Concept", "Animation", "Editing"],
       scope: [
         "Написал сценарий и раскадровку",
         "Анимировал сцены и графику в After Effects",
@@ -542,6 +551,7 @@ export const projects: Project[] = [
       role: "Concept, animation, editing",
       contribution: {
         role: "Concept, animation, editing",
+        tags: ["Concept", "Animation", "Editing"],
         scope: [
           "Wrote the script and storyboard",
           "Animated scenes and graphics in After Effects",
@@ -581,11 +591,12 @@ export const projects: Project[] = [
     categories: ["Print"],
     companyId: "gnm",
     summary:
-      "Разработка полиграфии, стендов, roll-up, буклетов и материалов для мероприятий.",
+      "Комплект полиграфии и стендового оформления GNM-IX для мероприятий — читается по единой иерархии на расстоянии и вблизи, а не как набор разрозненных макетов.",
     year: "2023 — н. в.",
     role: "Дизайн, препресс, работа с подрядчиками",
     contribution: {
       role: "Дизайн, препресс, работа с подрядчиками",
+      tags: ["Print design", "Prepress", "Vendor coordination"],
       scope: [
         "Готовил макеты и препресс-файлы под конкретные допуски печати",
         "Лично согласовывал тиражи и цветопробы с типографией",
@@ -669,10 +680,11 @@ export const projects: Project[] = [
     en: {
       title: "GNM-IX — Print & Exhibition Design",
       summary:
-        "Development of print materials, stands, roll-ups, brochures, and event materials.",
+        "A print and booth-design set for GNM-IX events — built on one hierarchy readable from a distance and up close, not a collection of separate layouts.",
       role: "Design, prepress, vendor coordination",
       contribution: {
         role: "Design, prepress, vendor coordination",
+        tags: ["Print design", "Prepress", "Vendor coordination"],
         scope: [
           "Prepared layouts and prepress files to exact print tolerances",
           "Personally signed off on print runs and color proofs with the vendor",
@@ -713,11 +725,12 @@ export const projects: Project[] = [
     categories: ["Presentation Design"],
     companyId: "gnm",
     summary:
-      "Создание презентаций для клиентов, партнеров и внутренних команд.",
+      "Шаблон презентаций GNM, которым отделы пользуются самостоятельно — вместо того чтобы каждый раз обращаться к дизайнеру за новой колодой.",
     year: "2023 — н. в.",
     role: "Структура, дизайн слайдов, шаблоны",
     contribution: {
       role: "Структура, дизайн слайдов, шаблоны",
+      tags: ["Slide design", "Templates", "Typography"],
       scope: [
         "Спроектировал мастер-слайды и типографическую систему",
         "Собрал шаблон с инструкцией по применению",
@@ -755,10 +768,12 @@ export const projects: Project[] = [
     tone: 6,
     en: {
       title: "GNM — Presentations",
-      summary: "Creating presentations for clients, partners, and internal teams.",
+      summary:
+        "A GNM presentation template departments use on their own — instead of coming back to a designer for every new deck.",
       role: "Structure, slide design, templates",
       contribution: {
         role: "Structure, slide design, templates",
+        tags: ["Slide design", "Templates", "Typography"],
         scope: [
           "Designed the master slides and typographic system",
           "Built the template with usage instructions",
@@ -785,14 +800,15 @@ export const projects: Project[] = [
   {
     slug: "gnm-app",
     title: "GNM VPN — приложение",
-    categories: ["Product Design"],
+    categories: ["UI Design"],
     companyId: "gnm",
     summary:
-      "Визуальное оформление мобильного приложения GNM VPN: экран входа и рабочие состояния интерфейса.",
+      "Экраны VPN-приложения GNM, оформленные в общей визуальной системе компании — тот же логотип, шрифт и акцент, что на сайте и в остальных материалах.",
     year: "2023 — н. в.",
     role: "Визуальное оформление интерфейса",
     contribution: {
       role: "Визуальное оформление интерфейса",
+      tags: ["UI design", "Mobile"],
       scope: [
         "Оформил экраны и состояния мобильного приложения",
         "Собрал видео-макет демонстрации флоу",
@@ -826,10 +842,11 @@ export const projects: Project[] = [
     en: {
       title: "GNM VPN — App",
       summary:
-        "Visual design of the GNM VPN mobile app: login screen and interface states.",
+        "GNM VPN app screens designed within the company's visual system — the same logo, typeface, and accent as the website and other materials.",
       role: "Interface visual design",
       contribution: {
         role: "Interface visual design",
+        tags: ["UI design", "Mobile"],
         scope: [
           "Designed the mobile app's screens and states",
           "Put together a video mockup demonstrating the flow",
@@ -865,7 +882,7 @@ export const projects: Project[] = [
     slug: "telegram-bot-design",
     featured: true,
     title: "GlobalNet — Telegram-бот с ИИ-ассистентом",
-    categories: ["Product Design"],
+    categories: ["UI Design"],
     companyId: "globalnet",
     summary:
       "Разработка Telegram-бота с ИИ-ассистентом: бот обрабатывает клиентские запросы через базу знаний и передаёт сложные обращения менеджеру.",
@@ -873,6 +890,7 @@ export const projects: Project[] = [
     role: "Разработка бота, интеграция ИИ-ассистента",
     contribution: {
       role: "Разработка бота, интеграция ИИ-ассистента",
+      tags: ["Bot design", "AI integration", "UX writing"],
       scope: [
         "Спроектировал сценарии диалогов",
         "Написал тексты бота",
@@ -917,6 +935,7 @@ export const projects: Project[] = [
       role: "Bot development, AI assistant integration",
       contribution: {
         role: "Bot development, AI assistant integration",
+        tags: ["Bot design", "AI integration", "UX writing"],
         scope: [
           "Designed the dialogue flows",
           "Wrote the bot's copy",
@@ -946,7 +965,7 @@ export const projects: Project[] = [
   {
     slug: "chat-monitor-bot",
     title: "GlobalNet — бот-аналитик клиентских чатов",
-    categories: ["Product Design"],
+    categories: ["UI Design"],
     companyId: "globalnet",
     summary:
       "Telegram-бот, который мониторит клиентские чаты, структурирует переписку в базу данных и автоматически сообщает руководителям о жалобах, конфликтах и просроченных ответах.",
@@ -954,6 +973,7 @@ export const projects: Project[] = [
     role: "Разработка бота, аналитика на базе ИИ",
     contribution: {
       role: "Разработка бота, аналитика на базе ИИ",
+      tags: ["Bot development", "AI analysis", "Data structure"],
       scope: [
         "Подключил бота к клиентским групповым чатам",
         "Настроил структурирование переписки в базу данных",
@@ -1013,6 +1033,7 @@ export const projects: Project[] = [
       role: "Bot development, AI-driven analysis",
       contribution: {
         role: "Bot development, AI-driven analysis",
+        tags: ["Bot development", "AI analysis", "Data structure"],
         scope: [
           "Connected the bot to client group chats",
           "Set up structuring of conversations into a database",
@@ -1046,11 +1067,12 @@ export const projects: Project[] = [
     categories: ["Presentation Design"],
     companyId: "globalnet",
     summary:
-      "Презентации сервисов GlobalNet: защита от DDoS, CDN, точка обмена трафиком DATAIX и общая презентация компании.",
+      "Презентации сервисов GlobalNet — DDoS-защита, CDN, DATAIX и обзор компании, — которые одинаково работают и на встрече с клиентом, и как самостоятельный PDF.",
     year: "2025 — 2026",
     role: "Дизайн слайдов",
     contribution: {
       role: "Дизайн слайдов",
+      tags: ["Slide design", "Content"],
       scope: [
         "Собрал структуру и дизайн 5 презентаций по продуктам",
         "Подготовил файлы, которые работают и как раздаточный PDF",
@@ -1086,10 +1108,11 @@ export const projects: Project[] = [
     en: {
       title: "GlobalNet — Presentations",
       summary:
-        "Presentations for GlobalNet services: DDoS protection, CDN, the DATAIX traffic exchange point, and a general company overview.",
+        "GlobalNet service presentations — DDoS protection, CDN, DATAIX, and a company overview — that work equally well presented live or read cold as a PDF.",
       role: "Slide design",
       contribution: {
         role: "Slide design",
+        tags: ["Slide design", "Content"],
         scope: [
           "Built the structure and design of 5 product presentations",
           "Prepared files that also work as a standalone handout PDF",
@@ -1129,11 +1152,12 @@ export const projects: Project[] = [
     categories: ["Web Design"],
     companyId: "globalnet",
     summary:
-      "Экраны корпоративного сайта GlobalNet: форма опроса по качеству подключения к DATAIX и варианты главной страницы.",
+      "Экраны сайта GlobalNet, спроектированные так, чтобы заявка на подключение к DATAIX оформлялась в несколько понятных шагов, а не терялась в интерфейсе.",
     year: "2023 — н. в.",
     role: "Дизайн интерфейса",
     contribution: {
       role: "Дизайн интерфейса",
+      tags: ["UI design", "Web", "Forms"],
       scope: [
         "Спроектировал форму опроса по DATAIX",
         "Спроектировал варианты главной страницы и личный кабинет",
@@ -1164,10 +1188,11 @@ export const projects: Project[] = [
     en: {
       title: "GlobalNet — Website",
       summary:
-        "GlobalNet corporate website screens: a DATAIX connection quality survey form and homepage variants.",
+        "GlobalNet website screens designed so a DATAIX connection request takes a few clear steps instead of getting lost in the interface.",
       role: "Interface design",
       contribution: {
         role: "Interface design",
+        tags: ["UI design", "Web", "Forms"],
         scope: [
           "Designed the DATAIX survey form",
           "Designed homepage variants and the account dashboard",
@@ -1201,11 +1226,13 @@ export const projects: Project[] = [
     title: "GlobalNet — маркетинг",
     categories: ["Marketing"],
     companyId: "globalnet",
-    summary: "Таргетированная реклама, промо-флаеры и публикации для соцсетей GlobalNet.",
+    summary:
+      "Рекламные и промо-материалы GlobalNet, часть которых команда переиспользует как базу для новых кампаний, а не только под конкретное мероприятие.",
     year: "2023 — н. в.",
     role: "Дизайн рекламных материалов",
     contribution: {
       role: "Дизайн рекламных материалов",
+      tags: ["Ad design", "Social", "Flyers"],
       scope: [
         "Готовил таргетированные креативы",
         "Готовил промо-флаеры под конкретные мероприятия",
@@ -1249,10 +1276,12 @@ export const projects: Project[] = [
     tone: 3,
     en: {
       title: "GlobalNet — Marketing",
-      summary: "Targeted ads, promo flyers, and social media posts for GlobalNet.",
+      summary:
+        "GlobalNet ad and promo materials, some of which the team reuses as a base for new campaigns rather than one-off event pieces.",
       role: "Advertising material design",
       contribution: {
         role: "Advertising material design",
+        tags: ["Ad design", "Social", "Flyers"],
         scope: [
           "Produced targeted creatives",
           "Produced promo flyers for specific events",
@@ -1300,11 +1329,13 @@ export const projects: Project[] = [
     title: "GlobalNet — мерч",
     categories: ["Print"],
     companyId: "globalnet",
-    summary: "Кепки, худи, футболки, рюкзак и стикеры с фирменным стилем GlobalNet и DATAIX.",
+    summary:
+      "Мерч GlobalNet и DATAIX для сотрудников, клиентов и мероприятий — раскупается на стендах быстрее прочих промо-материалов.",
     year: "2023 — н. в.",
     role: "Дизайн мерча",
     contribution: {
       role: "Дизайн мерча",
+      tags: ["Merch design", "Production"],
       scope: [
         "Разработал дизайн кепок, худи, футболок, рюкзака и стикеров",
         "Согласовывал тираж и материалы печати с производством",
@@ -1338,10 +1369,12 @@ export const projects: Project[] = [
     tone: 4,
     en: {
       title: "GlobalNet — Merch",
-      summary: "Caps, hoodies, t-shirts, a backpack, and stickers featuring GlobalNet and DATAIX branding.",
+      summary:
+        "GlobalNet and DATAIX merch for employees, clients, and events — goes faster at booths than any other promo material.",
       role: "Merch design",
       contribution: {
         role: "Merch design",
+        tags: ["Merch design", "Production"],
         scope: [
           "Designed caps, hoodies, t-shirts, a backpack, and stickers",
           "Signed off on run size and print materials with production",
@@ -1379,11 +1412,13 @@ export const projects: Project[] = [
     title: "GlobalNet — видео",
     categories: ["Motion"],
     companyId: "globalnet",
-    summary: "Видеоролики GlobalNet: годовой отчёт, технические ролики и записи мероприятий.",
+    summary:
+      "Видеоконтент GlobalNet — от годового отчёта для инвесторов до технических роликов и записей мероприятий.",
     year: "2023 — н. в.",
     role: "Видео и моушн",
     contribution: {
       role: "Видео и моушн",
+      tags: ["Video", "Motion", "Editing"],
       scope: [
         "Произвёл видеоконтент — от годового отчёта до технических роликов",
         "Смонтировал записи мероприятий",
@@ -1423,10 +1458,12 @@ export const projects: Project[] = [
     tone: 5,
     en: {
       title: "GlobalNet — Video",
-      summary: "GlobalNet video content: an annual report, technical clips, and event recordings.",
+      summary:
+        "GlobalNet video content — from the investor-facing annual report to technical clips and event recordings.",
       role: "Video and motion",
       contribution: {
         role: "Video and motion",
+        tags: ["Video", "Motion", "Editing"],
         scope: [
           "Produced video content — from the annual report to technical clips",
           "Edited event recordings",
@@ -1470,6 +1507,7 @@ export const projects: Project[] = [
     role: "Автор проекта",
     contribution: {
       role: "Автор проекта",
+      tags: ["Concept", "Presentation"],
       scope: [
         "Продумал креативную часть продукта",
         "Оформил материалы для защиты",
@@ -1490,6 +1528,7 @@ export const projects: Project[] = [
       role: "Project author",
       contribution: {
         role: "Project author",
+        tags: ["Concept", "Presentation"],
         scope: [
           "Developed the product's creative direction",
           "Prepared the defense materials",
@@ -1513,6 +1552,7 @@ export const projects: Project[] = [
     role: "Автор проекта",
     contribution: {
       role: "Автор проекта",
+      tags: ["Concept", "Presentation"],
       scope: [
         "Продумал концепцию технологии",
         "Оформил материалы для защиты перед комиссией",
@@ -1533,6 +1573,7 @@ export const projects: Project[] = [
       role: "Project author",
       contribution: {
         role: "Project author",
+        tags: ["Concept", "Presentation"],
         scope: [
           "Developed the technology concept",
           "Prepared materials for the panel defense",
@@ -1556,6 +1597,7 @@ export const projects: Project[] = [
     role: "Дизайн бренда (совместно с Дарьей Ивановой)",
     contribution: {
       role: "Дизайн бренда (совместно с Дарьей Ивановой)",
+      tags: ["Brand identity", "Logo", "Typography"],
       scope: [
         "Разработал визуальную систему бренда: логотип, цвет, типографику",
       ],
@@ -1579,6 +1621,7 @@ export const projects: Project[] = [
       role: "Brand design (with Daria Ivanova)",
       contribution: {
         role: "Brand design (with Daria Ivanova)",
+        tags: ["Brand identity", "Logo", "Typography"],
         scope: [
           "Developed the brand's visual system: logo, color, typography",
         ],
@@ -1604,6 +1647,7 @@ export const projects: Project[] = [
     role: "Автор проекта",
     contribution: {
       role: "Автор проекта",
+      tags: ["Brand book", "Logo", "Packaging"],
       scope: [
         "Разработал логотип и цветовую систему",
         "Прописал правила применения на упаковке",
@@ -1625,6 +1669,7 @@ export const projects: Project[] = [
       role: "Project author",
       contribution: {
         role: "Project author",
+        tags: ["Brand book", "Logo", "Packaging"],
         scope: [
           "Designed the logo and color system",
           "Wrote the packaging usage rules",
@@ -1648,6 +1693,7 @@ export const projects: Project[] = [
     role: "Дизайн презентации",
     contribution: {
       role: "Дизайн презентации",
+      tags: ["Presentation design"],
       scope: [
         "Спроектировал структуру и дизайн слайдов",
         "Подготовил рабочий файл в PowerPoint для дальнейшего редактирования",
@@ -1672,6 +1718,7 @@ export const projects: Project[] = [
       role: "Presentation design",
       contribution: {
         role: "Presentation design",
+        tags: ["Presentation design"],
         scope: [
           "Designed the slide structure and visuals",
           "Prepared a working PowerPoint file for further editing",
@@ -1695,6 +1742,7 @@ export const projects: Project[] = [
     role: "Автор проекта",
     contribution: {
       role: "Автор проекта",
+      tags: ["Brand identity", "Signage", "Print"],
       scope: [
         "Разработал концепцию фирменного стиля сети чайных",
         "Сделал вывеску, меню и рекламные материалы",
@@ -1721,6 +1769,7 @@ export const projects: Project[] = [
       role: "Project author",
       contribution: {
         role: "Project author",
+        tags: ["Brand identity", "Signage", "Print"],
         scope: [
           "Developed the tea house chain's brand identity concept",
           "Designed the signage, menu, and advertising materials",
@@ -1747,6 +1796,7 @@ export const projects: Project[] = [
     role: "Автор проекта",
     contribution: {
       role: "Автор проекта",
+      tags: ["Brand identity", "Artboards", "Video"],
       scope: [
         "Разработал артборды фирменного стиля",
         "Собрал промо-видео к запуску",
@@ -1773,6 +1823,7 @@ export const projects: Project[] = [
       role: "Project author",
       contribution: {
         role: "Project author",
+        tags: ["Brand identity", "Artboards", "Video"],
         scope: [
           "Developed the brand identity artboards",
           "Put together the launch promo video",
@@ -1796,6 +1847,7 @@ export const projects: Project[] = [
     role: "Дизайн принтов",
     contribution: {
       role: "Дизайн принтов",
+      tags: ["Print design", "Illustration"],
       scope: [
         "Разработал авторские принты",
         "Предложил концепции коллабораций с независимыми художниками",
@@ -1839,6 +1891,7 @@ export const projects: Project[] = [
       role: "Print design",
       contribution: {
         role: "Print design",
+        tags: ["Print design", "Illustration"],
         scope: [
           "Designed original prints",
           "Proposed collaboration concepts with independent artists",
@@ -1885,6 +1938,7 @@ export const projects: Project[] = [
     role: "Дизайн рекламных материалов",
     contribution: {
       role: "Дизайн рекламных материалов",
+      tags: ["Ad design", "Social"],
       scope: [
         "Готовил рекламные креативы для соцсетей",
         "Адаптировал креативы под сезонные акции",
@@ -1916,6 +1970,7 @@ export const projects: Project[] = [
       role: "Advertising material design",
       contribution: {
         role: "Advertising material design",
+        tags: ["Ad design", "Social"],
         scope: [
           "Produced social media ad creatives",
           "Adapted creatives for seasonal promotions",
@@ -1952,6 +2007,7 @@ export const projects: Project[] = [
     role: "Стажёр-дизайнер",
     contribution: {
       role: "Стажёр-дизайнер",
+      tags: ["Ad design", "Presentations", "3D motion"],
       scope: [
         "Готовил рекламные посты и таргетированные креативы",
         "Вёрстал презентации для бизнеса и инвесторов",
@@ -2042,6 +2098,7 @@ export const projects: Project[] = [
       role: "Design Intern",
       contribution: {
         role: "Design Intern",
+        tags: ["Ad design", "Presentations", "3D motion"],
         scope: [
           "Produced ad posts and targeted creatives",
           "Built presentations for business and investor audiences",
@@ -2088,6 +2145,7 @@ export const projects: Project[] = [
     role: "Иллюстратор-фрилансер",
     contribution: {
       role: "Иллюстратор-фрилансер",
+      tags: ["Illustration", "Character design"],
       scope: [
         "Рисовал персонажей, стикеры и постеры под бриф заказчика",
         "Проходил правки от скетча до финальной отрисовки",
@@ -2241,6 +2299,7 @@ export const projects: Project[] = [
       role: "Freelance Illustrator",
       contribution: {
         role: "Freelance Illustrator",
+        tags: ["Illustration", "Character design"],
         scope: [
           "Drew characters, stickers, and posters to client briefs",
           "Took each piece through revisions from sketch to final art",

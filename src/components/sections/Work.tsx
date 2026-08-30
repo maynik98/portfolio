@@ -23,11 +23,13 @@ function ProjectCard({
   index,
   delay = 0,
   viewCaseLabel,
+  myRoleLabel,
 }: {
   project: Project;
   index: number;
   delay?: number;
   viewCaseLabel: string;
+  myRoleLabel: string;
 }) {
   return (
     <Reveal as="article" delay={delay}>
@@ -45,6 +47,15 @@ function ProjectCard({
           <p className="mt-3 text-[16px] leading-[1.6] text-muted">
             {project.summary}
           </p>
+
+          {project.contribution && (
+            <p className="mt-4 text-[13px] leading-[1.5] text-muted">
+              <span className="font-medium text-ink">{myRoleLabel}: </span>
+              {project.contribution.role}
+              <span className="text-hairline"> · </span>
+              {project.contribution.tags.join(" · ")}
+            </p>
+          )}
 
           <span className="mt-5 inline-flex shrink-0 items-center gap-2 text-[15px] font-medium transition-colors duration-300 group-hover:text-accent">
             {viewCaseLabel}
@@ -170,6 +181,7 @@ export default function Work() {
                 index={index}
                 delay={(index % 2) * 90}
                 viewCaseLabel={t.work.viewCase}
+                myRoleLabel={t.work.myRole}
               />
             ))}
           </div>

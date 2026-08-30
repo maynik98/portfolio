@@ -80,6 +80,14 @@ export default function CompanyWorkGrid({ projects }: { projects: Project[] }) {
                   <p className="mt-3 text-[16px] leading-[1.6] text-muted">
                     {project.summary}
                   </p>
+                  {project.contribution && (
+                    <p className="mt-4 text-[13px] leading-[1.5] text-muted">
+                      <span className="font-medium text-ink">{t.work.myRole}: </span>
+                      {project.contribution.role}
+                      <span className="text-hairline"> · </span>
+                      {project.contribution.tags.join(" · ")}
+                    </p>
+                  )}
                 </div>
               </Link>
             </Reveal>

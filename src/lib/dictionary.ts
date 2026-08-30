@@ -18,12 +18,12 @@ export const dictionary = {
       role: "Lead Graphic Designer",
       subtitle:
         "Создаю визуальные системы и коммуникации для брендов, digital-продуктов и маркетинга — от концепции до production.",
-      directions: "Branding · Digital · Marketing · Motion · Presentations · AI",
+      directions: "Graphic Design · Branding · Digital · Motion · Presentation",
       viewWork: "Посмотреть проекты",
       contact: "Связаться",
       stats: [
         { value: "3+", label: "года коммерческого опыта" },
-        { value: "100+", label: "реализованных проектов" },
+        { value: "100+", label: "коммерческих и учебных проектов" },
         { value: "Graphic Design", label: "Branding / Print" },
       ],
     },
@@ -40,14 +40,15 @@ export const dictionary = {
         primary: [
           "Graphic Design",
           "Branding",
-          "Print Design",
-          "Presentation Design",
+          "Digital Design",
           "Motion Design",
+          "Presentation Design",
         ],
         secondary: [
+          "Print Design",
           "Web Design",
           "Landing Pages",
-          "UI/UX",
+          "UI Design",
           "Telegram Bot Design",
           "AI-assisted Design",
         ],
@@ -132,8 +133,8 @@ export const dictionary = {
       steps: [
         {
           number: "01",
-          title: "Исследование",
-          detail: "Разбираю задачу, аудиторию и контекст: что должно измениться после проекта.",
+          title: "Задача",
+          detail: "Разбираю задачу, для кого она и какие есть ограничения — бюджет, сроки, брендбук.",
         },
         {
           number: "02",
@@ -147,13 +148,13 @@ export const dictionary = {
         },
         {
           number: "04",
-          title: "Подготовка",
-          detail: "Собираю финальные файлы под производство или передачу в разработку.",
+          title: "Production",
+          detail: "Готовлю финальные файлы под печать, соцсети или передачу в разработку.",
         },
         {
           number: "05",
-          title: "Реализация",
-          detail: "Сопровождаю выпуск и контролирую результат на выходе.",
+          title: "Результат",
+          detail: "Слежу, что материалы дошли до канала и используются по назначению.",
         },
       ],
     },
@@ -201,6 +202,7 @@ export const dictionary = {
       emptyHome: "По выбранному фильтру проектов пока нет.",
       emptyCompany: "По выбранной категории проектов пока нет.",
       showAll: "Показать все проекты",
+      myRole: "Моя роль",
     },
     contact: {
       label: "Контакты",
@@ -269,12 +271,12 @@ export const dictionary = {
       role: "Lead Graphic Designer",
       subtitle:
         "I build visual systems and communications for brands, digital products, and marketing — from concept to production.",
-      directions: "Branding · Digital · Marketing · Motion · Presentations · AI",
+      directions: "Graphic Design · Branding · Digital · Motion · Presentation",
       viewWork: "View projects",
       contact: "Get in touch",
       stats: [
         { value: "3+", label: "years of commercial experience" },
-        { value: "100+", label: "projects delivered" },
+        { value: "100+", label: "commercial and course projects" },
         { value: "Graphic Design", label: "Branding / Print" },
       ],
     },
@@ -291,14 +293,15 @@ export const dictionary = {
         primary: [
           "Graphic Design",
           "Branding",
-          "Print Design",
-          "Presentation Design",
+          "Digital Design",
           "Motion Design",
+          "Presentation Design",
         ],
         secondary: [
+          "Print Design",
           "Web Design",
           "Landing Pages",
-          "UI/UX",
+          "UI Design",
           "Telegram Bot Design",
           "AI-assisted Design",
         ],
@@ -383,8 +386,8 @@ export const dictionary = {
       steps: [
         {
           number: "01",
-          title: "Research",
-          detail: "I break down the task, audience and context: what should change after the project.",
+          title: "Brief",
+          detail: "I break down the task, who it's for, and the constraints — budget, deadline, brand guidelines.",
         },
         {
           number: "02",
@@ -398,13 +401,13 @@ export const dictionary = {
         },
         {
           number: "04",
-          title: "Prep",
-          detail: "I assemble final files for production or handoff to development.",
+          title: "Production",
+          detail: "I prepare final files for print, social, or handoff to development.",
         },
         {
           number: "05",
-          title: "Delivery",
-          detail: "I support the release and check the result once it's live.",
+          title: "Result",
+          detail: "I check that materials reached the channel and are being used as intended.",
         },
       ],
     },
@@ -452,6 +455,7 @@ export const dictionary = {
       emptyHome: "No projects match this filter yet.",
       emptyCompany: "No projects in this category yet.",
       showAll: "Show all projects",
+      myRole: "My role",
     },
     contact: {
       label: "Contact",
