@@ -200,6 +200,7 @@ export const dictionary = {
       viewCase: "Смотреть кейс",
       emptyHome: "По выбранному фильтру проектов пока нет.",
       emptyCompany: "По выбранной категории проектов пока нет.",
+      showAll: "Показать все проекты",
     },
     contact: {
       label: "Контакты",
@@ -450,6 +451,7 @@ export const dictionary = {
       viewCase: "View case",
       emptyHome: "No projects match this filter yet.",
       emptyCompany: "No projects in this category yet.",
+      showAll: "Show all projects",
     },
     contact: {
       label: "Contact",

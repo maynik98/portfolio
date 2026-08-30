@@ -72,6 +72,8 @@ export type Project = {
   contribution?: Contribution;
   /** Software actually used on this case — shown as a compact "Tools" line. */
   tools?: string[];
+  /** Shown by default in the homepage "Featured" grid. Every project stays reachable via "Show all". */
+  featured?: boolean;
   results: ResultShot[];
   /** Файлы, которые можно открыть целиком (PDF, DOCX и т.д.). */
   files?: ProjectFile[];
@@ -87,6 +89,7 @@ export const projects: Project[] = [
   // ---------------------------------------------------------------------
   {
     slug: "globalnet-gnm",
+    featured: true,
     title: "GNM — фирменный стиль и мерч",
     categories: ["Branding", "Print"],
     companyId: "gnm",
@@ -206,6 +209,7 @@ export const projects: Project[] = [
   },
   {
     slug: "corporate-website",
+    featured: true,
     title: "GNM-IX — сайт",
     categories: ["Web Design"],
     companyId: "gnm",
@@ -283,6 +287,7 @@ export const projects: Project[] = [
   },
   {
     slug: "marketing-campaigns",
+    featured: true,
     title: "GNM — маркетинговые кампании",
     categories: ["Marketing"],
     companyId: "gnm",
@@ -448,6 +453,7 @@ export const projects: Project[] = [
   },
   {
     slug: "motion-design",
+    featured: true,
     title: "GNM — видео и моушн-дизайн",
     categories: ["Motion", "Web Design"],
     companyId: "gnm",
@@ -702,6 +708,7 @@ export const projects: Project[] = [
   },
   {
     slug: "presentation-design",
+    featured: true,
     title: "GNM — презентации",
     categories: ["Presentation Design"],
     companyId: "gnm",
@@ -856,6 +863,7 @@ export const projects: Project[] = [
   // ---------------------------------------------------------------------
   {
     slug: "telegram-bot-design",
+    featured: true,
     title: "GlobalNet — Telegram-бот с ИИ-ассистентом",
     categories: ["Product Design"],
     companyId: "globalnet",

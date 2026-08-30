@@ -66,6 +66,7 @@ export default function Work() {
   const t = getDictionary(lang);
   const [companyFilter, setCompanyFilter] = useState<CompanyFilter>("all");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [showAll, setShowAll] = useState(false);
 
   const localizedProjects = useMemo(
     () => projects.map((project) => localizeProject(project, lang)),
@@ -88,13 +89,20 @@ export default function Work() {
     [companyFiltered],
   );
 
-  const filtered = useMemo(
+  const categoryFiltered = useMemo(
     () =>
       categoryFilter === "all"
         ? companyFiltered
         : companyFiltered.filter((project) => project.categories.includes(categoryFilter)),
     [companyFiltered, categoryFilter],
   );
+
+  // По умолчанию, пока не выбраны фильтры и пользователь не попросил показать всё,
+  // показываем только приоритетные коммерческие кейсы — остальные доступны по кнопке.
+  const isDefaultView = companyFilter === "all" && categoryFilter === "all" && !showAll;
+  const filtered = isDefaultView
+    ? categoryFiltered.filter((project) => project.featured)
+    : categoryFiltered;
 
   return (
     <section id="work" className="scroll-mt-20 border-t border-hairline">
@@ -167,6 +175,18 @@ export default function Work() {
           </div>
         ) : (
           <p className="mt-14 text-[16px] text-muted">{t.work.emptyHome}</p>
+        )}
+
+        {isDefaultView && (
+          <Reveal as="div" delay={120} className="mt-14 flex justify-center md:mt-20">
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="rounded-full border border-hairline px-7 py-3.5 text-[15px] font-medium transition-colors duration-300 hover:border-ink"
+            >
+              {t.work.showAll}
+            </button>
+          </Reveal>
         )}
       </div>
     </section>
