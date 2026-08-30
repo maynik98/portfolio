@@ -201,11 +201,85 @@ export default function CasePageContent({
                   {t.casePage.contribution}
                 </span>
               </Reveal>
-              <div className="md:col-span-9 md:col-start-4">
-                <Reveal as="p" delay={80}>
-                  <span className="block max-w-[62ch] text-[17px] leading-[1.65] text-white/90 md:text-[19px]">
-                    {project.contribution}
+
+              <div className="space-y-9 md:col-span-9 md:col-start-4">
+                <Reveal as="div">
+                  <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                    {t.casePage.contributionRole}
                   </span>
+                  <span className="mt-2 block text-[20px] font-medium leading-[1.3] md:text-[23px]">
+                    {project.contribution.role}
+                  </span>
+                </Reveal>
+
+                <div className="grid gap-8 sm:grid-cols-2">
+                  <Reveal as="div" delay={60}>
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                      {t.casePage.contributionScope}
+                    </span>
+                    <ul className="mt-3 space-y-2.5">
+                      {project.contribution.scope.map((item) => (
+                        <li key={item} className="flex gap-3 text-[15px] leading-[1.5] text-white/90">
+                          <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </Reveal>
+
+                  {project.contribution.team && (
+                    <Reveal as="div" delay={100}>
+                      <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                        {t.casePage.contributionTeam}
+                      </span>
+                      <ul className="mt-3 space-y-2.5">
+                        {project.contribution.team.map((item) => (
+                          <li key={item} className="flex gap-3 text-[15px] leading-[1.5] text-white/70">
+                            <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-white/30" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </Reveal>
+                  )}
+                </div>
+
+                {project.contribution.constraints && (
+                  <Reveal as="div" delay={140}>
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                      {t.casePage.contributionConstraints}
+                    </span>
+                    <ul className="mt-3 space-y-2.5">
+                      {project.contribution.constraints.map((item) => (
+                        <li key={item} className="flex gap-3 text-[15px] leading-[1.5] text-white/90">
+                          <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </Reveal>
+                )}
+
+                {project.contribution.decision && (
+                  <Reveal as="div" delay={180}>
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                      {t.casePage.contributionDecision}
+                    </span>
+                    <p className="mt-2 max-w-[60ch] text-[16px] leading-[1.6] text-white/90">
+                      {project.contribution.decision}
+                    </p>
+                  </Reveal>
+                )}
+
+                <Reveal as="div" delay={220}>
+                  <div className="rounded-2xl border border-white/15 bg-white/5 px-6 py-5">
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                      {t.casePage.contributionOutcome}
+                    </span>
+                    <p className="mt-2 max-w-[60ch] text-[16px] leading-[1.6] text-white md:text-[17px]">
+                      {project.contribution.outcome}
+                    </p>
+                  </div>
                 </Reveal>
               </div>
             </div>
