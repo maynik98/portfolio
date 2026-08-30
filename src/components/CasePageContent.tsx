@@ -287,64 +287,19 @@ export default function CasePageContent({
         </section>
       )}
 
-      {/* Процесс */}
-      {project.process && project.process.length > 0 && (
+      {/* Подход */}
+      {project.approach && (
         <section className="border-t border-hairline bg-surface">
           <div className="mx-auto w-full max-w-6xl px-6 py-20 md:px-10 md:py-28">
             <div className="grid gap-10 md:grid-cols-12 md:gap-16">
-              <BlockLabel className="md:col-span-3">{t.casePage.process}</BlockLabel>
-
-              <ol className="md:col-span-9 md:col-start-4">
-                {project.process.map((step, stepIndex) => (
-                  <Reveal
-                    key={step.step}
-                    as="li"
-                    delay={stepIndex * 60}
-                    className="border-t border-hairline py-7 first:border-t-0 first:pt-0 md:py-9"
-                  >
-                    <div className="flex gap-6 md:gap-10">
-                      <span className="mt-1 text-[13px] font-medium tabular-nums text-accent">
-                        {String(stepIndex + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h3 className="text-[20px] font-medium tracking-tight md:text-[24px]">
-                          {step.step}
-                        </h3>
-                        <p className="mt-3 max-w-[62ch] text-[16px] leading-[1.65] text-muted md:text-[17px]">
-                          {step.detail}
-                        </p>
-                      </div>
-                    </div>
-                  </Reveal>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Решение */}
-      {project.solution && project.solution.length > 0 && (
-        <section className="border-t border-hairline">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 md:px-10 md:py-28">
-            <div className="grid gap-10 md:grid-cols-12 md:gap-16">
-              <BlockLabel className="md:col-span-3">{t.casePage.solution}</BlockLabel>
-
-              <ul className="md:col-span-9 md:col-start-4">
-                {project.solution.map((item, itemIndex) => (
-                  <Reveal
-                    key={item}
-                    as="li"
-                    delay={itemIndex * 60}
-                    className="flex gap-5 border-b border-hairline py-6 last:border-b-0 md:gap-7 md:py-7"
-                  >
-                    <span className="mt-[13px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    <span className="text-[17px] leading-[1.6] md:text-[19px]">
-                      {item}
-                    </span>
-                  </Reveal>
-                ))}
-              </ul>
+              <BlockLabel className="md:col-span-3">{t.casePage.approach}</BlockLabel>
+              <div className="md:col-span-9 md:col-start-4">
+                <Reveal as="p" delay={80}>
+                  <span className="block max-w-[62ch] text-[19px] leading-[1.6] tracking-tight md:text-[22px]">
+                    {project.approach}
+                  </span>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>

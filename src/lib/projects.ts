@@ -1,10 +1,5 @@
 import type { CompanyId } from "@/lib/companies";
 
-export type ProcessStep = {
-  step: string;
-  detail: string;
-};
-
 /** Пропорция рамки, в которую вписывается изображение. */
 export type ShotRatio = "wide" | "landscape" | "square" | "portrait" | "tall";
 
@@ -52,8 +47,8 @@ export type ProjectTranslation = {
   task?: string;
   /** Full override — replaces the Russian contribution object entirely when present. */
   contribution?: Contribution;
-  process?: ProcessStep[];
-  solution?: string[];
+  /** Short, single-paragraph process + solution summary. */
+  approach?: string;
   /** Captions aligned by index with `results`. */
   resultCaptions?: string[];
   /** Labels aligned by index with `files`. */
@@ -73,8 +68,8 @@ export type Project = {
   role?: string;
   task?: string;
   contribution?: Contribution;
-  process?: ProcessStep[];
-  solution?: string[];
+  /** Short, single-paragraph process + solution summary. */
+  approach?: string;
   results: ResultShot[];
   /** Файлы, которые можно открыть целиком (PDF, DOCX и т.д.). */
   files?: ProjectFile[];
@@ -118,39 +113,7 @@ export const projects: Project[] = [
       outcome: "30+ единиц мерча по единой системе — шоперы, стикеры, худи, ланъярды, — часть тиражей допечатывали дополнительно из-за спроса на мероприятиях.",
     },
     task: "Визуальная коммуникация компании собиралась из материалов, которые в разное время делали разные исполнители и подрядчики. Из-за этого носители плохо связывались друг с другом, а каждая новая задача начиналась с согласования стиля вместо работы над содержанием. Нужна была единая система, в которой любой носитель — от баннера на конференции до слайда в презентации — читается как один бренд.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Аудит всех существующих носителей: digital, полиграфия, презентации, мерч, соцсети. Разбор задач маркетинга и того, какие материалы запрашиваются чаще всего.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Формулировка визуальной логики бренда: как строится композиция, как работает типографика, где допустимы акценты, а где нужна сдержанность.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Проработка вариантов на ключевых носителях — от рекламного баннера до титульного слайда, чтобы проверить систему на разных форматах сразу.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Сборка библиотеки шаблонов и компонентов в Figma: сетки, типографические стили, модули для digital и печати.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Подготовка файлов под конкретные каналы, передача в производство и разработку, сопровождение на всех этапах выпуска.",
-      },
-    ],
-    solution: [
-      "Единая типографическая и композиционная система, которая переносится между digital, печатью и презентациями без переизобретения заново.",
-      "Библиотека шаблонов под регулярные задачи маркетинга — новые материалы собираются быстрее и остаются в рамках стиля.",
-      "Правила использования логотипа, цвета и отступов, зафиксированные так, чтобы их могли применять подрядчики без потери качества.",
-      "Отдельные наборы носителей под мероприятия, соцсети и мерч, связанные общей визуальной логикой.",
-    ],
+    approach: "Начал с аудита всех носителей и запросов маркетинга, затем сформулировал единую визуальную логику и собрал библиотеку шаблонов в Figma — так система переносится между digital, печатью и презентациями без переизобретения заново.",
     results: [
       {
         caption: "Шоперы GNM — варианты дизайна",
@@ -223,39 +186,7 @@ export const projects: Project[] = [
         outcome: "30+ merch items on one system — tote bags, stickers, hoodies, lanyards — with part of the run reprinted due to demand at events.",
       },
       task: "The company's visual communications were assembled from materials made at different times by different freelancers and vendors. As a result, materials didn't connect well with each other, and every new task began with agreeing on style instead of working on content. What was needed was a unified system in which any material — from a conference banner to a presentation slide — reads as one brand.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Audit of all existing materials: digital, print, presentations, merch, social media. Breakdown of marketing tasks and which materials are requested most often.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Defining the brand's visual logic: how composition is built, how typography works, where accents are allowed and where restraint is needed.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Working through options on key materials — from an ad banner to a title slide — to test the system across different formats at once.",
-        },
-        {
-          step: "Design",
-          detail:
-            "Building a library of templates and components in Figma: grids, typographic styles, modules for digital and print.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Preparing files for specific channels, handing off to production and development, and supporting every stage of release.",
-        },
-      ],
-      solution: [
-        "A unified typographic and compositional system that carries across digital, print, and presentations without being reinvented each time.",
-        "A template library for recurring marketing tasks — new materials are assembled faster and stay on-brand.",
-        "Rules for logo use, color, and spacing, fixed so that contractors can apply them without loss of quality.",
-        "Separate sets of materials for events, social media, and merch, connected by a shared visual logic.",
-      ],
+      approach: "Started with an audit of every material and marketing's recurring requests, then defined one visual logic and built a template library in Figma — so it carries across digital, print, and presentations without being reinvented each time.",
       resultCaptions: [
         "GNM tote bags — design options",
         "Sticker pack: artwork",
@@ -298,40 +229,7 @@ export const projects: Project[] = [
       outcome: "8 экранов и состояний сайта (главная + карта точек присутствия), адаптированных под desktop и мобильную версию.",
     },
     task: "Передо мной стояла задача — улучшить сайт gnm.net и сделать его удобнее для посетителя. Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы. Нужно было спроектировать страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор текущей структуры сайта, целей страницы и сценариев посетителя. Сбор материалов и требований от маркетинга и продуктовых команд.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Проектирование структуры страницы: последовательность блоков, логика повествования, места для целевых действий.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Вайрфреймы блоков и проверка вариантов подачи — что вынести на первый экран, как показать продукт, где нужны факты, а где визуальное объяснение.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Проработка страниц в desktop и мобильной версии, состояния элементов, типографическая иерархия, работа с сеткой.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Подготовка макетов и ассетов для разработчиков, ответы на вопросы по вёрстке, проверка результата на соответствие макету.",
-      },
-    ],
-    solution: [
-      "Структура страниц, выстроенная под сценарий посетителя: сначала суть предложения, затем детали, затем целевое действие.",
-      "Визуальное решение, наследующее фирменный стиль компании, но адаптированное под задачи веба — читаемость, плотность информации, работа на длинном скролле.",
-      "Адаптивные макеты с проработанными состояниями элементов, а не только desktop-версия.",
-      "Макеты, собранные по компонентам, с подготовленными ассетами — чтобы передача в разработку не требовала уточнений.",
-      "По итогу сайт стал удобнее: посетитель быстрее находит нужный раздел, а страницы под новые продукты закрывают вопросы, которые раньше оставались без ответа.",
-    ],
+    approach: "Изучил сценарии посетителя и структуру сайта, выстроил последовательность блоков от сути предложения к целевому действию и довёл макеты до адаптивных состояний с ассетами, готовыми к передаче в разработку без уточнений.",
     results: [
       {
         caption: "Главная страница сайта gnm.net",
@@ -370,40 +268,7 @@ export const projects: Project[] = [
         outcome: "8 site screens and states (homepage + presence map), adapted for desktop and mobile.",
       },
       task: "My task was to improve the gnm.net website and make it more convenient for visitors. The site lacked pages for new products and directions, and existing sections didn't answer all of a visitor's questions. New pages needed to be designed to meet marketing goals, fit into the site's existing architecture, and go into development without lengthy rework.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Review of the current site structure, page goals, and visitor scenarios. Gathering materials and requirements from marketing and product teams.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Designing the page structure: block sequence, narrative logic, placement of calls to action.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Wireframes of blocks and testing presentation options — what goes above the fold, how to show the product, where facts are needed versus visual explanation.",
-        },
-        {
-          step: "Design",
-          detail:
-            "Working through desktop and mobile versions, element states, typographic hierarchy, and grid work.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Preparing mockups and assets for developers, answering implementation questions, checking the result against the design.",
-        },
-      ],
-      solution: [
-        "Page structure built around the visitor's journey: the offer's core first, then details, then a call to action.",
-        "A visual solution that inherits the company's brand identity but is adapted for the web — readability, information density, long-scroll performance.",
-        "Responsive layouts with worked-out element states, not just a desktop version.",
-        "Mockups assembled from components with prepared assets — so handoff to development required no clarification.",
-        "As a result, the site became more convenient: visitors find the section they need faster, and the new product pages answer questions that used to go unanswered.",
-      ],
+      approach: "Studied visitor scenarios and site structure, sequenced blocks from the core offer to a call to action, and took the mockups to responsive states with assets ready for handoff without follow-up questions.",
       resultCaptions: [
         "gnm.net homepage",
         "\"Exchange Locations & Network Coverage\" page — presence map",
@@ -438,39 +303,7 @@ export const projects: Project[] = [
       outcome: "20+ рекламных форматов адаптировано из единого key visual — от широких баннеров до вертикальных сторис.",
     },
     task: "Рекламные кампании выходили в разных каналах и форматах, у каждого — свои требования к размерам и объёму текста. Нужно было решение, при котором сообщение остаётся узнаваемым и читаемым везде, а подготовка десятков размеров не превращается в ручную работу над каждым файлом.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор задачи кампании, каналов размещения и технических требований к форматам.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Поиск визуального ключа кампании: главный образ, тон, роль текста и акцента.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Проверка ключа на самом сложном формате — узком и мелком, где меньше всего места для сообщения.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Отрисовка мастер-макетов и раскладка размерной сетки по каналам с сохранением композиции и читаемости.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Подготовка финальных файлов под требования площадок и передача материалов в размещение.",
-      },
-    ],
-    solution: [
-      "Визуальный ключ кампании, который держится во всех форматах — от широкого баннера до вертикального сторис.",
-      "Мастер-макеты и размерные сетки, из которых быстро собираются новые форматы под новые площадки.",
-      "Типографические ограничения по объёму текста, заданные заранее, — сообщение остаётся читаемым в мелких размерах.",
-      "Единая система акцентов, связывающая рекламные материалы с остальной коммуникацией бренда.",
-    ],
+    approach: "Нашёл визуальный ключ кампании и сразу проверил его на самом сложном формате — узком и мелком, — а затем собрал мастер-макеты и размерную сетку, из которых новые форматы адаптируются без пересборки с нуля.",
     results: [
       {
         caption: "Креатив «Backbone Expansion in Key European PoPs»",
@@ -583,39 +416,7 @@ export const projects: Project[] = [
         outcome: "20+ ad formats adapted from a single key visual — from wide banners to vertical stories.",
       },
       task: "Ad campaigns ran across different channels and formats, each with its own size and text-length requirements. What was needed was a solution where the message stays recognizable and legible everywhere, and preparing dozens of sizes doesn't turn into manual work on every file.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Breaking down the campaign brief, placement channels, and technical format requirements.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Finding the campaign's visual key: the main image, tone, and the role of text and accent.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Testing the key on the hardest format — narrow and small, with the least room for the message.",
-        },
-        {
-          step: "Design",
-          detail:
-            "Drawing master layouts and laying out the size grid across channels while preserving composition and legibility.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Preparing final files to platform requirements and handing materials off for placement.",
-        },
-      ],
-      solution: [
-        "A visual key that holds across every format — from a wide banner to a vertical story.",
-        "Master layouts and size grids that new formats can be quickly assembled from for new placements.",
-        "Typographic constraints on text volume set in advance — the message stays legible at small sizes.",
-        "A unified system of accents linking ad materials to the rest of the brand communication.",
-      ],
+      approach: "Found the campaign's visual key and stress-tested it on the hardest format first — narrow and small — then built master layouts and a size grid that new formats adapt from without rebuilding from scratch.",
       resultCaptions: [
         "\"Backbone Expansion in Key European PoPs\" creative",
         "Social post: GNM in Germany",
@@ -665,39 +466,7 @@ export const projects: Project[] = [
       outcome: "10+ роликов произведено внутри команды, включая экспорт под вертикальные форматы соцсетей.",
     },
     task: "Часть сообщений компании плохо работала в статике: продукты и процессы требовали объяснения в динамике, а мероприятия и запуски — коротких роликов под конкретный канал. Нужно было производить видео внутри команды, в едином визуальном языке с остальной коммуникацией.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор задачи ролика: что нужно объяснить, кому, в каком канале и за сколько секунд.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Сценарий и раскадровка: последовательность кадров, ритм, роль графики и текста.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Отрисовка ключевых кадров и проверка визуального языка до анимации, чтобы не переделывать сцены позже.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Анимация сцен и графики в After Effects, работа с темпом, переходами и типографикой в движении.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Монтаж, сведение со звуком, экспорт под требования каналов размещения.",
-      },
-    ],
-    solution: [
-      "Единый язык движения: темп, характер переходов и работа типографики в анимации согласованы с фирменным стилем.",
-      "Раскадровка до анимации — решения обсуждаются и утверждаются на этапе, где правки стоят дешевле всего.",
-      "Библиотека анимированных элементов и титров, ускоряющая производство следующих роликов.",
-      "Экспорт под разные каналы из одного проекта, включая вертикальные форматы.",
-    ],
+    approach: "Разбирал бриф на сценарий и раскадровку, утверждал ключевые кадры до анимации — чтобы правки стоили дешевле, — и собирал сцены в After Effects в едином языке движения с остальной коммуникацией бренда.",
     results: [
       {
         caption: "Промо: GNM-IX Peering Plus",
@@ -775,39 +544,7 @@ export const projects: Project[] = [
         outcome: "10+ clips produced in-house, including exports for vertical social formats.",
       },
       task: "Some of the company's messages didn't work well as static images: products and processes needed to be explained in motion, while events and launches needed short clips for specific channels. Video needed to be produced in-house, in the same visual language as the rest of the communications.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Breaking down the clip's brief: what needs explaining, to whom, on which channel, and in how many seconds.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Script and storyboard: sequence of shots, pacing, the role of graphics and text.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Drawing key frames and testing the visual language before animation, to avoid reworking scenes later.",
-        },
-        {
-          step: "Design",
-          detail:
-            "Animating scenes and graphics in After Effects, working with pacing, transitions, and typography in motion.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Editing, sound mixing, exporting to placement-channel requirements.",
-        },
-      ],
-      solution: [
-        "A unified motion language: pacing, transition style, and animated typography aligned with the brand identity.",
-        "Storyboarding before animation — decisions are discussed and approved at the stage where changes are cheapest.",
-        "A library of animated elements and titles that speeds up production of future clips.",
-        "Exports for different channels from a single project, including vertical formats.",
-      ],
+      approach: "Broke the brief into a script and storyboard, got key frames approved before animating — so changes stayed cheap — and built scenes in After Effects in one motion language shared with the rest of the brand's communications.",
       resultCaptions: [
         "Promo: GNM-IX Peering Plus",
         "Promo: Connect to 700+ EU Networks from the USA",
@@ -849,39 +586,7 @@ export const projects: Project[] = [
       outcome: "10+ материалов для стендов и мероприятий подготовлено к печати за несколько итераций фирменного стиля.",
     },
     task: "На мероприятиях компания конкурирует за внимание в физическом пространстве, где решение принимается за несколько секунд с расстояния. При этом печать не прощает ошибок: макет с неверными вылетами или цветовым профилем возвращается с производства с потерей времени и бюджета. Баннеры для стендов делались под конкретные мероприятия с интервалом примерно в полгода — за это время фирменный стиль GNM прошёл путь от минимального набора элементов до зафиксированной системы.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор площадки и сценария мероприятия: с какого расстояния видят носитель, как движется поток людей, какие есть технические ограничения.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Визуальное решение зоны: что читается первым с дистанции, что — при подходе, а что нужно взять в руки.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Проверка вариантов в масштабе и раскладка носителей по зоне стенда.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Отрисовка носителей в реальных размерах: стенды, roll-up, буклеты, раздаточные материалы.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Подготовка файлов к печати — вылеты, цветовые профили, требования конкретного производства, — согласование с подрядчиками и контроль результата.",
-      },
-    ],
-    solution: [
-      "Иерархия по дистанции: крупное сообщение читается издалека, детали раскрываются при подходе.",
-      "Комплект носителей, собранный как одна зона, а не набор отдельных макетов.",
-      "Макеты, подготовленные под требования конкретного производства — с вылетами, профилями и проверенными шрифтами.",
-      "Работа с подрядчиками на этапе печати и сборки: контроль цветопробы и финального качества.",
-    ],
+    approach: "Разбирал зону мероприятия — с какого расстояния видят носитель, как двигается поток людей, — и выстраивал иерархию по дистанции: крупное сообщение читается издалека, детали открываются при подходе. Комплект носителей готовил как одну зону, с вылетами и цветовыми профилями под конкретное производство.",
     files: [
       { label: "Лифлет — PDF", href: "/work/print-exhibition-design/leaflet.pdf" },
       {
@@ -967,39 +672,7 @@ export const projects: Project[] = [
         outcome: "10+ materials for booths and events prepped for print across several iterations of the brand identity.",
       },
       task: "At events, the company competes for attention in physical space, where decisions are made in seconds from a distance. Print leaves no room for error: a layout with wrong bleeds or a wrong color profile comes back from production at a cost in time and budget. Stand banners were made for specific events roughly every six months — over that time GNM's brand identity evolved from a minimal set of elements into a fixed system.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Breaking down the venue and event scenario: viewing distance, foot-traffic flow, technical constraints.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Visual solution for the zone: what reads first from a distance, what reads on approach, and what should be picked up by hand.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Testing options at scale and laying out materials across the stand zone.",
-        },
-        {
-          step: "Design",
-          detail:
-            "Drawing materials at real size: stands, roll-ups, brochures, handouts.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Preparing print-ready files — bleeds, color profiles, specific production requirements — coordinating with vendors and checking results.",
-        },
-      ],
-      solution: [
-        "A distance-based hierarchy: the big message reads from afar, details unfold on approach.",
-        "A set of materials assembled as one zone rather than a collection of separate layouts.",
-        "Layouts prepared to specific production requirements — with bleeds, profiles, and verified fonts.",
-        "Vendor coordination during printing and assembly: proof and final quality control.",
-      ],
+      approach: "Studied the event space — viewing distance, foot traffic — and built a distance-based hierarchy: the big message reads from afar, details reveal up close. Prepared the whole set as one zone, with bleeds and color profiles matched to the specific print vendor.",
       fileLabels: ["Leaflet — PDF", "Sales one-pager — PDF"],
       resultCaptions: [
         "GNM-IX roll-up",
@@ -1043,39 +716,7 @@ export const projects: Project[] = [
       outcome: "Шаблон с мастер-слайдами лёг в основу 10+ презентаций, которые команды теперь собирают сами без дизайнера.",
     },
     task: "Презентации готовили разные отделы, и качество сильно расходилось: сильные аргументы терялись в перегруженных слайдах, а внешние документы выглядели слабее уровня компании. Нужен был инструмент, которым команды пользуются самостоятельно, получая аккуратный результат без дизайнера в каждой задаче.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор типовых сценариев: продажа, партнёрская встреча, внутренний отчёт. Сбор того, какие слайды нужны чаще всего.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Логика повествования и правила плотности: один слайд — одна мысль, как подаются данные, где нужен акцент.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Проработка базовых типов слайдов — титул, тезис, данные, схема, финальный призыв.",
-      },
-      {
-        step: "Создание дизайна",
-        detail:
-          "Отрисовка мастер-слайдов, типографической системы и графики для данных и схем.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Сборка шаблона с инструкцией по применению и передача командам, сопровождение на первых презентациях.",
-      },
-    ],
-    solution: [
-      "Набор мастер-слайдов под реальные сценарии, а не абстрактный шаблон «на все случаи».",
-      "Типографическая система, которая держит иерархию даже при большом объёме текста.",
-      "Единый стиль подачи данных: графики и схемы читаются без расшифровки.",
-      "Инструкция по применению — команды собирают презентации самостоятельно и остаются в стиле.",
-    ],
+    approach: "Разобрал типовые сценарии — продажи, встречи с партнёрами, внутренние отчёты — и собрал мастер-слайды с типографической системой, которая держит иерархию даже при большом объёме текста, плюс инструкцию, по которой команды дальше собирают презентации сами.",
     files: [
       { label: "Press Kit — PDF, 9 слайдов", href: "/work/presentation-design/press-kit.pdf" },
       {
@@ -1115,39 +756,7 @@ export const projects: Project[] = [
         outcome: "The master-slide template became the base for 10+ presentations that teams now assemble themselves.",
       },
       task: "Presentations were made by different departments, and quality varied widely: strong arguments got lost in overloaded slides, and external documents looked weaker than the company deserved. What was needed was a tool teams could use on their own and still get a polished result without a designer on every task.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Breaking down typical scenarios: sales, partner meetings, internal reports. Collecting the slide types needed most often.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Narrative logic and density rules: one slide, one idea; how data is presented; where an accent is needed.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Working through core slide types — title, thesis, data, diagram, closing call to action.",
-        },
-        {
-          step: "Design",
-          detail:
-            "Drawing master slides, the typographic system, and graphics for data and diagrams.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Assembling the template with usage instructions and handing it to teams, supporting the first presentations.",
-        },
-      ],
-      solution: [
-        "A set of master slides built for real scenarios, not an abstract one-size-fits-all template.",
-        "A typographic system that holds hierarchy even with a lot of text.",
-        "A unified way of presenting data: charts and diagrams read without a legend.",
-        "Usage instructions — teams assemble presentations themselves and stay on-brand.",
-      ],
+      approach: "Broke down the typical scenarios — sales, partner meetings, internal reports — and built master slides with a typographic system that holds hierarchy even with a lot of text, plus usage instructions so teams can assemble presentations themselves.",
       fileLabels: ["Press Kit — PDF, 9 slides", "Partner presentation — PDF, 12 slides"],
       resultCaptions: ["Partner presentation: title slide"],
     },
@@ -1255,39 +864,7 @@ export const projects: Project[] = [
       outcome: "Бот запущен в продакшен и ежедневно обрабатывает обращения клиентов в Telegram, эскалируя менеджеру только сложные случаи.",
     },
     task: "Часть коммуникации с клиентами GlobalNet нужно было перевести в Telegram — не в виде статичного меню, а как полноценного помощника, способного отвечать на вопросы самостоятельно. Я не оформлял готового бота, а собрал его целиком: логику сценариев, сами диалоги и ИИ-ассистента, который понимает вопрос клиента и ищет ответ по базе знаний компании.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор задач бота и пользовательских сценариев: с какими вопросами обращаются клиенты и какая часть базы знаний закрывает большинство из них.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Проектирование логики диалога и логики ИИ-ассистента: когда он отвечает сам по базе знаний, а когда передаёт обращение менеджеру.",
-      },
-      {
-        step: "Эскизы",
-        detail:
-          "Схемы сценариев и черновики сообщений — проверка, что путь проходится без тупиков.",
-      },
-      {
-        step: "Разработка",
-        detail:
-          "Сборка бота и его сценариев, подключение ИИ-ассистента к базе знаний, визуальное оформление в рамках возможностей Telegram: обложки, иллюстрации сообщений, иконки, оформление меню и кнопок.",
-      },
-      {
-        step: "Финальная реализация",
-        detail:
-          "Настройка передачи заявки менеджеру, когда ассистент не может закрыть вопрос сам, и проверка бота в живых сценариях.",
-      },
-    ],
-    solution: [
-      "ИИ-ассистент, который отвечает клиенту по базе знаний компании — без ожидания оператора.",
-      "Если ассистент не может закрыть вопрос сам, он оставляет заявку и передаёт её менеджеру для дальнейшей коммуникации.",
-      "Сценарии, разложенные по шагам, с понятной навигацией и возможностью вернуться назад на любом этапе.",
-      "Оформление, по которому бот узнаётся как часть бренда, даже в рамках ограничений мессенджера.",
-    ],
+    approach: "Спроектировал логику диалога и ИИ-ассистента — когда он отвечает сам по базе знаний, а когда передаёт вопрос менеджеру, — и довёл сценарии до рабочего бота с оформлением, узнаваемым как часть бренда даже в рамках возможностей Telegram.",
     results: [
       {
         caption: "Экран бота с ИИ-ассистентом",
@@ -1330,39 +907,7 @@ export const projects: Project[] = [
         outcome: "The bot is live in production and handles client requests in Telegram daily, escalating only complex cases to a manager.",
       },
       task: "Part of the communication with GlobalNet clients needed to move to Telegram — not as a static menu, but as a real assistant able to answer questions on its own. I didn't just style a ready-made bot: I built it end to end — the scenario logic, the dialogues themselves, and an AI assistant that understands a client's question and looks up the answer in the company's knowledge base.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Breaking down the bot's tasks and user flows: what clients actually ask, and how much of it the knowledge base already covers.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Designing both the dialogue logic and the assistant's decision logic: when it answers from the knowledge base itself, and when it hands the request to a manager.",
-        },
-        {
-          step: "Sketches",
-          detail:
-            "Flow diagrams and message drafts — checking the path has no dead ends.",
-        },
-        {
-          step: "Development",
-          detail:
-            "Building the bot and its scenarios, connecting the AI assistant to the knowledge base, and visual design within Telegram's constraints: covers, message illustrations, icons, menu and button styling.",
-        },
-        {
-          step: "Final delivery",
-          detail:
-            "Setting up hand-off to a manager when the assistant can't resolve a question itself, and testing the bot in live scenarios.",
-        },
-      ],
-      solution: [
-        "An AI assistant that answers clients from the company's knowledge base — no waiting for an operator.",
-        "When the assistant can't resolve a question itself, it leaves a request and hands it to a manager for follow-up.",
-        "Flows broken into steps, with clear navigation and the ability to go back at any stage.",
-        "Styling that makes the bot recognizable as part of the brand, even within the messenger's constraints.",
-      ],
+      approach: "Designed the dialogue and AI-assistant logic — when it answers from the knowledge base on its own, when it hands a question to a manager — and took the flows to a working bot with a look recognizable as the brand, even within Telegram's constraints.",
       resultCaptions: [
         "Bot screen with AI assistant",
         "GlobalNet AI assistant promo poster",
@@ -1396,39 +941,7 @@ export const projects: Project[] = [
       outcome: "Бот подключён ко всем клиентским групповым чатам компании и структурирует переписку в базу данных в реальном времени.",
     },
     task: "Часть обращений клиентов GlobalNet идёт через групповые чаты в Telegram, и в потоке переписки легко пропустить важное: жалобу, конфликт или сообщение, оставшееся без ответа. Я разработал бота, который подключается к этим чатам, различает сотрудника и клиента, структурирует переписку в базе данных и обрабатывает каждое клиентское сообщение через нейросеть — а при негативном сигнале сразу уведомляет руководителя.",
-    process: [
-      {
-        step: "Исследование",
-        detail:
-          "Разбор того, какие события в переписке критичны для бизнеса — жалобы, конфликты, сообщения без ответа — и как отличить их от обычной переписки.",
-      },
-      {
-        step: "Концепция",
-        detail:
-          "Проектирование структуры данных: отдельные таблицы для администраторов, чатов, сообщений и событий — и логика, по которой каждое сообщение попадает в нужную таблицу.",
-      },
-      {
-        step: "Разработка",
-        detail:
-          "Сборка бота: определение отправителя (клиент или сотрудник), запись сообщений в базу, обработка текста через нейросеть с краткой сводкой и классификацией по типу события.",
-      },
-      {
-        step: "Мониторинг просрочки",
-        detail:
-          "Отдельный сценарий, который каждые 30 минут проверяет чаты и фиксирует как отдельное событие ситуацию, когда клиентское сообщение остаётся без ответа администратора дольше 8 часов.",
-      },
-      {
-        step: "Уведомления и приложение",
-        detail:
-          "Настройка автоматической отправки руководителям уведомлений о негативных событиях и разработка отдельного приложения для просмотра всех сообщений, событий и статистики.",
-      },
-    ],
-    solution: [
-      "Бот, который читает подключённые чаты, различает сотрудника и клиента и сохраняет переписку в структурированном виде.",
-      "Каждое клиентское сообщение проходит через нейросеть, которая делает краткую сводку и определяет тип события: похвала, жалоба, конфликт или просрочка ответа.",
-      "При негативном событии руководитель получает уведомление автоматически, не дожидаясь ручной проверки чатов.",
-      "Отдельное приложение для просмотра сообщений и событий: все сообщения, позитивные и негативные события, обращения без ответа.",
-    ],
+    approach: "Спроектировал структуру данных под задачу — отдельные таблицы для чатов, сообщений и событий — и настроил обработку каждого сообщения через нейросеть с классификацией по типу события, включая отдельный сценарий мониторинга просроченных ответов.",
     results: [
       {
         caption:
@@ -1486,39 +999,7 @@ export const projects: Project[] = [
         outcome: "The bot is connected to all of the company's client group chats and structures conversations into a database in real time.",
       },
       task: "Part of GlobalNet's client communication runs through group chats in Telegram, and it's easy to miss what matters in the stream of messages — a complaint, a conflict, or a message left without a reply. I built a bot that connects to these chats, tells staff and clients apart, structures the conversation into a database, and runs every client message through a neural network — alerting a manager immediately on a negative signal.",
-      process: [
-        {
-          step: "Research",
-          detail:
-            "Breaking down which events in a conversation actually matter to the business — complaints, conflicts, unanswered messages — and how to tell them apart from routine chat.",
-        },
-        {
-          step: "Concept",
-          detail:
-            "Designing the data structure: separate tables for admins, chats, messages, and events — and the logic that routes each message to the right table.",
-        },
-        {
-          step: "Development",
-          detail:
-            "Building the bot: identifying the sender (client or staff), logging messages to the database, and running the text through a neural network for a short summary and event classification.",
-        },
-        {
-          step: "Response-time monitoring",
-          detail:
-            "A separate scenario that checks chats every 30 minutes and logs a dedicated event whenever a client message goes unanswered by an admin for more than 8 hours.",
-        },
-        {
-          step: "Notifications and app",
-          detail:
-            "Setting up automatic manager notifications for negative events, and building a companion app for reviewing all messages, events, and stats.",
-        },
-      ],
-      solution: [
-        "A bot that reads the connected chats, tells staff and clients apart, and stores the conversation in structured form.",
-        "Every client message runs through a neural network that produces a short summary and classifies the event: praise, complaint, conflict, or overdue reply.",
-        "On a negative event, a manager is notified automatically, without waiting for someone to check the chats by hand.",
-        "A companion app for reviewing messages and events: all messages, positive and negative events, unanswered requests.",
-      ],
+      approach: "Designed a data structure for the task — separate tables for chats, messages, and events — and set up processing of every message through a model that classifies it by event type, including a separate monitoring flow for overdue replies.",
       resultCaptions: [
         "Bot workflow: reading the chat, identifying the client, processing through a neural network, notifying the manager",
         "Response-time monitoring scenario — checked every 30 minutes",
@@ -1636,9 +1117,7 @@ export const projects: Project[] = [
       outcome: "5+ экранов сайта, включая форму опроса по DATAIX и личный кабинет с проработанными состояниями форм.",
     },
     task: "Передо мной стояла задача — улучшить сайт GlobalNet и сделать его удобнее для пользователя: от формы обратной связи по DATAIX до вариантов главной страницы и личного кабинета.",
-    solution: [
-      "По итогу сайт стал удобнее: понятнее сценарии, чище интерфейс, проще работа с формами и заявками на подключение.",
-    ],
+    approach: "Упростил сценарии и почистил интерфейс — формы и заявки на подключение стали работать в несколько понятных шагов вместо запутанного флоу.",
     results: [
       { caption: "Опрос по качеству подключения к DATAIX", ratio: "wide", src: "/work/globalnet/website/dataix-survey.png" },
       { caption: "Главная страница — вариант 1", ratio: "wide", src: "/work/globalnet/website/homepage-light-1.png" },
@@ -1671,9 +1150,7 @@ export const projects: Project[] = [
         outcome: "5+ site screens, including the DATAIX survey form and an account dashboard with worked-out form states.",
       },
       task: "My task was to improve the GlobalNet website and make it more convenient for users: from the DATAIX feedback form to homepage variants and the account dashboard.",
-      solution: [
-        "As a result, the site became more convenient: clearer user flows, a cleaner interface, and simpler forms and connection requests.",
-      ],
+      approach: "Simplified the flows and cleaned up the interface — forms and connection requests now work in a few clear steps instead of a confusing flow.",
       resultCaptions: [
         "DATAIX connection quality survey",
         "Homepage — option 1",
@@ -2255,7 +1732,7 @@ export const projects: Project[] = [
         "Не любой контраст и деталь переносятся на футболку без потерь при печати на ткани",
       ],
       decision: "Адаптировал контраст и детализацию принтов под технологию печати до передачи в производство.",
-      outcome: "18+ принтов, включая коллаборации с независимыми художниками (Цой, Миша Мост).",
+      outcome: "30+ принтов, включая коллаборации с независимыми художниками (Цой, Миша Мост).",
     },
     results: [
       { caption: "Футболка «Blue Crest»", ratio: "portrait", src: "/work/other/artflash/tee-blue-crest.png" },
@@ -2296,7 +1773,7 @@ export const projects: Project[] = [
           "Not every contrast or detail survives fabric printing without loss",
         ],
         decision: "Adapted contrast and detail in the prints to the print technology before handing off to production.",
-        outcome: "18+ prints, including collaborations with independent artists (Tsoi, Misha Most).",
+        outcome: "30+ prints, including collaborations with independent artists (Tsoi, Misha Most).",
       },
       resultCaptions: [
         "\"Blue Crest\" t-shirt",
@@ -2764,8 +2241,7 @@ export function localizeProject(project: Project, lang: "ru" | "en"): Project {
     role: t.role ?? project.role,
     task: t.task ?? project.task,
     contribution: t.contribution ?? project.contribution,
-    process: t.process ?? project.process,
-    solution: t.solution ?? project.solution,
+    approach: t.approach ?? project.approach,
     results: t.resultCaptions
       ? project.results.map((result, index) => ({
           ...result,
