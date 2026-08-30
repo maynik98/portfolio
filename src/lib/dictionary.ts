@@ -18,13 +18,13 @@ export const dictionary = {
       role: "Lead Graphic Designer",
       subtitle:
         "Создаю визуальные системы и коммуникации для брендов, digital-продуктов и маркетинга — от концепции до production.",
-      directions: "Graphic Design · Branding · Digital · Motion · Presentation",
+      directions: "Графический дизайн · Брендинг · Диджитал · Моушн · Презентации",
       viewWork: "Посмотреть проекты",
       contact: "Связаться",
       stats: [
         { value: "3+", label: "года коммерческого опыта" },
         { value: "100+", label: "коммерческих и учебных проектов" },
-        { value: "Graphic Design", label: "Branding / Print" },
+        { value: "Графический дизайн", label: "Брендинг / Полиграфия" },
       ],
     },
     about: {
@@ -38,19 +38,19 @@ export const dictionary = {
       secondaryDirectionsLabel: "Также работаю с",
       directions: {
         primary: [
-          "Graphic Design",
-          "Branding",
-          "Digital Design",
-          "Motion Design",
-          "Presentation Design",
+          "Графический дизайн",
+          "Брендинг",
+          "Диджитал-дизайн",
+          "Моушн-дизайн",
+          "Дизайн презентаций",
         ],
         secondary: [
-          "Print Design",
-          "Web Design",
-          "Landing Pages",
-          "UI Design",
-          "Telegram Bot Design",
-          "AI-assisted Design",
+          "Полиграфия",
+          "Веб-дизайн",
+          "Лендинги",
+          "UI-дизайн",
+          "Дизайн Telegram-ботов",
+          "AI-дизайн",
         ],
       },
     },
@@ -163,7 +163,7 @@ export const dictionary = {
       title: "Инструменты и зоны ответственности.",
       groups: [
         {
-          title: "Design",
+          title: "Дизайн",
           items: ["Figma", "Adobe Photoshop", "Adobe Illustrator", "After Effects", "Adobe Premiere Pro"],
         },
         {
@@ -197,7 +197,7 @@ export const dictionary = {
       label: "Избранные проекты",
       title: "Проекты, где дизайн решал задачу бизнеса.",
       all: "Все",
-      other: "Other",
+      other: "Другое",
       allCategories: "Все категории",
       viewCase: "Смотреть кейс",
       emptyHome: "По выбранному фильтру проектов пока нет.",
@@ -224,7 +224,7 @@ export const dictionary = {
       project: "Проект",
       projectType: "Тип проекта",
       company: "Компания",
-      other: "Other",
+      other: "Другое",
       year: "Год",
       myRole: "Моя роль",
       task: "Задача",
