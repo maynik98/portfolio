@@ -40,6 +40,12 @@ export default function Hero() {
               </span>
             </Reveal>
 
+            <Reveal as="p" delay={160}>
+              <span className="mt-5 block text-[13px] font-medium uppercase tracking-[0.1em] text-muted">
+                {t.hero.directions}
+              </span>
+            </Reveal>
+
             <Reveal as="div" delay={200} className="mt-10 flex flex-wrap gap-3 md:mt-14">
               <Link
                 href="/#work"

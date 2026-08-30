@@ -271,34 +271,36 @@ export default function CasePageContent({
                   </Reveal>
                 )}
 
-                <Reveal as="div" delay={220}>
+                <Reveal as="div" delay={210}>
+                  <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                    {t.casePage.contributionProduction}
+                  </span>
+                  <p className="mt-2 max-w-[60ch] text-[16px] leading-[1.6] text-white/90">
+                    {project.contribution.production}
+                  </p>
+                </Reveal>
+
+                <Reveal as="div" delay={240}>
                   <div className="rounded-2xl border border-white/15 bg-white/5 px-6 py-5">
                     <span className="block text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
-                      {t.casePage.contributionOutcome}
+                      {t.casePage.contributionResult}
                     </span>
                     <p className="mt-2 max-w-[60ch] text-[16px] leading-[1.6] text-white md:text-[17px]">
-                      {project.contribution.outcome}
+                      {project.contribution.result}
                     </p>
                   </div>
                 </Reveal>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
-      {/* Подход */}
-      {project.approach && (
-        <section className="border-t border-hairline bg-surface">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 md:px-10 md:py-28">
-            <div className="grid gap-10 md:grid-cols-12 md:gap-16">
-              <BlockLabel className="md:col-span-3">{t.casePage.approach}</BlockLabel>
-              <div className="md:col-span-9 md:col-start-4">
-                <Reveal as="p" delay={80}>
-                  <span className="block max-w-[62ch] text-[19px] leading-[1.6] tracking-tight md:text-[22px]">
-                    {project.approach}
-                  </span>
-                </Reveal>
+                {project.tools && project.tools.length > 0 && (
+                  <Reveal as="div" delay={270} className="flex flex-wrap items-center gap-2.5">
+                    <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+                      {t.casePage.contributionTools}
+                    </span>
+                    <span className="text-[14px] text-white/70">
+                      {project.tools.join(" · ")}
+                    </span>
+                  </Reveal>
+                )}
               </div>
             </div>
           </div>

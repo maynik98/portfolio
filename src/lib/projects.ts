@@ -35,8 +35,10 @@ export type Contribution = {
   constraints?: string[];
   /** The decision I made in response to the constraints. */
   decision?: string;
-  /** Concrete, production-based fact — counts, formats, pages, timeline. Not a business metric. */
-  outcome: string;
+  /** What was actually produced — counts, formats, pages, timeline. Not a business metric. */
+  production: string;
+  /** What happened with the work afterward — shipped, published, adopted, reused. A consequence, not a restatement of `production`. */
+  result: string;
 };
 
 /** English overrides for translatable text fields. Any field left out falls back to the Russian original. */
@@ -47,8 +49,8 @@ export type ProjectTranslation = {
   task?: string;
   /** Full override — replaces the Russian contribution object entirely when present. */
   contribution?: Contribution;
-  /** Short, single-paragraph process + solution summary. */
-  approach?: string;
+  /** Software actually used on this case. */
+  tools?: string[];
   /** Captions aligned by index with `results`. */
   resultCaptions?: string[];
   /** Labels aligned by index with `files`. */
@@ -68,8 +70,8 @@ export type Project = {
   role?: string;
   task?: string;
   contribution?: Contribution;
-  /** Short, single-paragraph process + solution summary. */
-  approach?: string;
+  /** Software actually used on this case — shown as a compact "Tools" line. */
+  tools?: string[];
   results: ResultShot[];
   /** Файлы, которые можно открыть целиком (PDF, DOCX и т.д.). */
   files?: ProjectFile[];
@@ -110,10 +112,11 @@ export const projects: Project[] = [
         "Реальные допуски печати — Pantone, вылеты, цветопрофиль",
       ],
       decision: "Собрал систему визуальных элементов, которая переносится между шоперами, стикерами и худи без переизобретения заново на каждом новом носителе.",
-      outcome: "30+ единиц мерча по единой системе — шоперы, стикеры, худи, ланъярды, — часть тиражей допечатывали дополнительно из-за спроса на мероприятиях.",
+      production: "30+ единиц мерча по единой системе — шоперы, стикеры, худи, ланьярды.",
+      result: "Финальные макеты ушли в печать и с тех пор переиздаются под каждое новое мероприятие компании; часть тиража допечатывали дополнительно из-за спроса.",
     },
+    tools: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
     task: "Визуальная коммуникация компании собиралась из материалов, которые в разное время делали разные исполнители и подрядчики. Из-за этого носители плохо связывались друг с другом, а каждая новая задача начиналась с согласования стиля вместо работы над содержанием. Нужна была единая система, в которой любой носитель — от баннера на конференции до слайда в презентации — читается как один бренд.",
-    approach: "Начал с аудита всех носителей и запросов маркетинга, затем сформулировал единую визуальную логику и собрал библиотеку шаблонов в Figma — так система переносится между digital, печатью и презентациями без переизобретения заново.",
     results: [
       {
         caption: "Шоперы GNM — варианты дизайна",
@@ -141,7 +144,7 @@ export const projects: Project[] = [
         src: "/work/globalnet-gnm/tote-ciao-peers.jpg",
       },
       {
-        caption: "Ланъярды",
+        caption: "Ланьярды",
         ratio: "portrait",
         src: "/work/globalnet-gnm/lanyards.jpg",
       },
@@ -183,10 +186,11 @@ export const projects: Project[] = [
           "Real print tolerances — Pantone matching, bleeds, color profile",
         ],
         decision: "Built a system of visual elements that carries across tote bags, stickers, and hoodies without being reinvented for every new item.",
-        outcome: "30+ merch items on one system — tote bags, stickers, hoodies, lanyards — with part of the run reprinted due to demand at events.",
+        production: "30+ merch items on one system — tote bags, stickers, hoodies, lanyards.",
+        result: "The final artwork went to print and has been reprinted for new company events since; part of the run was reprinted due to demand.",
       },
+      tools: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
       task: "The company's visual communications were assembled from materials made at different times by different freelancers and vendors. As a result, materials didn't connect well with each other, and every new task began with agreeing on style instead of working on content. What was needed was a unified system in which any material — from a conference banner to a presentation slide — reads as one brand.",
-      approach: "Started with an audit of every material and marketing's recurring requests, then defined one visual logic and built a template library in Figma — so it carries across digital, print, and presentations without being reinvented each time.",
       resultCaptions: [
         "GNM tote bags — design options",
         "Sticker pack: artwork",
@@ -226,10 +230,11 @@ export const projects: Project[] = [
         "Решение должно было наследовать фирменный стиль, но работать на длинном скролле",
       ],
       decision: "Спроектировал страницу с картой точек присутствия самостоятельно — от структуры до финальных макетов, отдельно от совместной с агентством работы над главной.",
-      outcome: "8 экранов и состояний сайта (главная + карта точек присутствия), адаптированных под desktop и мобильную версию.",
+      production: "8 экранов и состояний сайта (главная + карта точек присутствия), адаптированных под desktop и мобильную версию.",
+      result: "Страница с картой точек присутствия опубликована на gnm.net и используется отделом продаж при показе покрытия сети клиентам.",
     },
+    tools: ["Figma"],
     task: "Передо мной стояла задача — улучшить сайт gnm.net и сделать его удобнее для посетителя. Сайту не хватало страниц под новые продукты и направления, а существующие разделы отвечали не на все вопросы. Нужно было спроектировать страницы так, чтобы они закрывали задачи маркетинга, встраивались в текущую архитектуру сайта и уходили в разработку без долгих доработок.",
-    approach: "Изучил сценарии посетителя и структуру сайта, выстроил последовательность блоков от сути предложения к целевому действию и довёл макеты до адаптивных состояний с ассетами, готовыми к передаче в разработку без уточнений.",
     results: [
       {
         caption: "Главная страница сайта gnm.net",
@@ -265,10 +270,11 @@ export const projects: Project[] = [
           "The solution had to inherit the brand identity while working on a long scroll",
         ],
         decision: "Designed the presence-map page entirely on my own — from structure to final layouts — separately from the agency-shared work on the homepage.",
-        outcome: "8 site screens and states (homepage + presence map), adapted for desktop and mobile.",
+        production: "8 site screens and states (homepage + presence map), adapted for desktop and mobile.",
+        result: "The presence-map page shipped on gnm.net and is used by sales to show network coverage to clients.",
       },
+      tools: ["Figma"],
       task: "My task was to improve the gnm.net website and make it more convenient for visitors. The site lacked pages for new products and directions, and existing sections didn't answer all of a visitor's questions. New pages needed to be designed to meet marketing goals, fit into the site's existing architecture, and go into development without lengthy rework.",
-      approach: "Studied visitor scenarios and site structure, sequenced blocks from the core offer to a call to action, and took the mockups to responsive states with assets ready for handoff without follow-up questions.",
       resultCaptions: [
         "gnm.net homepage",
         "\"Exchange Locations & Network Coverage\" page — presence map",
@@ -300,10 +306,11 @@ export const projects: Project[] = [
         "Десятки размеров нужно было адаптировать без ручной пересборки каждого файла",
       ],
       decision: "Сделал мастер-макеты, из которых новые форматы собираются по сетке, а не переотрисовываются с нуля.",
-      outcome: "20+ рекламных форматов адаптировано из единого key visual — от широких баннеров до вертикальных сторис.",
+      production: "20+ рекламных форматов адаптировано из единого key visual — от широких баннеров до вертикальных сторис.",
+      result: "Мастер-макеты используются маркетингом как основа для новых кампаний — форматы адаптируются без участия дизайнера на каждый размер.",
     },
+    tools: ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
     task: "Рекламные кампании выходили в разных каналах и форматах, у каждого — свои требования к размерам и объёму текста. Нужно было решение, при котором сообщение остаётся узнаваемым и читаемым везде, а подготовка десятков размеров не превращается в ручную работу над каждым файлом.",
-    approach: "Нашёл визуальный ключ кампании и сразу проверил его на самом сложном формате — узком и мелком, — а затем собрал мастер-макеты и размерную сетку, из которых новые форматы адаптируются без пересборки с нуля.",
     results: [
       {
         caption: "Креатив «Backbone Expansion in Key European PoPs»",
@@ -413,10 +420,11 @@ export const projects: Project[] = [
           "Dozens of sizes needed adapting without manually rebuilding every file",
         ],
         decision: "Built master layouts that new formats are assembled from via a grid, rather than redrawn from scratch.",
-        outcome: "20+ ad formats adapted from a single key visual — from wide banners to vertical stories.",
+        production: "20+ ad formats adapted from a single key visual — from wide banners to vertical stories.",
+        result: "The master layouts are used by marketing as the base for new campaigns — formats get adapted without a designer on every size.",
       },
+      tools: ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
       task: "Ad campaigns ran across different channels and formats, each with its own size and text-length requirements. What was needed was a solution where the message stays recognizable and legible everywhere, and preparing dozens of sizes doesn't turn into manual work on every file.",
-      approach: "Found the campaign's visual key and stress-tested it on the hardest format first — narrow and small — then built master layouts and a size grid that new formats adapt from without rebuilding from scratch.",
       resultCaptions: [
         "\"Backbone Expansion in Key European PoPs\" creative",
         "Social post: GNM in Germany",
@@ -463,10 +471,11 @@ export const projects: Project[] = [
         "Ролики нужно было выпускать в едином визуальном языке с остальной коммуникацией",
       ],
       decision: "Утверждал раскадровку до анимации — решения обсуждались на этапе, где правки стоят дешевле всего.",
-      outcome: "10+ роликов произведено внутри команды, включая экспорт под вертикальные форматы соцсетей.",
+      production: "10+ роликов произведено внутри команды, включая экспорт под вертикальные форматы соцсетей.",
+      result: "Ролики опубликованы в соцсетях компании и используются как заставки в новостных дайджестах на сайте.",
     },
+    tools: ["After Effects", "Adobe Premiere Pro", "Adobe Photoshop"],
     task: "Часть сообщений компании плохо работала в статике: продукты и процессы требовали объяснения в динамике, а мероприятия и запуски — коротких роликов под конкретный канал. Нужно было производить видео внутри команды, в едином визуальном языке с остальной коммуникацией.",
-    approach: "Разбирал бриф на сценарий и раскадровку, утверждал ключевые кадры до анимации — чтобы правки стоили дешевле, — и собирал сцены в After Effects в едином языке движения с остальной коммуникацией бренда.",
     results: [
       {
         caption: "Промо: GNM-IX Peering Plus",
@@ -541,10 +550,11 @@ export const projects: Project[] = [
           "Clips had to ship in the same visual language as the rest of the communications",
         ],
         decision: "Got the storyboard approved before animation — decisions made at the stage where changes are cheapest.",
-        outcome: "10+ clips produced in-house, including exports for vertical social formats.",
+        production: "10+ clips produced in-house, including exports for vertical social formats.",
+        result: "The clips are published on the company's social channels and used as placeholders in the site's news digests.",
       },
+      tools: ["After Effects", "Adobe Premiere Pro", "Adobe Photoshop"],
       task: "Some of the company's messages didn't work well as static images: products and processes needed to be explained in motion, while events and launches needed short clips for specific channels. Video needed to be produced in-house, in the same visual language as the rest of the communications.",
-      approach: "Broke the brief into a script and storyboard, got key frames approved before animating — so changes stayed cheap — and built scenes in After Effects in one motion language shared with the rest of the brand's communications.",
       resultCaptions: [
         "Promo: GNM-IX Peering Plus",
         "Promo: Connect to 700+ EU Networks from the USA",
@@ -583,10 +593,11 @@ export const projects: Project[] = [
         "Баннеры делались под конкретные мероприятия с интервалом около полугода",
       ],
       decision: "Проверял каждый макет перед отправкой в печать, а не полагался на постпродакшн правки.",
-      outcome: "10+ материалов для стендов и мероприятий подготовлено к печати за несколько итераций фирменного стиля.",
+      production: "10+ материалов для стендов и мероприятий подготовлено к печати за несколько итераций фирменного стиля.",
+      result: "Комплекты материалов используются на стендах компании на профильных конференциях на регулярной основе.",
     },
+    tools: ["Adobe Illustrator", "Adobe Photoshop", "Figma"],
     task: "На мероприятиях компания конкурирует за внимание в физическом пространстве, где решение принимается за несколько секунд с расстояния. При этом печать не прощает ошибок: макет с неверными вылетами или цветовым профилем возвращается с производства с потерей времени и бюджета. Баннеры для стендов делались под конкретные мероприятия с интервалом примерно в полгода — за это время фирменный стиль GNM прошёл путь от минимального набора элементов до зафиксированной системы.",
-    approach: "Разбирал зону мероприятия — с какого расстояния видят носитель, как двигается поток людей, — и выстраивал иерархию по дистанции: крупное сообщение читается издалека, детали открываются при подходе. Комплект носителей готовил как одну зону, с вылетами и цветовыми профилями под конкретное производство.",
     files: [
       { label: "Лифлет — PDF", href: "/work/print-exhibition-design/leaflet.pdf" },
       {
@@ -669,10 +680,11 @@ export const projects: Project[] = [
           "Banners were made for specific events roughly every six months",
         ],
         decision: "Checked every layout before it went to press instead of relying on post-production fixes.",
-        outcome: "10+ materials for booths and events prepped for print across several iterations of the brand identity.",
+        production: "10+ materials for booths and events prepped for print across several iterations of the brand identity.",
+        result: "The material sets are used at the company's booths at industry conferences on an ongoing basis.",
       },
+      tools: ["Adobe Illustrator", "Adobe Photoshop", "Figma"],
       task: "At events, the company competes for attention in physical space, where decisions are made in seconds from a distance. Print leaves no room for error: a layout with wrong bleeds or a wrong color profile comes back from production at a cost in time and budget. Stand banners were made for specific events roughly every six months — over that time GNM's brand identity evolved from a minimal set of elements into a fixed system.",
-      approach: "Studied the event space — viewing distance, foot traffic — and built a distance-based hierarchy: the big message reads from afar, details reveal up close. Prepared the whole set as one zone, with bleeds and color profiles matched to the specific print vendor.",
       fileLabels: ["Leaflet — PDF", "Sales one-pager — PDF"],
       resultCaptions: [
         "GNM-IX roll-up",
@@ -713,10 +725,11 @@ export const projects: Project[] = [
         "Шаблон должен был держать иерархию даже при большом объёме текста",
       ],
       decision: "Сделал шаблон инструментом, а не «на все случаи» набором слайдов — под реальные сценарии продаж, встреч и отчётов.",
-      outcome: "Шаблон с мастер-слайдами лёг в основу 10+ презентаций, которые команды теперь собирают сами без дизайнера.",
+      production: "Мастер-слайды и типографическая система легли в основу шаблона, использованного в 10+ презентациях.",
+      result: "Шаблон используют отделы самостоятельно при подготовке новых презентаций, без участия дизайнера.",
     },
+    tools: ["Figma"],
     task: "Презентации готовили разные отделы, и качество сильно расходилось: сильные аргументы терялись в перегруженных слайдах, а внешние документы выглядели слабее уровня компании. Нужен был инструмент, которым команды пользуются самостоятельно, получая аккуратный результат без дизайнера в каждой задаче.",
-    approach: "Разобрал типовые сценарии — продажи, встречи с партнёрами, внутренние отчёты — и собрал мастер-слайды с типографической системой, которая держит иерархию даже при большом объёме текста, плюс инструкцию, по которой команды дальше собирают презентации сами.",
     files: [
       { label: "Press Kit — PDF, 9 слайдов", href: "/work/presentation-design/press-kit.pdf" },
       {
@@ -753,10 +766,11 @@ export const projects: Project[] = [
           "The template had to hold hierarchy even with a lot of text",
         ],
         decision: "Made the template a working tool rather than an abstract one-size-fits-all set of slides — built for real sales, meeting, and reporting scenarios.",
-        outcome: "The master-slide template became the base for 10+ presentations that teams now assemble themselves.",
+        production: "Master slides and a typographic system became the base of a template used across 10+ presentations.",
+        result: "Departments now use the template on their own when building new presentations, without a designer.",
       },
+      tools: ["Figma"],
       task: "Presentations were made by different departments, and quality varied widely: strong arguments got lost in overloaded slides, and external documents looked weaker than the company deserved. What was needed was a tool teams could use on their own and still get a polished result without a designer on every task.",
-      approach: "Broke down the typical scenarios — sales, partner meetings, internal reports — and built master slides with a typographic system that holds hierarchy even with a lot of text, plus usage instructions so teams can assemble presentations themselves.",
       fileLabels: ["Press Kit — PDF, 9 slides", "Partner presentation — PDF, 12 slides"],
       resultCaptions: ["Partner presentation: title slide"],
     },
@@ -784,8 +798,10 @@ export const projects: Project[] = [
         "Тот же логотип, шрифт и акцентный цвет, что на сайте и в остальных материалах — без визуальных вольностей",
       ],
       decision: "Встроил экраны приложения в общую визуальную систему компании, а не сделал отдельный стиль для продукта.",
-      outcome: "6 экранов и состояний интерфейса плюс видео-демо флоу «вход → подключение».",
+      production: "6 экранов и состояний интерфейса подготовлено, плюс видео-демо флоу «вход → подключение».",
+      result: "Экраны переданы в разработку и используются в текущей версии VPN-приложения GNM.",
     },
+    tools: ["Figma"],
     task: "Оформление экранов мобильного приложения VPN-сервиса GNM в рамках общей визуальной системы компании — с тем же логотипом, шрифтом и акцентным цветом, что и на сайте и в остальных материалах.",
     results: [
       { caption: "Экран входа", ratio: "portrait", src: "/work/gnm-app/login.png" },
@@ -819,8 +835,10 @@ export const projects: Project[] = [
           "Same logo, typeface, and accent color as the website and other materials — no room for visual liberties",
         ],
         decision: "Folded the app screens into the company's overall visual system instead of creating a separate style for the product.",
-        outcome: "6 interface screens and states, plus a video demo of the login-to-connect flow.",
+        production: "6 interface screens and states prepared, plus a video demo of the login-to-connect flow.",
+        result: "The screens were handed to development and are used in the current version of the GNM VPN app.",
       },
+      tools: ["Figma"],
       task: "Designing the screens of GNM's VPN mobile app within the company's overall visual system — the same logo, typeface, and accent color as the website and other materials.",
       resultCaptions: [
         "Login screen",
@@ -861,10 +879,11 @@ export const projects: Project[] = [
         "Иначе решение не снимало бы нагрузку с поддержки",
       ],
       decision: "Собрал не оформление готового бота, а логику целиком — от сценариев до интеграции с базой знаний.",
-      outcome: "Бот запущен в продакшен и ежедневно обрабатывает обращения клиентов в Telegram, эскалируя менеджеру только сложные случаи.",
+      production: "Сценарии диалогов, интеграция ИИ-ассистента с базой знаний и визуальное оформление бота (обложки, иконки, меню) реализованы в рамках возможностей Telegram.",
+      result: "Бот запущен в продакшен и ежедневно обрабатывает обращения клиентов в Telegram, эскалируя менеджеру только сложные случаи.",
     },
+    tools: ["Figma", "ChatGPT"],
     task: "Часть коммуникации с клиентами GlobalNet нужно было перевести в Telegram — не в виде статичного меню, а как полноценного помощника, способного отвечать на вопросы самостоятельно. Я не оформлял готового бота, а собрал его целиком: логику сценариев, сами диалоги и ИИ-ассистента, который понимает вопрос клиента и ищет ответ по базе знаний компании.",
-    approach: "Спроектировал логику диалога и ИИ-ассистента — когда он отвечает сам по базе знаний, а когда передаёт вопрос менеджеру, — и довёл сценарии до рабочего бота с оформлением, узнаваемым как часть бренда даже в рамках возможностей Telegram.",
     results: [
       {
         caption: "Экран бота с ИИ-ассистентом",
@@ -904,10 +923,11 @@ export const projects: Project[] = [
           "Otherwise the solution wouldn't actually reduce support load",
         ],
         decision: "Built the whole logic, not just a skin on an existing bot — from dialogue flows to the knowledge-base integration.",
-        outcome: "The bot is live in production and handles client requests in Telegram daily, escalating only complex cases to a manager.",
+        production: "Dialogue flows, the AI assistant's knowledge-base integration, and the bot's visuals (covers, icons, menus) were built within Telegram's constraints.",
+        result: "The bot is live in production and handles client requests in Telegram daily, escalating only complex cases to a manager.",
       },
+      tools: ["Figma", "ChatGPT"],
       task: "Part of the communication with GlobalNet clients needed to move to Telegram — not as a static menu, but as a real assistant able to answer questions on its own. I didn't just style a ready-made bot: I built it end to end — the scenario logic, the dialogues themselves, and an AI assistant that understands a client's question and looks up the answer in the company's knowledge base.",
-      approach: "Designed the dialogue and AI-assistant logic — when it answers from the knowledge base on its own, when it hands a question to a manager — and took the flows to a working bot with a look recognizable as the brand, even within Telegram's constraints.",
       resultCaptions: [
         "Bot screen with AI assistant",
         "GlobalNet AI assistant promo poster",
@@ -938,10 +958,11 @@ export const projects: Project[] = [
         "При негативном сигнале уведомление должно уходить мгновенно, а не по итогам ручной проверки чатов",
       ],
       decision: "Сделал так, чтобы бот сам различал сотрудника и клиента и реагировал на сигнал в моменте, а не постфактум.",
-      outcome: "Бот подключён ко всем клиентским групповым чатам компании и структурирует переписку в базу данных в реальном времени.",
+      production: "Структура базы данных, обработка сообщений через нейросеть и сценарий мониторинга просроченных ответов реализованы и подключены к продакшен-чатам.",
+      result: "Бот подключён ко всем клиентским групповым чатам компании и структурирует переписку в базу данных в реальном времени.",
     },
+    tools: ["Figma", "ChatGPT", "Claude Code"],
     task: "Часть обращений клиентов GlobalNet идёт через групповые чаты в Telegram, и в потоке переписки легко пропустить важное: жалобу, конфликт или сообщение, оставшееся без ответа. Я разработал бота, который подключается к этим чатам, различает сотрудника и клиента, структурирует переписку в базе данных и обрабатывает каждое клиентское сообщение через нейросеть — а при негативном сигнале сразу уведомляет руководителя.",
-    approach: "Спроектировал структуру данных под задачу — отдельные таблицы для чатов, сообщений и событий — и настроил обработку каждого сообщения через нейросеть с классификацией по типу события, включая отдельный сценарий мониторинга просроченных ответов.",
     results: [
       {
         caption:
@@ -996,10 +1017,11 @@ export const projects: Project[] = [
           "A negative signal had to trigger an instant alert, not wait for a manual chat review",
         ],
         decision: "Made the bot distinguish staff from clients on its own and react to a signal in the moment, not after the fact.",
-        outcome: "The bot is connected to all of the company's client group chats and structures conversations into a database in real time.",
+        production: "The database structure, model-based message processing, and the overdue-reply monitoring flow were built and connected to production chats.",
+        result: "The bot is connected to all of the company's client group chats and structures conversations into a database in real time.",
       },
+      tools: ["Figma", "ChatGPT", "Claude Code"],
       task: "Part of GlobalNet's client communication runs through group chats in Telegram, and it's easy to miss what matters in the stream of messages — a complaint, a conflict, or a message left without a reply. I built a bot that connects to these chats, tells staff and clients apart, structures the conversation into a database, and runs every client message through a neural network — alerting a manager immediately on a negative signal.",
-      approach: "Designed a data structure for the task — separate tables for chats, messages, and events — and set up processing of every message through a model that classifies it by event type, including a separate monitoring flow for overdue replies.",
       resultCaptions: [
         "Bot workflow: reading the chat, identifying the client, processing through a neural network, notifying the manager",
         "Response-time monitoring scenario — checked every 30 minutes",
@@ -1033,8 +1055,10 @@ export const projects: Project[] = [
         "Каждая колода должна была одинаково работать и на встрече с клиентом, и как самостоятельный PDF без докладчика",
       ],
       decision: "Согласовывал содержание с продуктовыми командами, а не только оформление слайдов.",
-      outcome: "5 презентаций для внешней и внутренней коммуникации, каждая — самостоятельный PDF без докладчика.",
+      production: "5 презентаций подготовлено для внешней и внутренней коммуникации: DDoS-защита, CDN, DATAIX, обзор компании.",
+      result: "Презентации используются отделом продаж GlobalNet во внешних и внутренних встречах на регулярной основе.",
     },
+    tools: ["Figma"],
     task: "Подготовка презентационных материалов по продуктам GlobalNet — защите от DDoS, CDN и точке обмена трафиком DATAIX — для внешней и внутренней коммуникации.",
     files: [
       { label: "DDoS Protection — PDF", href: "/work/globalnet/presentation-design/ddos-protection.pdf" },
@@ -1070,8 +1094,10 @@ export const projects: Project[] = [
           "Each deck had to work equally well presented live and read cold as a standalone PDF",
         ],
         decision: "Aligned content with product teams, not just the slide formatting.",
-        outcome: "5 presentations for external and internal communication, each a standalone PDF with no presenter needed.",
+        production: "5 presentations prepared for external and internal communication: DDoS protection, CDN, DATAIX, company overview.",
+        result: "The presentations are used by GlobalNet's sales team in external and internal meetings on an ongoing basis.",
       },
+      tools: ["Figma"],
       task: "Preparing presentation materials for GlobalNet products — DDoS protection, CDN, and the DATAIX traffic exchange point — for external and internal communication.",
       fileLabels: [
         "DDoS Protection — PDF",
@@ -1114,10 +1140,11 @@ export const projects: Project[] = [
         "Нужны были не только «чистовые» экраны, но и проработанные состояния форм",
       ],
       decision: "Передавал макеты в разработку с проработанными состояниями, чтобы сократить количество уточняющих вопросов.",
-      outcome: "5+ экранов сайта, включая форму опроса по DATAIX и личный кабинет с проработанными состояниями форм.",
+      production: "5+ экранов сайта подготовлено, включая форму опроса по DATAIX и личный кабинет с проработанными состояниями форм.",
+      result: "Экраны переданы в разработку и опубликованы на сайте GlobalNet.",
     },
+    tools: ["Figma"],
     task: "Передо мной стояла задача — улучшить сайт GlobalNet и сделать его удобнее для пользователя: от формы обратной связи по DATAIX до вариантов главной страницы и личного кабинета.",
-    approach: "Упростил сценарии и почистил интерфейс — формы и заявки на подключение стали работать в несколько понятных шагов вместо запутанного флоу.",
     results: [
       { caption: "Опрос по качеству подключения к DATAIX", ratio: "wide", src: "/work/globalnet/website/dataix-survey.png" },
       { caption: "Главная страница — вариант 1", ratio: "wide", src: "/work/globalnet/website/homepage-light-1.png" },
@@ -1147,10 +1174,11 @@ export const projects: Project[] = [
           "The task needed worked-out form states, not just clean happy-path screens",
         ],
         decision: "Handed off mockups with worked-out states to cut down on clarifying questions during development.",
-        outcome: "5+ site screens, including the DATAIX survey form and an account dashboard with worked-out form states.",
+        production: "5+ site screens prepared, including the DATAIX survey form and an account dashboard with worked-out form states.",
+        result: "The screens were handed to development and published on the GlobalNet website.",
       },
+      tools: ["Figma"],
       task: "My task was to improve the GlobalNet website and make it more convenient for users: from the DATAIX feedback form to homepage variants and the account dashboard.",
-      approach: "Simplified the flows and cleaned up the interface — forms and connection requests now work in a few clear steps instead of a confusing flow.",
       resultCaptions: [
         "DATAIX connection quality survey",
         "Homepage — option 1",
@@ -1183,8 +1211,10 @@ export const projects: Project[] = [
         "Даты выхода были жёстко привязаны к календарю событий, включая розыгрыши на конференциях",
       ],
       decision: "Делал флаеры так, чтобы часть из них можно было переиспользовать как базу для новых кампаний.",
-      outcome: "20+ рекламных и промо-материалов, часть из которых переиспользуется как база для новых кампаний.",
+      production: "20+ рекламных и промо-материалов подготовлено: таргетированные креативы, флаеры под мероприятия, публикации для соцсетей.",
+      result: "Часть флаеров переиспользуется по сей день как база для новых кампаний GlobalNet.",
     },
+    tools: ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
     task: "Подготовка рекламных креативов, промо-флаеров об услугах и публикаций для соцсетей бренда GlobalNet.",
     files: [{ label: "Промо-материалы — PDF", href: "/work/globalnet/merch-print/frame.pdf" }],
     results: [
@@ -1228,8 +1258,10 @@ export const projects: Project[] = [
           "Release dates were locked to the event calendar, including conference giveaways",
         ],
         decision: "Built flyers so part of them could be reused as a base for new campaigns.",
-        outcome: "20+ ad and promo materials, several of which are still reused as a base for new campaigns.",
+        production: "20+ ad and promo materials prepared: targeted creatives, event flyers, social media posts.",
+        result: "Several flyers are still reused today as a base for new GlobalNet campaigns.",
       },
+      tools: ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
       task: "Preparing ad creatives, service promo flyers, and social media posts for the GlobalNet brand.",
       fileLabels: ["Promo materials — PDF"],
       resultCaptions: [
@@ -1277,8 +1309,10 @@ export const projects: Project[] = [
         "Нужно было балансировать между корпоративным брендом и более неформальным тоном для сотрудников (серия «ТСПУ»)",
       ],
       decision: "Сделал сатирическую серию стикеров отдельным, более неформальным слоем бренда, не смешивая её с официальными материалами.",
-      outcome: "11+ позиций мерча, включая сатирическую серию стикеров «ТСПУ» — на мероприятиях разбирали быстрее остальных промо-материалов.",
+      production: "11+ позиций мерча GlobalNet и DATAIX разработано — от кепок и худи до сатирической серии стикеров «ТСПУ».",
+      result: "На мероприятиях мерч разбирали быстрее остальных промо-материалов — часть позиций допечатывали дополнительно.",
     },
+    tools: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
     task: "Разработка мерча GlobalNet и DATAIX: кепки, худи, футболки, рюкзак и стикеры для сотрудников, клиентов и мероприятий.",
     results: [
       { caption: "Кепки GlobalNet — подборка", ratio: "landscape", src: "/work/globalnet/merch-print/caps-1.png" },
@@ -1312,8 +1346,10 @@ export const projects: Project[] = [
           "Had to balance the corporate brand against a more informal tone for employees (the \"TSPU\" series)",
         ],
         decision: "Kept the satirical sticker series as a separate, more informal layer of the brand instead of mixing it with official materials.",
-        outcome: "11+ merch items, including the satirical \"TSPU\" sticker series — went faster than other promo materials at events.",
+        production: "11+ GlobalNet and DATAIX merch items designed — from caps and hoodies to the satirical \\\"TSPU\\\" sticker series.",
+        result: "At events, the merch went faster than any other promo material — part of the run was reprinted.",
       },
+      tools: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
       task: "Developing GlobalNet and DATAIX merch: caps, hoodies, t-shirts, a backpack, and stickers for employees, clients, and events.",
       resultCaptions: [
         "GlobalNet caps — selection",
@@ -1352,8 +1388,10 @@ export const projects: Project[] = [
         "Годовой отчёт содержит точные цифры компании — ошибка в подаче факта здесь недопустима",
       ],
       decision: "Проверял каждую цифру в ролике с годовым отчётом перед монтажом финальной версии.",
-      outcome: "9+ видеоматериалов, включая годовой отчёт с ключевыми цифрами компании.",
+      production: "9+ видеоматериалов произведено, включая годовой отчёт с ключевыми цифрами компании.",
+      result: "Годовой отчёт опубликован для инвесторов и партнёров компании, остальные ролики используются в техподдержке и на мероприятиях.",
     },
+    tools: ["After Effects", "Adobe Premiere Pro", "Media Encoder"],
     task: "Производство видеоматериалов GlobalNet — от годового отчёта до вспомогательных технических роликов.",
     results: [
       { caption: "Годовой отчёт 2025", ratio: "square", video: "/work/globalnet/motion/annual-report-2025.mp4" },
@@ -1393,8 +1431,10 @@ export const projects: Project[] = [
           "The annual report states exact company figures — no room for error in how a fact is presented",
         ],
         decision: "Double-checked every figure in the annual-report clip before locking the final edit.",
-        outcome: "9+ video pieces, including the annual report with the company's key figures.",
+        production: "9+ video pieces produced, including the annual report with the company's key figures.",
+        result: "The annual report was published for investors and partners; the rest of the clips are used in technical support and at events.",
       },
+      tools: ["After Effects", "Adobe Premiere Pro", "Media Encoder"],
       task: "Producing GlobalNet's video content — from the annual report to supporting technical clips.",
       resultCaptions: [
         "Annual Report 2025",
@@ -1430,8 +1470,10 @@ export const projects: Project[] = [
         "Регламент защиты — несколько минут на подачу идеи, а не развёрнутая презентация",
       ],
       decision: "Сфокусировал материалы на одной ясной идее вместо попытки уместить весь проект в один показ.",
-      outcome: "Проект защищён перед комиссией Института бизнеса и дизайна, 16.05.2023.",
+      production: "Креативная часть продукта и материалы для защиты подготовлены самостоятельно, от концепции до финальной подачи.",
+      result: "Проект защищён перед комиссией Института бизнеса и дизайна, 16.05.2023.",
     },
+    tools: ["Figma", "PowerPoint"],
     files: [{ label: "Juzzle — PDF", href: "/work/other/juzzle/juzzle.pdf" }],
     results: [],
     tone: 0,
@@ -1448,8 +1490,10 @@ export const projects: Project[] = [
           "The defense format allowed just a few minutes to pitch the idea, not a full presentation",
         ],
         decision: "Focused the materials on one clear idea instead of trying to fit the whole project into a single pitch.",
-        outcome: "Defended at the Institute of Business and Design panel, 05.16.2023.",
+        production: "The product's creative direction and defense materials were prepared solo, from concept to final pitch.",
+        result: "Defended at the Institute of Business and Design panel, 05.16.2023.",
       },
+      tools: ["Figma", "PowerPoint"],
       fileLabels: ["Juzzle — PDF"],
     },
   },
@@ -1469,8 +1513,10 @@ export const projects: Project[] = [
         "Нужно было уложить сложную бизнес-идею в формат, понятный комиссии без предварительного контекста",
       ],
       decision: "Построил подачу вокруг одной метафоры — питание без поваров и кухни, — чтобы концепция считывалась сразу.",
-      outcome: "Концепция защищена перед комиссией Института бизнеса и дизайна.",
+      production: "Концепция технологии и материалы для защиты подготовлены самостоятельно.",
+      result: "Концепция защищена перед комиссией Института бизнеса и дизайна.",
     },
+    tools: ["Figma", "PowerPoint"],
     files: [{ label: "Qummy — PDF", href: "/work/other/qummy/qummy.pdf" }],
     results: [],
     tone: 1,
@@ -1487,8 +1533,10 @@ export const projects: Project[] = [
           "Had to fit a complex business idea into a format the panel could follow without prior context",
         ],
         decision: "Built the pitch around a single metaphor — food without cooks or a kitchen — so the concept landed immediately.",
-        outcome: "Defended the concept at the Institute of Business and Design panel.",
+        production: "The technology concept and defense materials were prepared solo.",
+        result: "Defended the concept at the Institute of Business and Design panel.",
       },
+      tools: ["Figma", "PowerPoint"],
       fileLabels: ["Qummy — PDF"],
     },
   },
@@ -1510,8 +1558,10 @@ export const projects: Project[] = [
         "Учебный формат требовал защитить решения перед комиссией, а не просто показать картинки",
       ],
       decision: "Разделили зоны ответственности: я — визуальная система, совместно — концепция продукта.",
-      outcome: "Бренд разработан и защищён в соавторстве — моя часть: логотип, цвет, типографика.",
+      production: "Логотип, цветовая система и типографика бренда разработаны и оформлены в материалах для защиты.",
+      result: "Бренд защищён перед комиссией в соавторстве с Дарьей Ивановой.",
     },
+    tools: ["Adobe Illustrator", "Figma"],
     files: [{ label: "yoyote — PDF", href: "/work/other/yoyote/yoyote.pdf" }],
     results: [],
     tone: 2,
@@ -1531,8 +1581,10 @@ export const projects: Project[] = [
           "The course format required defending the decisions to a panel, not just showing visuals",
         ],
         decision: "Split ownership: I owned the visual system, we developed the product concept together.",
-        outcome: "The brand was developed and defended as a pair — my part was the logo, color, and typography.",
+        production: "The brand's logo, color system, and typography were developed and laid out in the defense materials.",
+        result: "The brand was defended before the panel as a pair with Daria Ivanova.",
       },
+      tools: ["Adobe Illustrator", "Figma"],
       fileLabels: ["yoyote — PDF"],
     },
   },
@@ -1552,8 +1604,10 @@ export const projects: Project[] = [
         "Документ должен был быть понятен без автора рядом",
       ],
       decision: "Сделал акцент на правилах применения, а не только на витринных примерах.",
-      outcome: "Брендбук на 20+ страниц с логотипом, цветовой системой и правилами применения на упаковке.",
+      production: "Логотип, цветовая система и правила применения на упаковке оформлены в брендбук на 20+ страниц.",
+      result: "Брендбук выполнен как учебный проект Института бизнеса и дизайна.",
     },
+    tools: ["Adobe Illustrator", "Figma"],
     files: [{ label: "Брендбук MOJO — PDF", href: "/work/other/mojo-cacao/brandbook.pdf" }],
     results: [],
     tone: 3,
@@ -1571,8 +1625,10 @@ export const projects: Project[] = [
           "The document had to be usable without the author in the room",
         ],
         decision: "Emphasized usage rules over just showcase examples.",
-        outcome: "A 20+ page brand book with the logo, color system, and packaging usage rules.",
+        production: "The logo, color system, and packaging usage rules were laid out in a 20+ page brand book.",
+        result: "The brand book was completed as a course project at the Institute of Business and Design.",
       },
+      tools: ["Adobe Illustrator", "Figma"],
       fileLabels: ["MOJO Brand Book — PDF"],
     },
   },
@@ -1592,8 +1648,10 @@ export const projects: Project[] = [
         "Презентация должна была остаться редактируемым инструментом, а не только финальной картинкой",
       ],
       decision: "Сдал не только PDF, но и открытый PPTX-файл, которым команда может пользоваться дальше.",
-      outcome: "12+ слайдов, сдано в PDF и в редактируемом PPTX для команды заказчика.",
+      production: "12+ слайдов подготовлено для презентации «Проект года».",
+      result: "Презентация сдана заказчику в PDF и в редактируемом PPTX — рабочий файл, которым команда может пользоваться дальше.",
     },
+    tools: ["PowerPoint", "Adobe Photoshop"],
     files: [
       { label: "Orange Toys — PDF", href: "/work/other/orange-toys/orange-toys.pdf" },
       { label: "Orange Toys — оригинал PPTX", href: "/work/other/orange-toys/orange-toys.pptx" },
@@ -1614,8 +1672,10 @@ export const projects: Project[] = [
           "The presentation had to stay an editable tool, not just a final image",
         ],
         decision: "Delivered both a PDF and an open PPTX file the client team could keep using.",
-        outcome: "12+ slides, delivered as a PDF and an editable PPTX for the client team.",
+        production: "12+ slides prepared for the \\\"Project of the Year\\\" presentation.",
+        result: "Delivered to the client as a PDF and an editable PPTX — a working file the team can keep using.",
       },
+      tools: ["PowerPoint", "Adobe Photoshop"],
       fileLabels: ["Orange Toys — PDF", "Orange Toys — original PPTX"],
     },
   },
@@ -1636,8 +1696,10 @@ export const projects: Project[] = [
         "Каждое решение нужно было обосновать перед комиссией, а не только показать финальный результат",
       ],
       decision: "Построил защиту вокруг одной сквозной идеи фирменного стиля, применённой на всех носителях — от вывески до меню.",
-      outcome: "Дипломный проект — вывеска, меню и рекламные материалы — защищён и оформлен в дипломной работе.",
+      production: "Вывеска, меню и рекламные материалы фирменного стиля сети чайных разработаны и оформлены в дипломной работе.",
+      result: "Дипломный проект защищён перед комиссией Института бизнеса и дизайна.",
     },
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
     files: [{ label: "Дипломная работа — DOCX", href: "/work/other/diploma/thesis.docx" }],
     results: [
       { caption: "Вывеска", ratio: "landscape", src: "/work/other/diploma/signage.png" },
@@ -1660,8 +1722,10 @@ export const projects: Project[] = [
           "Every decision had to be justified to the panel, not just shown as a final result",
         ],
         decision: "Built the defense around one thread — a brand identity applied consistently across every material, from signage to menu.",
-        outcome: "Thesis project — signage, menu, and advertising materials — defended and documented in the written thesis.",
+        production: "Signage, menu, and advertising materials for the tea house chain's identity were designed and documented in the thesis.",
+        result: "Defended before the Institute of Business and Design panel.",
       },
+      tools: ["Adobe Illustrator", "Adobe Photoshop"],
       fileLabels: ["Thesis — DOCX"],
       resultCaptions: ["Signage", "Menu", "Advertising posters"],
     },
@@ -1683,8 +1747,10 @@ export const projects: Project[] = [
         "Бренд нужен был к конкретной дате старта продаж, а не «когда будет готово»",
       ],
       decision: "Сфокусировался на минимальном наборе носителей, который можно было гарантированно успеть к дате запуска.",
-      outcome: "4 артборда фирменного стиля и промо-видео — готовы к дате старта продаж.",
+      production: "4 артборда фирменного стиля и промо-видео подготовлены к запуску.",
+      result: "Материалы были готовы к дате старта продаж чайного бренда.",
     },
+    tools: ["Adobe Illustrator", "Adobe Photoshop", "Adobe Premiere Pro"],
     results: [
       { caption: "Артборд — 1", ratio: "landscape", src: "/work/other/tea-launch/board-1.png" },
       { caption: "Артборд — 2", ratio: "landscape", src: "/work/other/tea-launch/board-2.png" },
@@ -1707,8 +1773,10 @@ export const projects: Project[] = [
           "The brand had to be ready by a fixed sales-start date, not \"whenever it's done\"",
         ],
         decision: "Focused on the minimum set of materials that could reliably ship by the launch date.",
-        outcome: "4 brand identity artboards and a promo video, ready for the sales-start date.",
+        production: "4 brand identity artboards and a promo video prepared for launch.",
+        result: "The materials were ready by the tea brand's sales-start date.",
       },
+      tools: ["Adobe Illustrator", "Adobe Photoshop", "Adobe Premiere Pro"],
       resultCaptions: ["Artboard — 1", "Artboard — 2", "Artboard — 3", "Artboard — 4", "Video"],
     },
   },
@@ -1732,8 +1800,10 @@ export const projects: Project[] = [
         "Не любой контраст и деталь переносятся на футболку без потерь при печати на ткани",
       ],
       decision: "Адаптировал контраст и детализацию принтов под технологию печати до передачи в производство.",
-      outcome: "30+ принтов, включая коллаборации с независимыми художниками (Цой, Миша Мост).",
+      production: "30+ принтов разработано, включая коллаборации с независимыми художниками (Цой, Миша Мост).",
+      result: "Принты использованы в производстве мерча Artflash — футболок с авторскими и коллаборационными принтами.",
     },
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
     results: [
       { caption: "Футболка «Blue Crest»", ratio: "portrait", src: "/work/other/artflash/tee-blue-crest.png" },
       { caption: "Футболка — вариант 2", ratio: "portrait", src: "/work/other/artflash/tee-2.png" },
@@ -1773,8 +1843,10 @@ export const projects: Project[] = [
           "Not every contrast or detail survives fabric printing without loss",
         ],
         decision: "Adapted contrast and detail in the prints to the print technology before handing off to production.",
-        outcome: "30+ prints, including collaborations with independent artists (Tsoi, Misha Most).",
+        production: "30+ prints designed, including collaborations with independent artists (Tsoi, Misha Most).",
+        result: "The prints went into Artflash's merch production — t-shirts with original and collaboration prints.",
       },
+      tools: ["Adobe Illustrator", "Adobe Photoshop"],
       resultCaptions: [
         "\"Blue Crest\" t-shirt",
         "T-shirt — option 2",
@@ -1816,8 +1888,10 @@ export const projects: Project[] = [
         "Публикация должна была выйти точно к датам акций — вина, глинтвейн и сезонные предложения теряют смысл при задержке даже на день",
       ],
       decision: "Держал шаблон креатива готовым заранее, чтобы под новую акцию требовалась только замена контента.",
-      outcome: "7+ рекламных креативов, выпущенных точно к датам акций.",
+      production: "7+ рекламных креативов подготовлено под сезонные акции METRO Cash & Carry.",
+      result: "Креативы опубликованы в соцсетях точно к датам акций — вино, глинтвейн и сезонные предложения.",
     },
+    tools: ["Adobe Photoshop", "Adobe Illustrator"],
     results: [
       { caption: "Промо-креатив", ratio: "square", src: "/work/other/metro/final.png" },
       { caption: "Промо — вариант 2", ratio: "square", src: "/work/other/metro/ready-2.png" },
@@ -1845,8 +1919,10 @@ export const projects: Project[] = [
           "Posts had to go out exactly on promo dates — wines, mulled wine, and seasonal offers lose their point if delayed even a day",
         ],
         decision: "Kept a creative template ready in advance so each new promo only needed a content swap.",
-        outcome: "7+ ad creatives shipped exactly on promotion dates.",
+        production: "7+ ad creatives prepared for METRO Cash & Carry's seasonal promotions.",
+        result: "Creatives published on social media exactly on promotion dates — wine, mulled wine, and seasonal offers.",
       },
+      tools: ["Adobe Photoshop", "Adobe Illustrator"],
       resultCaptions: [
         "Promo creative",
         "Promo — option 2",
@@ -1881,8 +1957,10 @@ export const projects: Project[] = [
         "Стажировка шла в темпе продакшена наравне со штатной командой, а не в тепличном режиме",
       ],
       decision: "Брал на себя креативы и презентации самостоятельно, а на 3D-ролике работал в связке с моушн-командой, а не в одиночку.",
-      outcome: "10+ материалов за 3 месяца стажировки: рекламные креативы, 2 презентации и 3D-ролик с макетом интерфейса.",
+      production: "10+ материалов подготовлено за 3 месяца стажировки: рекламные креативы, 2 презентации и 3D-ролик с макетом интерфейса.",
+      result: "Материалы опубликованы в соцсетях и использованы на встречах с бизнес- и инвесторской аудиторией TenChat.",
     },
+    tools: ["Adobe Photoshop", "Adobe Illustrator", "Cinema 4D", "Blender", "Adobe Premiere Pro"],
     task: "Трёхмесячная стажировка в маркетинге TenChat: подготовка рекламных постов и таргетированных креативов для соцсетей, вёрстка презентаций для бизнес-аудитории и инвесторов, а также участие в производстве 3D-ролика с макетом интерфейса платформы на ноутбуке и телефоне.",
     files: [
       {
@@ -1969,8 +2047,10 @@ export const projects: Project[] = [
           "The internship ran at in-house production pace, not a slower training track",
         ],
         decision: "Owned the creatives and presentations solo, while working in tandem with the motion team on the 3D video rather than alone.",
-        outcome: "10+ pieces over a 3-month internship: ad creatives, 2 presentations, and a 3D interface-mockup video.",
+        production: "10+ pieces produced over a 3-month internship: ad creatives, 2 presentations, and a 3D interface-mockup video.",
+        result: "The materials were published on social media and used in meetings with TenChat's business and investor audience.",
       },
+      tools: ["Adobe Photoshop", "Adobe Illustrator", "Cinema 4D", "Blender", "Adobe Premiere Pro"],
       task: "A three-month internship on TenChat's marketing team: producing ad posts and targeted creatives for social media, building presentations for business and investor audiences, and contributing to a 3D promo video featuring a laptop and phone mockup of the platform's interface.",
       fileLabels: [
         "\"TenChat for Business\" presentation — PDF",
@@ -2011,8 +2091,10 @@ export const projects: Project[] = [
         "Каждая иллюстрация — отдельный заказ с собственным брифом и сроком",
       ],
       decision: "Держал единый рабочий процесс — скетч → правки → финальная отрисовка — вне зависимости от заказчика.",
-      outcome: "25+ иллюстраций и стикеров за несколько лет фриланса, часть — в основе стороннего MBTI-проекта для детей.",
+      production: "25+ иллюстраций и стикеров создано за несколько лет фриланса под брифы разных заказчиков.",
+      result: "Часть детских персонажей легла в основу стороннего MBTI-проекта для детей.",
     },
+    tools: ["Adobe Illustrator"],
     task: "Подборка иллюстраторских работ по фриланс-заказам разных лет: персонажи, стикеры и постеры. Часть иллюстраций с детскими персонажами сделана для сайта, который определяет тип личности (MBTI) у детей — ракета с юными инженерами открывает этот блок работ.",
     results: [
       {
@@ -2162,8 +2244,10 @@ export const projects: Project[] = [
           "Each illustration was a separate commission with its own brief and deadline",
         ],
         decision: "Kept one workflow — sketch → revisions → final art — regardless of the client.",
-        outcome: "25+ illustrations and stickers over several years of freelancing, some forming the basis of a third-party MBTI project for kids.",
+        production: "25+ illustrations and stickers created over several years of freelancing to different client briefs.",
+        result: "Some of the children's characters became the basis of a third-party MBTI project for kids.",
       },
+      tools: ["Adobe Illustrator"],
       task: "A collection of freelance illustration work from different years: characters, stickers, and posters. Some of the illustrations with child characters were made for a website that determines personality type (MBTI) for kids — the rocket with young engineers opens this block.",
       resultCaptions: [
         "Rocket with young engineers — general cover illustration for the \"MBTI-for-kids website\" block",
@@ -2241,7 +2325,7 @@ export function localizeProject(project: Project, lang: "ru" | "en"): Project {
     role: t.role ?? project.role,
     task: t.task ?? project.task,
     contribution: t.contribution ?? project.contribution,
-    approach: t.approach ?? project.approach,
+    tools: t.tools ?? project.tools,
     results: t.resultCaptions
       ? project.results.map((result, index) => ({
           ...result,

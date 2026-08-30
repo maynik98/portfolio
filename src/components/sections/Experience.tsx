@@ -54,9 +54,9 @@ export default function Experience() {
             <div className="grid gap-12 md:grid-cols-12 md:gap-16">
               <div className="md:col-span-4">
                 <p className="text-[clamp(1.5rem,2.6vw,2.125rem)] font-medium leading-tight tracking-tight">
-                  {t.experience.company}
+                  {t.experience.role}
                 </p>
-                <p className="mt-4 text-[17px]">{t.experience.role}</p>
+                <p className="mt-4 text-[17px]">{t.experience.company}</p>
                 <p className="mt-1 text-[15px] text-muted">{t.experience.department}</p>
                 <p className="mt-6 inline-flex rounded-full bg-accent-soft px-3.5 py-1.5 text-[13px] font-medium text-accent">
                   {t.experience.period}

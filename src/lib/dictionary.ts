@@ -17,7 +17,8 @@ export const dictionary = {
     hero: {
       role: "Lead Graphic Designer",
       subtitle:
-        "Создаю визуальные решения для брендов, цифровых продуктов и маркетинговых коммуникаций.",
+        "Создаю визуальные системы и коммуникации для брендов, digital-продуктов и маркетинга — от концепции до production.",
+      directions: "Branding · Digital · Marketing · Motion · Presentations · AI",
       viewWork: "Посмотреть проекты",
       contact: "Связаться",
       stats: [
@@ -30,7 +31,7 @@ export const dictionary = {
       label: "Обо мне",
       title: "Ведущий дизайнер отдела маркетинга Globalnet и GNM.",
       paragraph1:
-        "Специализируюсь на создании визуальных решений для цифровых продуктов, корпоративных сайтов, лендингов, брендинга и маркетинговых материалов.",
+        "Специализируюсь на создании визуальных решений для цифровых продуктов, корпоративных сайтов, лендингов, брендинга и маркетинговых материалов. Веду дизайн для GlobalNet и GNM — двух брендов сетевой инфраструктуры, которые обслуживает один отдел маркетинга.",
       paragraph2:
         "Работаю над проектами полного цикла: от исследования и разработки концепции до подготовки финальных материалов и передачи в производство или разработку.",
       directionsLabel: "Основные направления",
@@ -48,7 +49,7 @@ export const dictionary = {
           "Landing Pages",
           "UI/UX",
           "Telegram Bot Design",
-          "AI-разработчик",
+          "AI-assisted Design",
         ],
       },
     },
@@ -186,7 +187,7 @@ export const dictionary = {
       aiHighlight: {
         label: "ИИ в работе",
         title: "Нейросети — не эксперимент, а часть процесса.",
-        body: "Продвинуто использую нейросети на каждом этапе: от быстрых референсов и черновых концептов до 3D-визуализаций, видео и текстов. Инструменты работают в связке друг с другом и с классическими программами — это ускоряет путь от идеи до готового результата, не теряя в качестве.",
+        body: "Использую нейросети как часть рабочего процесса: для поиска визуальных направлений, генерации и обработки изображений и видео, подготовки референсов и ускорения рутинных задач. Финальная концепция, арт-дирекшн и дизайн остаются моей зоной ответственности.",
         tools: ["ChatGPT", "Claude Code", "Perplexity", "Kling", "Sora"],
       },
     },
@@ -223,14 +224,15 @@ export const dictionary = {
       year: "Год",
       myRole: "Моя роль",
       task: "Задача",
-      approach: "Подход",
       contribution: "Мой вклад",
       contributionRole: "Моя роль",
       contributionScope: "Я отвечал за",
       contributionTeam: "Команда",
       contributionConstraints: "Ограничения",
       contributionDecision: "Решение",
-      contributionOutcome: "Итог кейса",
+      contributionProduction: "Production",
+      contributionResult: "Итог",
+      contributionTools: "Tools",
       result: "Результат",
       imageComingSoon: "Изображение будет добавлено",
       openPdf: "Открыть PDF",
@@ -265,7 +267,8 @@ export const dictionary = {
     hero: {
       role: "Lead Graphic Designer",
       subtitle:
-        "I create visual solutions for brands, digital products and marketing communications.",
+        "I build visual systems and communications for brands, digital products, and marketing — from concept to production.",
+      directions: "Branding · Digital · Marketing · Motion · Presentations · AI",
       viewWork: "View projects",
       contact: "Get in touch",
       stats: [
@@ -278,7 +281,7 @@ export const dictionary = {
       label: "About me",
       title: "Lead designer of the marketing department at Globalnet and GNM.",
       paragraph1:
-        "I specialize in visual solutions for digital products, corporate websites, landing pages, branding and marketing materials.",
+        "I specialize in visual solutions for digital products, corporate websites, landing pages, branding and marketing materials. I design for GlobalNet and GNM — two network-infrastructure brands served by one marketing department.",
       paragraph2:
         "I work on full-cycle projects: from research and concept development to final production files and handoff to production or engineering.",
       directionsLabel: "Core disciplines",
@@ -296,7 +299,7 @@ export const dictionary = {
           "Landing Pages",
           "UI/UX",
           "Telegram Bot Design",
-          "AI Developer",
+          "AI-assisted Design",
         ],
       },
     },
@@ -434,7 +437,7 @@ export const dictionary = {
       aiHighlight: {
         label: "AI in the workflow",
         title: "Neural networks aren't a novelty — they're part of the process.",
-        body: "I'm an advanced user of AI tools at every stage of the work: from quick references and rough concepts to 3D visuals, video, and copy. The tools work together with each other and with classic design software, speeding up the path from idea to finished result without losing quality.",
+        body: "I use AI as part of my workflow: to explore visual directions, generate and process images and video, prepare references, and speed up routine tasks. Final concept, art direction, and design stay my own responsibility.",
         tools: ["ChatGPT", "Claude Code", "Perplexity", "Kling", "Sora"],
       },
     },
@@ -471,14 +474,15 @@ export const dictionary = {
       year: "Year",
       myRole: "My role",
       task: "Task",
-      approach: "Approach",
       contribution: "My contribution",
       contributionRole: "My role",
       contributionScope: "What I owned",
       contributionTeam: "Team",
       contributionConstraints: "Constraints",
       contributionDecision: "Decision",
-      contributionOutcome: "Case outcome",
+      contributionProduction: "Production",
+      contributionResult: "Outcome",
+      contributionTools: "Tools",
       result: "Result",
       imageComingSoon: "Image coming soon",
       openPdf: "Open PDF",
