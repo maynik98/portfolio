@@ -29,11 +29,11 @@ export const dictionary = {
     },
     about: {
       label: "Обо мне",
-      title: "Ведущий дизайнер отдела маркетинга Globalnet и GNM.",
+      title: "Ведущий дизайнер отдела маркетинга GlobalNet и GNM.",
       paragraph1:
         "Специализируюсь на создании визуальных решений для цифровых продуктов, корпоративных сайтов, лендингов, брендинга и маркетинговых материалов. Веду дизайн для GlobalNet и GNM — двух брендов сетевой инфраструктуры, которые обслуживает один отдел маркетинга.",
       paragraph2:
-        "Работаю над проектами полного цикла: от исследования и разработки концепции до подготовки финальных материалов и передачи в производство или разработку.",
+        "Работаю над проектами от задачи до production: от разработки концепции до подготовки финальных материалов и передачи в производство или разработку.",
       directionsLabel: "Основные направления",
       secondaryDirectionsLabel: "Также работаю с",
       directions: {
@@ -57,7 +57,7 @@ export const dictionary = {
     experience: {
       label: "Опыт работы",
       title: "Где и над чем работаю.",
-      company: "Globalnet / GNM",
+      company: "GlobalNet / GNM",
       role: "Lead Graphic Designer",
       department: "Marketing Department",
       period: "2023 — н. в.",
@@ -171,13 +171,14 @@ export const dictionary = {
           items: ["ChatGPT", "Perplexity", "Claude Code", "Kling", "Sora"],
         },
         {
-          title: "Полный цикл",
+          title: "От задачи до production",
           items: [
-            "Исследование задачи",
+            "Задача",
             "Разработка концепции",
             "Дизайн-системы и шаблоны",
             "Подготовка к производству",
             "Передача в разработку",
+            "Результат",
           ],
         },
         {
@@ -282,11 +283,11 @@ export const dictionary = {
     },
     about: {
       label: "About me",
-      title: "Lead designer of the marketing department at Globalnet and GNM.",
+      title: "Lead designer of the marketing department at GlobalNet and GNM.",
       paragraph1:
         "I specialize in visual solutions for digital products, corporate websites, landing pages, branding and marketing materials. I design for GlobalNet and GNM — two network-infrastructure brands served by one marketing department.",
       paragraph2:
-        "I work on full-cycle projects: from research and concept development to final production files and handoff to production or engineering.",
+        "I work on projects from task to production: from concept development to final production files and handoff to production or engineering.",
       directionsLabel: "Core disciplines",
       secondaryDirectionsLabel: "Also work with",
       directions: {
@@ -310,7 +311,7 @@ export const dictionary = {
     experience: {
       label: "Work experience",
       title: "Where and what I work on.",
-      company: "Globalnet / GNM",
+      company: "GlobalNet / GNM",
       role: "Lead Graphic Designer",
       department: "Marketing Department",
       period: "2023 — present",
@@ -424,13 +425,14 @@ export const dictionary = {
           items: ["ChatGPT", "Perplexity", "Claude Code", "Kling", "Sora"],
         },
         {
-          title: "Full cycle",
+          title: "From task to production",
           items: [
-            "Research",
+            "Task",
             "Concept development",
             "Design systems and templates",
             "Production prep",
             "Handoff to development",
+            "Result",
           ],
         },
         {
