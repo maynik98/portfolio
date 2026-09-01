@@ -83,8 +83,6 @@ export default function CompanyWorkGrid({ projects }: { projects: Project[] }) {
                   {project.contribution && (
                     <p className="mt-4 text-[13px] leading-[1.5] text-muted">
                       <span className="font-medium text-ink">{t.work.myRole}: </span>
-                      {project.contribution.role}
-                      <span className="text-hairline"> · </span>
                       {project.contribution.tags.join(" · ")}
                     </p>
                   )}
