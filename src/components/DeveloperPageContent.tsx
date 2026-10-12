@@ -77,12 +77,17 @@ export default function DeveloperPageContent() {
             >
               Telegram {site.telegram.handle}
             </a>
-            <Link
-              href="/resume"
-              className="rounded-full border border-hairline px-7 py-3.5 text-[15px] font-medium transition-colors duration-300 hover:border-ink"
+            <a
+              href={lang === "en" ? "/resume/Anton_Maynik_Resume_Developer_EN.pdf" : "/resume/Anton_Maynik_Resume_Developer_RU.pdf"}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3.5 text-[15px] font-medium transition-colors duration-300 hover:border-ink"
             >
               {p.resume}
-            </Link>
+              <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-y-0.5">
+                ↓
+              </span>
+            </a>
           </Reveal>
 
           <dl className="mt-16 grid grid-cols-2 gap-px border-t border-hairline md:mt-24 md:grid-cols-4">
