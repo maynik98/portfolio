@@ -61,6 +61,18 @@ export default function Hero() {
               >
                 {t.hero.contact}
               </Link>
+              <Link
+                href="/developer"
+                className="group inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3.5 text-[15px] font-medium transition-colors duration-300 hover:border-accent hover:text-accent"
+              >
+                {t.hero.viewDev}
+                <span
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
             </Reveal>
           </div>
 
