@@ -211,10 +211,10 @@ export const dictionary = {
       label: "Разработка",
       title: "Дизайнер, который сам доводит идею до работающего продукта.",
       description:
-        "Проектирую и разрабатываю ИИ-агентов, Telegram-ботов, веб-сервисы и мобильные приложения. Пишу код в паре с ИИ (Claude Code): архитектура, логика, данные, тестирование и запуск — на мне. Ниже — проекты, которые уже работают на компанию и заказчиков.",
+        "Проектирую и разрабатываю ИИ-агентов, Telegram-ботов, веб-сервисы, мобильные приложения и игры. Пишу код в паре с ИИ (Claude Code): архитектура, логика, данные, тестирование и запуск — на мне. Ниже — проекты, которые уже работают на компанию и заказчиков.",
       stats: [
-        { value: "7", label: "проектов от идеи до работающей версии" },
-        { value: "≈ 38 000", label: "строк кода" },
+        { value: "8", label: "проектов от идеи до работающей версии" },
+        { value: "≈ 70 000", label: "строк кода" },
         { value: "Python · TypeScript", label: "основной стек" },
         { value: "LLM · RAG · агенты", label: "ИИ в продуктах" },
       ],
@@ -259,7 +259,7 @@ export const dictionary = {
       stackGroups: [
         {
           title: "Языки и платформы",
-          items: ["Python", "TypeScript / JavaScript", "React Native / Expo", "Next.js / React", "HTML / CSS", "SQL"],
+          items: ["Python", "TypeScript / JavaScript", "GDScript / Godot", "React Native / Expo", "Next.js / React", "HTML / CSS", "SQL"],
         },
         {
           title: "ИИ",
@@ -547,10 +547,10 @@ export const dictionary = {
       label: "Development",
       title: "A designer who takes an idea all the way to a working product.",
       description:
-        "I design and build AI agents, Telegram bots, web services and mobile apps. I write code paired with AI (Claude Code): architecture, logic, data, testing and launch are on me. Below are projects already working for the company and for clients.",
+        "I design and build AI agents, Telegram bots, web services, mobile apps and games. I write code paired with AI (Claude Code): architecture, logic, data, testing and launch are on me. Below are projects already working for the company and for clients.",
       stats: [
-        { value: "7", label: "projects from idea to working version" },
-        { value: "≈ 38,000", label: "lines of code" },
+        { value: "8", label: "projects from idea to working version" },
+        { value: "≈ 70,000", label: "lines of code" },
         { value: "Python · TypeScript", label: "core stack" },
         { value: "LLM · RAG · agents", label: "AI in products" },
       ],
@@ -595,7 +595,7 @@ export const dictionary = {
       stackGroups: [
         {
           title: "Languages & platforms",
-          items: ["Python", "TypeScript / JavaScript", "React Native / Expo", "Next.js / React", "HTML / CSS", "SQL"],
+          items: ["Python", "TypeScript / JavaScript", "GDScript / Godot", "React Native / Expo", "Next.js / React", "HTML / CSS", "SQL"],
         },
         {
           title: "AI",

@@ -1936,6 +1936,150 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "night-shift-hotel",
+    featured: true,
+    title: "Night Shift Hotel — хоррор-игра на Godot",
+    categories: ["Разработка", "Геймдев"],
+    summary:
+      "2D-хоррор с дедукцией про ночного администратора старого отеля: проверяешь гостей, сверяешь документы, следишь за камерами и решаешь, кого впустить, — среди людей прячутся существа, которые умеют притворяться.",
+    year: "2026",
+    role: "Автор игры: геймдизайн, сюжет, арт-дирекшн и разработка",
+    contribution: {
+      role: "Автор игры: геймдизайн, сюжет, арт-дирекшн и разработка",
+      tags: ["Godot / GDScript", "Геймдизайн", "Симуляция", "Озвучка с ИИ"],
+      scope: [
+        "Придумал концепцию, механику улик и сюжет кампании на семь ночей с несколькими концовками",
+        "Разработал игру на Godot 4 в паре с ИИ-ассистентами (Codex, Claude Code): стойка, камеры, компьютер, журнал, телефон, двери, электросеть",
+        "Спроектировал живую симуляцию отеля: жильцы, пять типов существ, доверие, тревоги, служба ликвидации",
+        "Собрал единую арт-концепцию и вёл генерацию графики по ней",
+        "Озвучка: голос под каждого персонажа в ElevenLabs и голоса гостей через локальный синтез речи",
+      ],
+      constraints: [
+        "Главный принцип: у игрока не должно быть 100% надёжного способа понять, кто монстр",
+        "Сотни взаимосвязанных систем — любая правка может сломать другую",
+        "Баланс нужно часто менять, не трогая код",
+      ],
+      decision:
+        "Отделил «правду» симуляции от того, что видит игрок: у существ бывают приметы, у людей — похожие ложные зацепки, а улики считаются отдельным генератором случайностей, чтобы не менять исход ночи. Весь баланс вынесен в JSON, а каждую систему проверяют автотесты, которые прогоняют полные ночи без графики.",
+      production:
+        "~31 000 строк GDScript в 132 скриптах, 80 тестовых сценариев, 42 файла данных, 7 ночей кампании и бесконечный режим, ~480 озвученных реплик и ~150 звуков.",
+      result:
+        "Играбельная версия с полной кампанией, концовками и озвучкой. Игра в активной разработке и ещё не выпущена.",
+    },
+    tools: ["Godot 4", "GDScript", "Codex", "Claude Code", "ElevenLabs", "Python"],
+    task: "Хотел сделать свою игру — не клон, а хоррор, где страх идёт от сомнения, а не от скримеров. Игрок — ночной администратор: гости стучат в дверь, у каждого документы, бронь и своя история, а часть из них — существа, которые маскируются под людей. Нужно было придумать и собрать мир, в котором каждое решение спорное, а отель живёт своей жизнью, даже когда игрок смотрит в другую сторону.",
+    dev: {
+      stack: ["Godot 4.5", "GDScript", "JSON-данные", "Шейдеры", "Headless-тесты", "ElevenLabs", "Chatterbox TTS", "Python-инструменты"],
+      metrics: [
+        { value: "31 000", label: "строк GDScript" },
+        { value: "80", label: "автотестов: полные ночи, атаки, улики" },
+        { value: "7", label: "ночей кампании и бесконечный режим" },
+        { value: "~480", label: "озвученных реплик" },
+      ],
+      ideas: [
+        {
+          title: "Сомнение как механика",
+          text: "Ни одна улика ничего не доказывает. Сухая одежда в ливень — подозрительно, но гостя могло довезти такси. Номер документа отличается от брони на одну цифру — подделка или опечатка дневной смены. С четвёртой ночи у существ появляются чужие приметы, а с пятой у людей — приметы существ.",
+        },
+        {
+          title: "Отель живёт сам",
+          text: "Заселённые гости ходят по графу секторов, раздражаются от тревог и звонков и могут уехать. Существа выбирают цели, ломают двери и копируют внешность. Электросеть греется от замков и света и может отключить камеры в самый плохой момент.",
+        },
+        {
+          title: "Баланс без кода",
+          text: "Длительность ночей, поведение существ, доверие, электрика и подсчёт очков лежат в 42 JSON-файлах. Сложность и темп меняются правкой данных, а не скриптов.",
+        },
+        {
+          title: "Тесты для игры",
+          text: "Godot запускается без графики и прогоняет полные ночи с разными стратегиями игрока: осторожно заселять, впускать всех, ничего не делать. Так правка в одной системе не ломает остальные незаметно.",
+        },
+      ],
+    },
+    results: [
+      { caption: "Главное меню: отель ночью под дождём", ratio: "wide", src: "/work/dev/night-shift-hotel/menu.jpg" },
+      { caption: "Стойка администратора: мониторы, журнал, телефон, ключи", ratio: "wide", src: "/work/dev/night-shift-hotel/reception.jpg" },
+      { caption: "Гость у входа: впустить, отказать или проверить камеры", ratio: "wide", src: "/work/dev/night-shift-hotel/door.jpg" },
+      { caption: "Видеопульт на 10 каналов со схемой отеля и управлением светом, тревогой и замками", ratio: "wide", src: "/work/dev/night-shift-hotel/cameras.jpg" },
+      { caption: "Система регистрации: номера и статусы", ratio: "landscape", src: "/work/dev/night-shift-hotel/computer.jpg" },
+      { caption: "База гостей: карточка и документы", ratio: "landscape", src: "/work/dev/night-shift-hotel/guest-db.jpg" },
+      { caption: "Журнал наблюдений с флажками подозрений", ratio: "landscape", src: "/work/dev/night-shift-hotel/journal.jpg" },
+      { caption: "Внутренний телефон: звонки в номера и вызов службы", ratio: "landscape", src: "/work/dev/night-shift-hotel/phone.jpg" },
+      { caption: "Жилой коридор: дверь можно запереть на ключ", ratio: "landscape", src: "/work/dev/night-shift-hotel/corridor.jpg" },
+      { caption: "Отчёт о смене в 06:00", ratio: "landscape", src: "/work/dev/night-shift-hotel/report.jpg" },
+    ],
+    tone: 0,
+    en: {
+      categories: ["Development", "Game dev"],
+      title: "Night Shift Hotel — Horror Game in Godot",
+      summary:
+        "A 2D horror-deduction game about the night clerk of an old hotel: check guests, compare documents, watch the cameras and decide who to let in — while creatures that can pass as people hide among them.",
+      role: "Game author: game design, story, art direction and development",
+      contribution: {
+        role: "Game author: game design, story, art direction and development",
+        tags: ["Godot / GDScript", "Game design", "Simulation", "AI voice-over"],
+        scope: [
+          "Came up with the concept, the clue mechanics and a seven-night campaign with several endings",
+          "Built the game in Godot 4 paired with AI assistants (Codex, Claude Code): the desk, cameras, computer, journal, phone, doors, power grid",
+          "Designed a living hotel simulation: residents, five creature types, trust, alarms, a response unit",
+          "Wrote a single art bible and directed image generation against it",
+          "Voice-over: a designed ElevenLabs voice for each character and guest voices via local speech synthesis",
+        ],
+        constraints: [
+          "Core rule: the player must never have a 100% reliable way to tell who the monster is",
+          "Hundreds of interlocking systems — any change can break another",
+          "Balance had to change often without touching code",
+        ],
+        decision:
+          "Separated the simulation's \"truth\" from what the player sees: creatures have tells, people have similar false leads, and clues come from a separate random generator so they never change the night's outcome. All balance lives in JSON, and every system is covered by automated tests that play full nights without graphics.",
+        production:
+          "~31,000 lines of GDScript across 132 scripts, 80 test scenarios, 42 data files, a 7-night campaign plus endless mode, ~480 voiced lines and ~150 sound effects.",
+        result:
+          "A playable build with the full campaign, endings and voice-over. The game is in active development and not yet released.",
+      },
+      tools: ["Godot 4", "GDScript", "Codex", "Claude Code", "ElevenLabs", "Python"],
+      task: "I wanted to make my own game — not a clone, but horror where fear comes from doubt rather than jump scares. The player is a night clerk: guests knock, each with documents, a booking and a story, and some of them are creatures disguised as people. The job was to design and build a world where every decision is debatable and the hotel keeps living even when the player looks away.",
+      dev: {
+        stack: ["Godot 4.5", "GDScript", "JSON data", "Shaders", "Headless tests", "ElevenLabs", "Chatterbox TTS", "Python tooling"],
+        metrics: [
+          { value: "31,000", label: "lines of GDScript" },
+          { value: "80", label: "automated tests: full nights, attacks, clues" },
+          { value: "7", label: "campaign nights plus endless mode" },
+          { value: "~480", label: "voiced lines" },
+        ],
+        ideas: [
+          {
+            title: "Doubt as a mechanic",
+            text: "No clue proves anything. Dry clothes in a downpour look suspicious, but a taxi might have dropped the guest off. A document number one digit off the booking — a forgery or a day-shift typo. From night four creatures borrow other tells, and from night five people sometimes show creature tells.",
+          },
+          {
+            title: "The hotel lives on its own",
+            text: "Checked-in guests move around a graph of sectors, get annoyed by alarms and calls, and may leave. Creatures pick targets, break doors and copy appearances. The power grid heats up from locks and lights and can knock out the cameras at the worst moment.",
+          },
+          {
+            title: "Balance without code",
+            text: "Night length, creature behavior, trust, power and scoring live in 42 JSON files. Difficulty and pacing change by editing data, not scripts.",
+          },
+          {
+            title: "Tests for a game",
+            text: "Godot runs headless and plays full nights with different player strategies: careful check-ins, letting everyone in, doing nothing. A change in one system can't silently break the others.",
+          },
+        ],
+      },
+      resultCaptions: [
+        "Main menu: the hotel at night in the rain",
+        "The clerk's desk: monitors, journal, phone, keys",
+        "A guest at the entrance: let in, refuse or check the cameras",
+        "A 10-channel video console with a hotel map and light, alarm and lock controls",
+        "Registration system: rooms and statuses",
+        "Guest database: a card and documents",
+        "Observation journal with suspicion flags",
+        "Internal phone: calling rooms and the response unit",
+        "Residential corridor: the door can be locked",
+        "The 06:00 shift report",
+      ],
+    },
+  },
+  {
     slug: "globalnet-presentations",
     title: "GlobalNet — презентации",
     categories: ["Дизайн презентаций"],
@@ -3310,6 +3454,7 @@ export const DEV_PROJECT_SLUGS = [
   "peering-calculator",
   "telegram-bot-design",
   "pet-care-app",
+  "night-shift-hotel",
   "chat-monitor-bot",
   "gnm-ix-landing",
 ] as const;
