@@ -307,6 +307,71 @@ export default function CasePageContent({
         </section>
       )}
 
+      {/* Как это устроено — только для инженерных кейсов */}
+      {project.dev && (
+        <section className="border-t border-hairline">
+          <div className="mx-auto w-full max-w-6xl px-6 py-20 md:px-10 md:py-28">
+            <BlockLabel>{t.casePage.devLabel}</BlockLabel>
+
+            <dl className="mt-10 grid grid-cols-2 gap-px border-t border-hairline md:mt-14 md:grid-cols-4">
+              {project.dev.metrics.map((metric, metricIndex) => (
+                <Reveal
+                  key={metric.label}
+                  as="div"
+                  delay={metricIndex * 70}
+                  className="border-b border-hairline py-6 pr-6"
+                >
+                  <dt className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-medium leading-none tracking-tight tabular-nums">
+                    {metric.value}
+                  </dt>
+                  <dd className="mt-2.5 text-[14px] leading-[1.45] text-muted">{metric.label}</dd>
+                </Reveal>
+              ))}
+            </dl>
+
+            <Reveal as="div" className="mt-14 flex items-center gap-2.5 md:mt-20">
+              <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted">
+                {t.casePage.devIdeas}
+              </span>
+            </Reveal>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {project.dev.ideas.map((idea, ideaIndex) => (
+                <Reveal
+                  key={idea.title}
+                  as="div"
+                  delay={(ideaIndex % 2) * 90}
+                  className="rounded-3xl bg-surface p-7 md:p-8"
+                >
+                  <span className="text-[13px] font-medium tabular-nums text-accent">
+                    {String(ideaIndex + 1).padStart(2, "0")}
+                  </span>
+                  <span className="mt-3 block text-[20px] font-medium leading-[1.25] tracking-tight">
+                    {idea.title}
+                  </span>
+                  <span className="mt-3 block text-[15px] leading-[1.6] text-muted">
+                    {idea.text}
+                  </span>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal as="div" delay={80} className="mt-10 flex flex-wrap items-center gap-2">
+              <span className="mr-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+                {t.casePage.devStack}
+              </span>
+              {project.dev.stack.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-hairline px-3.5 py-1.5 text-[14px]"
+                >
+                  {item}
+                </span>
+              ))}
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* Результат */}
       {project.results.length > 0 && (
         <section className="border-t border-hairline">

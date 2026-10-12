@@ -34,6 +34,7 @@ const OTHER: Record<string, Tone> = {
   metro: { bg: "linear-gradient(135deg,#5865c9 0%,#8b93e8 60%,#f4e04d 100%)", dark: true },
   tenchat: { bg: "linear-gradient(135deg,#6e0f0f 0%,#c31c1c 55%,#ff4433 100%)", dark: true },
   illustrations: { bg: "linear-gradient(135deg,#2a1a4a 0%,#8b3ea8 55%,#f2789f 100%)", dark: true },
+  "pet-care-app": { bg: "linear-gradient(135deg,#ff7a45 0%,#f59a7b 55%,#b9a6f5 100%)", dark: true },
 };
 
 function getTone(project: Project): Tone {
