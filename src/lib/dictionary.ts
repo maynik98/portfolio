@@ -229,7 +229,7 @@ export const dictionary = {
       subtitle:
         "Превращаю задачи бизнеса в работающие инструменты: Telegram-боты с LLM, системы автоматического отбора контента, сервисы на открытых данных, мобильные приложения. Пишу код в паре с ИИ — архитектура, логика, проверка и запуск на мне. И я дизайнер, поэтому интерфейсы сразу выглядят как продукт.",
       contact: "Связаться",
-      resume: "Резюме",
+      resume: "Резюме разработчика (PDF)",
       approachLabel: "Как я работаю",
       approachTitle: "От задачи до продакшена — без потерь на передаче между дизайном и разработкой.",
       approach: [
@@ -565,7 +565,7 @@ export const dictionary = {
       subtitle:
         "I turn business problems into working tools: Telegram bots with LLMs, automated content-selection systems, services built on open data, mobile apps. I write code paired with AI — architecture, logic, review and launch are on me. And I'm a designer, so the interfaces look like a product from day one.",
       contact: "Get in touch",
-      resume: "Resume",
+      resume: "Developer resume (PDF)",
       approachLabel: "How I work",
       approachTitle: "From brief to production — nothing lost in the hand-off between design and development.",
       approach: [
