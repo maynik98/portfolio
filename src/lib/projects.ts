@@ -43,6 +43,20 @@ export type Contribution = {
   result: string;
 };
 
+/**
+ * Developer-specific details for engineering cases: stack, key numbers and the
+ * engineering ideas behind the solution. Rendered as a separate block on the
+ * case page and used by the developer section/page.
+ */
+export type DevDetails = {
+  /** Technologies actually used. */
+  stack: string[];
+  /** Key facts as big numbers. */
+  metrics: { value: string; label: string }[];
+  /** Engineering decisions — "how I solved it cleverly". */
+  ideas: { title: string; text: string }[];
+};
+
 /** English overrides for translatable text fields. Any field left out falls back to the Russian original. */
 export type ProjectTranslation = {
   title?: string;
@@ -59,6 +73,8 @@ export type ProjectTranslation = {
   resultCaptions?: string[];
   /** Labels aligned by index with `files`. */
   fileLabels?: string[];
+  /** Full override of developer details. */
+  dev?: DevDetails;
 };
 
 export type Project = {
@@ -83,6 +99,8 @@ export type Project = {
   files?: ProjectFile[];
   /** Index into the cover-tone variants for this project's colour family (см. ProjectCover.tsx). */
   tone: number;
+  /** Developer details — present only on engineering cases. */
+  dev?: DevDetails;
   /** English translation overrides. */
   en?: ProjectTranslation;
 };
@@ -890,36 +908,85 @@ export const projects: Project[] = [
   {
     slug: "telegram-bot-design",
     featured: true,
-    title: "GlobalNet — Telegram-бот с ИИ-ассистентом",
-    categories: ["UI-дизайн"],
+    title: "GlobalNet — ИИ-ассистент продаж в Telegram",
+    categories: ["Разработка", "ИИ-агенты"],
     companyId: "globalnet",
     summary:
-      "Разработка Telegram-бота с ИИ-ассистентом: бот обрабатывает клиентские запросы через базу знаний и передаёт сложные обращения менеджеру.",
+      "Telegram-бот, который сам консультирует клиентов магистрального оператора по услугам и ценам, квалифицирует заявку и передаёт её свободному менеджеру — с очередью, номерами заявок, архивом и аналитикой.",
     year: "2023 — н. в.",
-    role: "Разработка бота, интеграция ИИ-ассистента",
+    role: "Разработка бота: архитектура, логика, ИИ, тестирование",
     contribution: {
-      role: "Разработка бота, интеграция ИИ-ассистента",
-      tags: ["Дизайн бота", "Интеграция ИИ", "UX-тексты"],
+      role: "Разработка бота: архитектура, логика, ИИ, тестирование",
+      tags: ["Python", "LLM + RAG", "Маршрутизация заявок", "Автотесты"],
       scope: [
-        "Спроектировал сценарии диалогов",
-        "Написал тексты бота",
-        "Настроил интеграцию ИИ-ассистента с базой знаний компании",
+        "Спроектировал и написал бота на Python (aiogram): сценарии, роли персонала, очередь менеджеров",
+        "Собрал базу знаний о продуктах и ценах и поиск по ней (RAG на TF-IDF) с синонимами и словоформами",
+        "Написал системный промпт и программные ограничители, которые не дают модели выдумывать",
+        "Построил стенд из 600+ автоматических проверок и прогонял через него правки",
+        "Сделал панель администратора: заявки, отчёты, статистика, рассылки, выгрузки в Excel",
       ],
       team: [
-        "Поддержка передавала базу типовых вопросов",
-        "Руководитель утверждал сценарии эскалации к менеджеру",
+        "Продажи и поддержка передали типовые вопросы и прайс",
+        "Руководитель утверждал сценарии передачи клиента менеджеру",
       ],
       constraints: [
-        "Бот должен был сам закрывать типовые вопросы и передавать менеджеру только сложные случаи",
-        "Иначе решение не снимало бы нагрузку с поддержки",
+        "Бот не имеет права выдумывать цены и факты — ошибка стоит денег и репутации",
+        "Клиент не должен узнать о существовании внутренней базы знаний",
+        "Заявка не должна теряться, если менеджер не отвечает, а два менеджера — попадать в один диалог",
+        "Каждый прогон тестов на живой модели стоит денег — набор должен оставаться компактным",
       ],
-      decision: "Собрал не оформление готового бота, а логику целиком — от сценариев до интеграции с базой знаний.",
-      production: "Визуальное оформление бота (обложки, иконки, меню) и сценарии диалогов реализованы в рамках возможностей Telegram.",
-      result: "Бот запущен в продакшен и ежедневно обрабатывает обращения клиентов в Telegram, эскалируя менеджеру только сложные случаи.",
+      decision:
+        "Вынес критичные правила из промпта в код. Модель отвечает только по найденным в базе фрагментам, а если факта нет — честно говорит, что уточнит менеджер. Передачу менеджеру проверяет отдельная функция-ограничитель, покрытая тестами, с исключением для срочных случаев вроде идущей DDoS-атаки.",
+      production:
+        "~8 500 строк Python, база знаний ~2 900 строк, 600+ автоматических проверок, 3 роли персонала, номера заявок, архив и выгрузки в Excel.",
+      result:
+        "Бот работает с клиентами GlobalNet в Telegram и передаёт менеджерам уже квалифицированные заявки — с номером, сутью запроса и контактами.",
     },
-    tools: ["Figma", "ChatGPT"],
-    task: "Часть коммуникации с клиентами GlobalNet нужно было перевести в Telegram — не в виде статичного меню, а как полноценного помощника, способного отвечать на вопросы самостоятельно. Я не оформлял готового бота, а собрал его целиком: логику сценариев, сами диалоги и ИИ-ассистента, который понимает вопрос клиента и ищет ответ по базе знаний компании.",
+    tools: ["Python", "aiogram", "DeepSeek API", "scikit-learn", "openpyxl", "Claude Code"],
+    task: "GlobalNet продаёт сложные B2B-услуги: пиринг DATAIX, IP-транзит, магистральные каналы, защиту от DDoS. Вопросы клиентов приходили менеджерам вручную, в том числе ночью и в выходные. Нужен был бот, который отвечает круглосуточно по базе знаний компании, не выдумывает цены, ненавязчиво собирает данные для заявки и передаёт клиента свободному менеджеру так, чтобы ни один запрос не потерялся.",
+    dev: {
+      stack: ["Python", "aiogram", "DeepSeek API", "RAG / TF-IDF", "scikit-learn", "openpyxl", "JSON-хранилища"],
+      metrics: [
+        { value: "8 500+", label: "строк Python" },
+        { value: "600+", label: "автотестов против галлюцинаций" },
+        { value: "88", label: "точек присутствия в поиске" },
+        { value: "3", label: "роли персонала" },
+      ],
+      ideas: [
+        {
+          title: "Правила — в коде, а не только в промпте",
+          text: "Модель иногда задавала вопрос и тут же передавала клиента менеджеру. Вместо бесконечной правки промпта я вынес проверку в отдельную функцию внутри получения ответа — теперь это правило невозможно обойти, и его покрывают тесты.",
+        },
+        {
+          title: "Поиск, который понимает живую речь",
+          text: "Клиенты пишут «питер», «какие у вас есть города», «можно посмотреть карту сети». Добавил расширение запроса синонимами, учёт русских падежей и отдельную нарезку прайса и списка из 88 точек присутствия, чтобы они не рвались на куски.",
+        },
+        {
+          title: "Очередь без потерь и двойных диалогов",
+          text: "Автоэскалация к следующему менеджеру по таймауту, повтор при недоступном менеджере с уведомлением админам, блокировка устаревших кнопок, чтобы двое не взяли одного клиента, и менеджер «только по ручному назначению».",
+        },
+        {
+          title: "Заявки, которые удобно читать",
+          text: "Сквозная нумерация, переживающая перезапуск, архив на 60 дней с автоочисткой и Excel-выгрузка, где каждая заявка — вертикальная карточка, а переписка читается как чат. Отдельно — база тех, кто общался только с ИИ.",
+        },
+      ],
+    },
     results: [
+      {
+        caption: "Как устроен бот: от вопроса клиента до заявки у менеджера",
+        ratio: "wide",
+        src: "/work/dev/sales-bot/flow.jpg",
+      },
+      {
+        caption: "Интерфейс менеджера: передача заявки, закрытие диалога, статистика (макет по реальным экранам бота, данные условные)",
+        ratio: "portrait",
+        src: "/work/dev/sales-bot/manager.jpg",
+      },
+      {
+        caption: "Диалог с ботом: подбор услуги и расчёт стоимости порта DATAIX",
+        ratio: "portrait",
+        src: "/work/telegram-bot-design/ai-chat-example.jpg",
+      },
       {
         caption: "Экран бота с ИИ-ассистентом",
         ratio: "portrait",
@@ -930,52 +997,83 @@ export const projects: Project[] = [
         ratio: "square",
         src: "/work/telegram-bot-design/promo-square.jpg",
       },
-      {
-        caption: "Диалог с ботом: подбор услуги и расчёт стоимости порта DATAIX",
-        ratio: "tall",
-        src: "/work/telegram-bot-design/ai-chat-example.jpg",
-      },
     ],
     tone: 7,
     en: {
-      categories: ["UI Design"],
-      title: "GlobalNet — Telegram Bot with AI Assistant",
+      categories: ["Development", "AI agents"],
+      title: "GlobalNet — AI Sales Assistant in Telegram",
       summary:
-        "Built a Telegram bot with an AI assistant: it answers client questions from a knowledge base and escalates complex requests to a manager.",
-      role: "Bot development, AI assistant integration",
+        "A Telegram bot that consults a backbone operator's clients on services and pricing, qualifies the request and hands it to an available manager — with a queue, ticket numbers, an archive and analytics.",
+      role: "Bot development: architecture, logic, AI, testing",
       contribution: {
-        role: "Bot development, AI assistant integration",
-        tags: ["Bot design", "AI integration", "UX writing"],
+        role: "Bot development: architecture, logic, AI, testing",
+        tags: ["Python", "LLM + RAG", "Lead routing", "Automated tests"],
         scope: [
-          "Designed the dialogue flows",
-          "Wrote the bot's copy",
-          "Set up the AI assistant's integration with the company knowledge base",
+          "Designed and built the bot in Python (aiogram): flows, staff roles, the manager queue",
+          "Assembled the product and pricing knowledge base and its search (TF-IDF RAG) with synonyms and word forms",
+          "Wrote the system prompt and code-level guardrails that stop the model from making things up",
+          "Built a 600+ automated check suite and ran changes through it",
+          "Built the admin panel: tickets, reports, stats, broadcasts, Excel exports",
         ],
         team: [
-          "Support provided the base of routine questions",
-          "The department head signed off on the escalation scenarios",
+          "Sales and support provided routine questions and the price list",
+          "The department head approved the hand-off-to-manager scenarios",
         ],
         constraints: [
-          "The bot had to resolve routine questions on its own and escalate only complex cases",
-          "Otherwise the solution wouldn't actually reduce support load",
+          "The bot must never invent prices or facts — a mistake costs money and reputation",
+          "Clients must not learn that an internal knowledge base exists",
+          "No request may get lost if a manager doesn't respond, and two managers must never end up in one chat",
+          "Every test run against the live model costs money — the suite had to stay lean",
         ],
-        decision: "Built the whole logic, not just a skin on an existing bot — from dialogue flows to the knowledge-base integration.",
-        production: "The bot's visuals (covers, icons, menus) and dialogue flows were built within Telegram's constraints.",
-        result: "The bot is live in production and handles client requests in Telegram daily, escalating only complex cases to a manager.",
+        decision:
+          "Moved critical rules from the prompt into code. The model answers only from retrieved knowledge-base fragments, and if a fact is missing it honestly says a manager will follow up. A separate, test-covered guardrail function checks every hand-off, with an exception for urgent cases like an ongoing DDoS attack.",
+        production:
+          "~8,500 lines of Python, a ~2,900-line knowledge base, 600+ automated checks, 3 staff roles, ticket numbers, an archive and Excel exports.",
+        result:
+          "The bot talks to GlobalNet clients in Telegram and hands managers already-qualified requests — with a ticket number, the gist and contact details.",
       },
-      tools: ["Figma", "ChatGPT"],
-      task: "Part of the communication with GlobalNet clients needed to move to Telegram — not as a static menu, but as a real assistant able to answer questions on its own. I didn't just style a ready-made bot: I built it end to end — the scenario logic, the dialogues themselves, and an AI assistant that understands a client's question and looks up the answer in the company's knowledge base.",
+      tools: ["Python", "aiogram", "DeepSeek API", "scikit-learn", "openpyxl", "Claude Code"],
+      task: "GlobalNet sells complex B2B services: DATAIX peering, IP transit, backbone links, DDoS protection. Client questions used to land on managers manually, including nights and weekends. The company needed a bot that answers around the clock from its knowledge base, never invents prices, gently collects what a request needs, and routes the client to an available manager so that no request gets lost.",
+      dev: {
+        stack: ["Python", "aiogram", "DeepSeek API", "RAG / TF-IDF", "scikit-learn", "openpyxl", "JSON storage"],
+        metrics: [
+          { value: "8,500+", label: "lines of Python" },
+          { value: "600+", label: "anti-hallucination checks" },
+          { value: "88", label: "points of presence in search" },
+          { value: "3", label: "staff roles" },
+        ],
+        ideas: [
+          {
+            title: "Rules live in code, not only in the prompt",
+            text: "The model sometimes asked a question and handed the client off in the same message. Instead of endless prompt tweaks, I moved the check into a dedicated function inside answer generation — the rule can't be bypassed, and tests cover it.",
+          },
+          {
+            title: "Search that understands real speech",
+            text: "Clients write slang city names or ask to \"see the network map\" in any grammatical case. I added query expansion with synonyms, Russian word-form handling, and separate chunking for the price list and the 88-location presence list so they never get split apart.",
+          },
+          {
+            title: "A queue with no lost or doubled chats",
+            text: "Timeout escalation to the next manager, retries with an admin alert when a manager is unreachable, invalidated stale buttons so two people can't take one client, and a manager who is assigned only manually.",
+          },
+          {
+            title: "Tickets that are easy to read",
+            text: "Numbering that survives restarts, a 60-day self-pruning archive, and an Excel export where every ticket is a vertical card and the conversation reads like a chat. AI-only conversations are kept in a separate database.",
+          },
+        ],
+      },
       resultCaptions: [
+        "How the bot works: from a client's question to a ticket on a manager's desk",
+        "Manager interface: ticket hand-off, closing a chat, stats (mockup based on the real bot screens, sample data)",
+        "Chat with the bot: picking a service and pricing a DATAIX port",
         "Bot screen with AI assistant",
         "GlobalNet AI assistant promo poster",
-        "Chat with the bot: picking a service and pricing a DATAIX port",
       ],
     },
   },
   {
     slug: "chat-monitor-bot",
     title: "GlobalNet — бот-аналитик клиентских чатов",
-    categories: ["UI-дизайн"],
+    categories: ["Разработка", "ИИ-агенты"],
     companyId: "globalnet",
     summary:
       "Telegram-бот, который мониторит клиентские чаты, структурирует переписку в базу данных и автоматически сообщает руководителям о жалобах, конфликтах и просроченных ответах.",
@@ -1037,7 +1135,7 @@ export const projects: Project[] = [
     ],
     tone: 6,
     en: {
-      categories: ["UI Design"],
+      categories: ["Development", "AI agents"],
       title: "GlobalNet — Client Chat Monitoring Bot",
       summary:
         "A Telegram bot that monitors client chats, structures the conversation into a database, and automatically alerts managers about complaints, conflicts, and overdue replies.",
@@ -1070,6 +1168,771 @@ export const projects: Project[] = [
         "Automatic manager notification about a client complaint",
       ],
       fileLabels: ["System overview — PDF"],
+    },
+  },
+  {
+    slug: "news-digest",
+    featured: true,
+    title: "GlobalNet News Digest — ИИ-редактор новостей",
+    categories: ["Разработка", "ИИ-агенты"],
+    companyId: "globalnet",
+    summary:
+      "Система, которая каждый день собирает телеком-новости из 343 источников, сама отбирает важное для компании, пишет черновики постов и присылает их редакторам на согласование в Telegram.",
+    year: "2026",
+    role: "Разработка системы под ключ: сбор, ИИ-отбор, бот согласования",
+    contribution: {
+      role: "Разработка системы под ключ: сбор, ИИ-отбор, бот согласования",
+      tags: ["Python", "Парсинг", "ИИ-скоринг", "Telegram-бот"],
+      scope: [
+        "Сбор новостей из Telegram-каналов без аккаунта, RSS, страниц СМИ и сайтов 500+ клиентов — с автопоиском раздела новостей",
+        "Многоступенчатая воронка оценки: правила → быстрый ИИ → подробный разбор по 6 шкалам из ТЗ",
+        "Бот согласования для трёх редакторов: кнопки, редактирование, общий статус карточки, расписание рассылки",
+        "Обучение на решениях редакторов и на архиве уже опубликованных постов канала",
+        "Чтение закрытых отраслевых чатов через пользовательский аккаунт Telegram",
+      ],
+      team: [
+        "Главный редактор канала принимает решения о публикации и даёт обратную связь по отбору",
+        "Маркетинг передал базу клиентов (~500 компаний) и список источников",
+      ],
+      constraints: [
+        "Тысячи новостей в неделю — прогонять каждую через сильную модель слишком дорого",
+        "Одна и та же новость приходит из десятка источников",
+        "Слухи и инсайды нельзя публиковать как факт",
+        "Telegram разрешает боту удалять свои сообщения только в течение 48 часов",
+      ],
+      decision:
+        "Построил воронку, где дорогой ИИ работает только с тем, что прошло бесплатные правила и дешёвую пакетную оценку. На тестовом дне это 8 подробных разборов вместо 173 — объём текста, отправляемого модели, сократился примерно на 90%.",
+      production:
+        "~5 500 строк Python, 343 источника, база SQLite с памятью ссылок на 120 дней, 6 шкал оценки, Excel-отчёт с разложением итоговой оценки по слагаемым.",
+      result:
+        "За первые 10 дней система собрала 9 785 новостей, 4 650 новых прошли через воронку, около 140 ушли на согласование, 26 опубликованы в канале. Проект упакован для развёртывания на сервере компании.",
+    },
+    tools: ["Python", "aiogram", "Telethon", "DeepSeek API", "BeautifulSoup", "SQLite", "openpyxl", "Claude Code"],
+    task: "Закрытый канал GlobalNet News Digest вели вручную: кто-то должен был каждое утро просматривать десятки каналов и сайтов, выбирать новости рынка, конкурентов, законодательства и клиентов и оформлять посты. По ТЗ нужна была система, которая делает это сама: собирает новости, оценивает их по критериям компании, готовит черновик — а человеку оставляет только решение «публиковать или нет».",
+    dev: {
+      stack: ["Python", "aiogram", "Telethon", "DeepSeek API", "BeautifulSoup", "RSS", "SQLite", "TF-IDF", "openpyxl"],
+      metrics: [
+        { value: "343", label: "источника" },
+        { value: "4 650", label: "новостей прошли воронку за 10 дней" },
+        { value: "~90%", label: "экономия токенов за счёт воронки" },
+        { value: "26", label: "постов в канале" },
+      ],
+      ideas: [
+        {
+          title: "Эталон — сам канал",
+          text: "Всё, что уже опубликовано в канале, — образец интересного компании. Каждая новость сравнивается с 1 199 постами архива, а ИИ один раз читает весь канал и формулирует редакционную политику, которую получает в каждом запросе.",
+        },
+        {
+          title: "Обучение на кнопках",
+          text: "«Неинтересно» не просто скрывает карточку: похожие новости, их категория, источник и слова в заголовке получают минус, публикация — плюс. Через пару недель отбор подстраивается под вкус редактора без единой правки кода.",
+        },
+        {
+          title: "Повтор — это сигнал",
+          text: "Если о событии пишут сразу несколько источников, новость не анализируется заново, а получает бонус «горячести». Так дубли не тратят токены и одновременно помогают находить главное.",
+        },
+        {
+          title: "Срочное — сразу",
+          text: "Новости с упоминанием GlobalNet и DATAIX выделяются красной плашкой и в рабочее время приходят немедленно, не дожидаясь утренней рассылки. Слухи помечаются «неподтверждённая информация».",
+        },
+      ],
+    },
+    results: [
+      {
+        caption: "Воронка отбора с реальными цифрами первых 10 дней работы",
+        ratio: "wide",
+        src: "/work/dev/news-digest/pipeline.jpg",
+      },
+      {
+        caption: "Черновик на согласование: пост, комментарий ИИ с оценками по 6 шкалам и кнопки решения (комментарий в канал не публикуется)",
+        ratio: "portrait",
+        src: "/work/dev/news-digest/draft-card.jpg",
+      },
+    ],
+    tone: 2,
+    en: {
+      categories: ["Development", "AI agents"],
+      title: "GlobalNet News Digest — AI News Editor",
+      summary:
+        "A system that collects telecom news from 343 sources every day, picks what matters to the company, drafts posts and sends them to editors for approval in Telegram.",
+      role: "End-to-end development: collection, AI selection, approval bot",
+      contribution: {
+        role: "End-to-end development: collection, AI selection, approval bot",
+        tags: ["Python", "Scraping", "AI scoring", "Telegram bot"],
+        scope: [
+          "News collection from Telegram channels without an account, RSS, media pages and 500+ client websites — with automatic news-section discovery",
+          "A multi-stage scoring funnel: rules → fast AI → detailed analysis on the 6 criteria from the spec",
+          "An approval bot for three editors: buttons, editing, shared card state, delivery schedule",
+          "Learning from editors' decisions and from the channel's archive of published posts",
+          "Reading closed industry chats through a regular Telegram user account",
+        ],
+        team: [
+          "The channel's chief editor makes publishing decisions and gives feedback on selection",
+          "Marketing provided the client base (~500 companies) and the source list",
+        ],
+        constraints: [
+          "Thousands of news items a week — running each through a strong model is too expensive",
+          "The same story arrives from a dozen sources",
+          "Rumors and insider info must not be published as fact",
+          "Telegram only lets a bot delete its own messages within 48 hours",
+        ],
+        decision:
+          "Built a funnel where the expensive AI only sees what passed the free rules and a cheap batch score. On a test day that meant 8 detailed analyses instead of 173 — about 90% less text sent to the model.",
+        production:
+          "~5,500 lines of Python, 343 sources, an SQLite database that remembers links for 120 days, 6 scoring criteria, an Excel report that breaks every score down into its components.",
+        result:
+          "In its first 10 days the system collected 9,785 news items; 4,650 new ones went through the funnel, about 140 were sent for approval, and 26 were published in the channel. The project is packaged for deployment on the company server.",
+      },
+      tools: ["Python", "aiogram", "Telethon", "DeepSeek API", "BeautifulSoup", "SQLite", "openpyxl", "Claude Code"],
+      task: "The private GlobalNet News Digest channel was run by hand: someone had to scan dozens of channels and sites every morning, pick market, competitor, regulation and client news, and format posts. The spec called for a system that does this itself — collects news, scores it against the company's criteria, prepares a draft — and leaves a human only the \"publish or not\" decision.",
+      dev: {
+        stack: ["Python", "aiogram", "Telethon", "DeepSeek API", "BeautifulSoup", "RSS", "SQLite", "TF-IDF", "openpyxl"],
+        metrics: [
+          { value: "343", label: "sources" },
+          { value: "4,650", label: "news items through the funnel in 10 days" },
+          { value: "~90%", label: "token savings from the funnel" },
+          { value: "26", label: "posts published" },
+        ],
+        ideas: [
+          {
+            title: "The channel is the benchmark",
+            text: "Everything already published is an example of what the company finds interesting. Each item is compared with 1,199 archived posts, and the AI reads the whole channel once to write an editorial policy that goes into every request.",
+          },
+          {
+            title: "Learning from buttons",
+            text: "\"Not interesting\" doesn't just hide a card: similar items, their category, source and headline words get a penalty, while publishing gives a bonus. Within a couple of weeks selection adapts to the editor's taste without a single code change.",
+          },
+          {
+            title: "A duplicate is a signal",
+            text: "When several sources cover the same event, the item isn't re-analyzed — it gets a \"hotness\" bonus instead. Duplicates cost no tokens and help surface what matters.",
+          },
+          {
+            title: "Urgent goes out immediately",
+            text: "Items mentioning GlobalNet or DATAIX get a red label and, during working hours, arrive instantly instead of waiting for the morning batch. Rumors are flagged as unconfirmed.",
+          },
+        ],
+      },
+      resultCaptions: [
+        "The selection funnel with real numbers from the first 10 days",
+        "A draft for approval: the post, the AI comment with scores on 6 criteria, and decision buttons (the comment is never published)",
+      ],
+    },
+  },
+  {
+    slug: "ai-designer-bot",
+    featured: true,
+    title: "ИИ-дизайнер в Telegram",
+    categories: ["Разработка", "ИИ-агенты"],
+    companyId: "globalnet",
+    summary:
+      "Персональный ИИ-агент: следит за рабочим чатом маркетинга, сам находит задачи на дизайн, делает макеты в фирменном стиле GlobalNet, анимирует их и присылает в Telegram, где правки можно дать текстом или голосом.",
+    year: "2026",
+    role: "Идея, архитектура и разработка агента",
+    contribution: {
+      role: "Идея, архитектура и разработка агента",
+      tags: ["Python", "Claude", "Генерация изображений", "Telegram"],
+      scope: [
+        "Мониторинг рабочих чатов через пользовательский аккаунт (Telethon) и распознавание ТЗ с помощью Claude",
+        "Несколько «движков» макета: HTML/CSS с рендером в PNG, генерация изображений, Figma, анимация через HyperFrames и Remotion, SVG для печати",
+        "Бренд-гайд для агента, собранный из Figma-файла GlobalNet: цвета, Gotham, правила логотипа",
+        "Цикл правок: реплай, голосовые (распознавание речи), референсы; ответы голосом через локальный синтез речи",
+        "Обучение на кнопках «Принять / Отклонить» и память уроков",
+        "Помощник по личной переписке: белый список контактов и подтверждение каждого ответа",
+      ],
+      constraints: [
+        "В рабочие чаты агент не должен писать ничего — только читать",
+        "Работа через подписки Claude и ChatGPT, платный API — только запасной вариант",
+        "Строгие правила бренда: один логотип на макет, только фирменные цвета логотипа, форматы под Telegram и сайт",
+      ],
+      decision:
+        "Разделил «мозг» и «руки»: Claude понимает задачу и решает, каким инструментом её делать, а отдельные модули рендерят результат. Поэтому один агент делает и статичный пост, и анимацию, и печатный SVG, а правила бренда проверяются одинаково для всех форматов.",
+      production:
+        "~8 000 строк Python. За первую неделю — 13 задач из рабочего чата, 21 задача по моему запросу и 8 анимаций: приглашения, мерч, инфографика, бейджи.",
+      result:
+        "Через агента сделаны и приняты варианты приглашения на закрытый вечер GlobalNet 2026, серии принтов для мерча и квартальная инфографика по DDoS-атакам. Финальные решения и правки остаются за мной как арт-директором.",
+    },
+    tools: ["Python", "Telethon", "Claude Code", "OpenAI Images", "Playwright", "Figma API", "HyperFrames", "Remotion", "ffmpeg"],
+    task: "Значительная часть задач дизайнеру — однотипные посты, приглашения, баннеры и мерч, которые приходят в общий рабочий чат и теряются в переписке. Я хотел агента, который работает как младший дизайнер в команде: сам замечает задачу, делает первую версию в фирменном стиле и доводит её по моим правкам, а я остаюсь арт-директором.",
+    dev: {
+      stack: ["Python", "Telethon", "Claude (Claude Code)", "OpenAI Images", "Playwright", "Figma API", "HyperFrames", "Remotion", "ffmpeg", "TTS / STT"],
+      metrics: [
+        { value: "8 000+", label: "строк Python" },
+        { value: "5", label: "движков: HTML, изображения, Figma, анимация, SVG" },
+        { value: "40+", label: "задач за первую неделю" },
+        { value: "0", label: "сообщений в рабочие чаты" },
+      ],
+      ideas: [
+        {
+          title: "«Мозг» отдельно от «рук»",
+          text: "Claude читает задачу и выбирает инструмент, а рендер — отдельные модули. Добавить новый формат (например, печатный SVG или GIF до 10 МБ для Telegram) — значит добавить модуль, не трогая логику понимания задач.",
+        },
+        {
+          title: "Учится на отказах",
+          text: "Под каждым макетом — «Принять / Отклонить» с необязательной причиной. Причины складываются в память уроков, которую агент читает перед следующей задачей, — одна и та же ошибка не повторяется.",
+        },
+        {
+          title: "Подписка вместо API",
+          text: "Агент работает через Claude Code на Mac в рамках подписки и переключается на платный API только при сбое. Изображения — так же через подписку с запасным вариантом. Стоимость каждой задачи почти нулевая.",
+        },
+        {
+          title: "Безопасность по умолчанию",
+          text: "В рабочие чаты — только чтение. В личке — только люди из белого списка, каждый ответ — черновик с кнопкой «Отправить», а всё про деньги, сроки и встречи агент сначала спрашивает у меня.",
+        },
+      ],
+    },
+    results: [
+      {
+        caption: "Как работает агент: от сообщения в рабочем чате до принятого макета",
+        ratio: "wide",
+        src: "/work/dev/ai-designer/flow.jpg",
+      },
+      {
+        caption: "Работа с агентом в Telegram: найденная задача, макет, правка голосом (макет по реальному сценарию)",
+        ratio: "portrait",
+        src: "/work/dev/ai-designer/chat.jpg",
+      },
+      {
+        caption: "Анимированная версия приглашения, собранная агентом",
+        ratio: "square",
+        video: "/work/dev/ai-designer/invite-anim.mp4",
+      },
+      {
+        caption: "Приглашения на закрытый вечер GlobalNet 2026 — принятые варианты",
+        ratio: "square",
+        src: "/work/dev/ai-designer/invites.jpg",
+      },
+      {
+        caption: "Серия принтов для мерча на мокапах футболок",
+        ratio: "wide",
+        src: "/work/dev/ai-designer/merch.jpg",
+      },
+      {
+        caption: "Иллюстрации для принтов в фирменной гамме",
+        ratio: "wide",
+        src: "/work/dev/ai-designer/prints.jpg",
+      },
+      {
+        caption: "Инфографика: статистика отражённых DDoS-атак за квартал (3520×1300 для сайта)",
+        ratio: "wide",
+        src: "/work/dev/ai-designer/ddos-infographic.jpg",
+      },
+    ],
+    tone: 1,
+    en: {
+      categories: ["Development", "AI agents"],
+      title: "AI Designer in Telegram",
+      summary:
+        "A personal AI agent that watches the marketing team's work chat, spots design tasks on its own, builds on-brand GlobalNet layouts, animates them and sends them to Telegram, where revisions can be given by text or voice.",
+      role: "Idea, architecture and development of the agent",
+      contribution: {
+        role: "Idea, architecture and development of the agent",
+        tags: ["Python", "Claude", "Image generation", "Telegram"],
+        scope: [
+          "Watching work chats through a user account (Telethon) and recognizing briefs with Claude",
+          "Several layout \"engines\": HTML/CSS rendered to PNG, image generation, Figma, animation via HyperFrames and Remotion, print-ready SVG",
+          "A brand guide for the agent, assembled from GlobalNet's Figma file: colors, Gotham, logo rules",
+          "A revision loop: replies, voice notes (speech recognition), references; voice answers via local speech synthesis",
+          "Learning from Accept / Reject buttons and a lessons memory",
+          "A personal-messages helper: an allowlist of contacts and confirmation of every reply",
+        ],
+        constraints: [
+          "The agent must never post anything in work chats — read only",
+          "Run on Claude and ChatGPT subscriptions; the paid API is only a fallback",
+          "Strict brand rules: one logo per layout, only the logo's brand colors, formats for Telegram and the website",
+        ],
+        decision:
+          "Split the \"brain\" from the \"hands\": Claude understands the task and picks the tool, while separate modules render the result. One agent produces a static post, an animation or a print SVG, and brand rules are checked the same way for every format.",
+        production:
+          "~8,000 lines of Python. In the first week: 13 tasks from the work chat, 21 tasks on my request and 8 animations — invitations, merch, infographics, badges.",
+        result:
+          "The agent produced accepted versions of the GlobalNet 2026 private-evening invitation, merch print series and a quarterly DDoS-attack infographic. Final calls and revisions stay with me as art director.",
+      },
+      tools: ["Python", "Telethon", "Claude Code", "OpenAI Images", "Playwright", "Figma API", "HyperFrames", "Remotion", "ffmpeg"],
+      task: "A large share of a designer's tasks are routine posts, invitations, banners and merch that arrive in a shared work chat and get lost in the conversation. I wanted an agent that works like a junior designer on the team: notices the task itself, makes an on-brand first version and refines it based on my notes, while I stay the art director.",
+      dev: {
+        stack: ["Python", "Telethon", "Claude (Claude Code)", "OpenAI Images", "Playwright", "Figma API", "HyperFrames", "Remotion", "ffmpeg", "TTS / STT"],
+        metrics: [
+          { value: "8,000+", label: "lines of Python" },
+          { value: "5", label: "engines: HTML, images, Figma, animation, SVG" },
+          { value: "40+", label: "tasks in the first week" },
+          { value: "0", label: "messages posted to work chats" },
+        ],
+        ideas: [
+          {
+            title: "The brain is separate from the hands",
+            text: "Claude reads the task and chooses the tool; rendering lives in separate modules. Adding a new format (say, print SVG or a Telegram GIF under 10 MB) means adding a module without touching task understanding.",
+          },
+          {
+            title: "It learns from rejections",
+            text: "Every layout has Accept / Reject with an optional reason. Reasons go into a lessons memory the agent reads before the next task, so the same mistake doesn't happen twice.",
+          },
+          {
+            title: "Subscription instead of API",
+            text: "The agent runs through Claude Code on the Mac within a subscription and switches to the paid API only on failure. Images work the same way. The marginal cost per task is close to zero.",
+          },
+          {
+            title: "Safe by default",
+            text: "Work chats are read-only. In private messages, only allowlisted people, every reply is a draft with a Send button, and anything about money, deadlines or meetings is checked with me first.",
+          },
+        ],
+      },
+      resultCaptions: [
+        "How the agent works: from a work-chat message to an accepted layout",
+        "Working with the agent in Telegram: a detected task, a layout, a voice revision (mockup of a real scenario)",
+        "Animated version of the invitation built by the agent",
+        "Invitations to the GlobalNet 2026 private evening — accepted versions",
+        "Merch print series on T-shirt mockups",
+        "Illustrations for prints in the brand palette",
+        "Infographic: quarterly statistics of mitigated DDoS attacks (3520×1300 for the website)",
+      ],
+    },
+  },
+  {
+    slug: "peering-calculator",
+    featured: true,
+    title: "GlobalNet — калькулятор выгоды пиринга",
+    categories: ["Разработка", "Веб-сервис"],
+    companyId: "globalnet",
+    summary:
+      "Веб-сервис для сайта gblnet.ru: клиент вводит номер своей автономной системы, а сервис по открытым данным анализирует его сеть и показывает, какую часть трафика выгодно перевести на GlobalNet и сколько это сэкономит.",
+    year: "2026",
+    role: "Разработка: сбор данных, расчётная модель, интерфейс, встраивание в сайт",
+    contribution: {
+      role: "Разработка: сбор данных, расчётная модель, интерфейс, встраивание в сайт",
+      tags: ["Python", "BGP-данные", "Расчётная модель", "Frontend"],
+      scope: [
+        "Сбор данных из 8 открытых источников (RIPEstat, PeeringDB, CAIDA и др.) с кэшем и повторными попытками",
+        "Профиль сети клиента по ASN: аплинки, пиры, точки обмена трафиком, площадки",
+        "Расчётная модель: маршруты до 22 крупных ресурсов, доли трафика, порт, полоса, экономия",
+        "Встраиваемый блок в стиле gblnet.ru в двух вариантах и страница-пример",
+        "Админка: заявки, ручные отметки инженеров, тарифы, профили трафика, массовая проверка ASN",
+      ],
+      team: [
+        "Отдел продаж сформулировал ТЗ и логику выгоды для клиента",
+      ],
+      constraints: [
+        "Только бесплатные источники без ключей; часть сервисов запрещает автоматический сбор",
+        "Исходящих маршрутов клиента в открытых данных нет — их нужно оценивать по графу связей",
+        "Сервис должен работать без внешних библиотек и запускаться у коллег на Mac и Windows",
+      ],
+      decision:
+        "Показываю не одно «магическое» число, а вилку от нижней до верхней границы и объясняю клиенту, что уточнить, чтобы она сузилась. Клиент может поправить найденный профиль своей сети, а ручные отметки инженеров в админке всегда важнее открытых данных.",
+      production:
+        "~2 900 строк Python и JavaScript, 8 источников данных, подробный калькулятор на 4 шага и короткий блок, PDF-отчёт, админка и тесты расчёта.",
+      result:
+        "Сервис готов к встраиванию в gblnet.ru. Для показа руководству сделан запуск по временной ссылке — открывается полноценная страница сайта с блоком внутри. Подготовлена инструкция по развёртыванию.",
+    },
+    tools: ["Python", "JavaScript", "HTML/CSS", "RIPEstat API", "PeeringDB API", "CAIDA AS Rank", "Claude Code"],
+    task: "Отделу продаж нужен был инструмент для сайта, который превращает технический вопрос «зачем нам пиринг» в понятные цифры для конкретного клиента. Сложность в том, что у компании нет доступа к трафику клиента: всё нужно восстановить по открытым данным о маршрутизации и честно показать, где оценка неточная.",
+    dev: {
+      stack: ["Python (stdlib)", "JavaScript", "HTML/CSS", "RIPEstat", "PeeringDB", "CAIDA AS Rank", "RouteViews", "IRR"],
+      metrics: [
+        { value: "8", label: "открытых источников данных" },
+        { value: "22", label: "крупных ресурса в модели маршрутов" },
+        { value: "4", label: "шага до готового расчёта" },
+        { value: "0", label: "внешних зависимостей" },
+      ],
+      ideas: [
+        {
+          title: "Вилка вместо обещания",
+          text: "Неизвестные подключения идут в расчёт с весом 50% и только в верхнюю границу, итог ограничен 60%. Клиент видит диапазон и подсказку, что указать, чтобы он сузился, — это честнее и вызывает больше доверия у инженеров.",
+        },
+        {
+          title: "Клиент правит свою сеть",
+          text: "На втором шаге можно удалить неверного аплинка, сменить роль соседа, добавить точку обмена и указать, как подключён крупный контент. Открытые данные — только черновик, финальную картину подтверждает сам клиент.",
+        },
+        {
+          title: "Ноль зависимостей",
+          text: "Только стандартная библиотека Python и дисковый кэш ответов. Запуск двойным кликом на Mac и Windows, раздача коллегам по локальной сети или по временной публичной ссылке.",
+        },
+        {
+          title: "Два формата под сайт",
+          text: "Короткий блок встаёт в серую секцию страницы услуги вместо формы, подробный — отдельная страница по кнопке «Рассчитать выгоду». Из короткого в подробный переходишь с уже введёнными данными.",
+        },
+      ],
+    },
+    results: [
+      {
+        caption: "Как считается выгода: от номера AS до экономии в рублях",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/flow.jpg",
+      },
+      {
+        caption: "Короткий блок на странице услуги: «мы нашли вашу сеть — всё верно?»",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/short-found.jpg",
+      },
+      {
+        caption: "Короткий блок: итог в цифрах и заявка менеджеру",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/short-block.jpg",
+      },
+      {
+        caption: "Подробный калькулятор на странице сайта",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/calc-page.jpg",
+      },
+      {
+        caption: "Шаг «Ваша сеть»: найденные аплинки, пиры и точки обмена можно поправить",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/network-step.jpg",
+      },
+      {
+        caption: "Отчёт: доля переносимого трафика, порт, полоса и экономия",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/report.jpg",
+      },
+      {
+        caption: "Сравнение маршрутов до крупных ресурсов «сейчас / через GlobalNet»",
+        ratio: "wide",
+        src: "/work/dev/peering-calculator/routes.jpg",
+      },
+    ],
+    tone: 3,
+    en: {
+      categories: ["Development", "Web service"],
+      title: "GlobalNet — Peering Benefit Calculator",
+      summary:
+        "A web service for gblnet.ru: a client enters their autonomous system number, and the service analyzes their network from open data and shows how much traffic is worth moving to GlobalNet and how much that saves.",
+      role: "Development: data collection, calculation model, UI, website embedding",
+      contribution: {
+        role: "Development: data collection, calculation model, UI, website embedding",
+        tags: ["Python", "BGP data", "Calculation model", "Frontend"],
+        scope: [
+          "Data collection from 8 open sources (RIPEstat, PeeringDB, CAIDA and others) with caching and retries",
+          "A client network profile by ASN: upstreams, peers, exchange points, facilities",
+          "A calculation model: routes to 22 major content networks, traffic shares, port, bandwidth, savings",
+          "An embeddable block in the gblnet.ru style in two variants, plus a demo page",
+          "An admin panel: leads, engineers' manual overrides, tariffs, traffic profiles, bulk ASN checks",
+        ],
+        team: [
+          "The sales team wrote the spec and the client-benefit logic",
+        ],
+        constraints: [
+          "Only free sources without API keys; some services forbid automated collection",
+          "A client's outbound routes aren't in open data — they have to be estimated from the relationship graph",
+          "The service had to run without third-party libraries and launch on colleagues' Macs and Windows PCs",
+        ],
+        decision:
+          "Instead of one \"magic\" number, I show a range from lower to upper bound and tell the client what to clarify to narrow it. The client can correct the detected network profile, and engineers' manual overrides in the admin panel always beat open data.",
+        production:
+          "~2,900 lines of Python and JavaScript, 8 data sources, a 4-step detailed calculator and a short block, a PDF report, an admin panel and calculation tests.",
+        result:
+          "The service is ready to embed on gblnet.ru. For management review it can be shared via a temporary link that opens a full website page with the block inside. Deployment instructions are written.",
+      },
+      tools: ["Python", "JavaScript", "HTML/CSS", "RIPEstat API", "PeeringDB API", "CAIDA AS Rank", "Claude Code"],
+      task: "Sales needed a website tool that turns the technical question \"why do we need peering\" into clear numbers for a specific client. The catch: the company has no access to the client's traffic, so everything has to be reconstructed from open routing data — and the tool has to be honest about where the estimate is uncertain.",
+      dev: {
+        stack: ["Python (stdlib)", "JavaScript", "HTML/CSS", "RIPEstat", "PeeringDB", "CAIDA AS Rank", "RouteViews", "IRR"],
+        metrics: [
+          { value: "8", label: "open data sources" },
+          { value: "22", label: "major networks in the route model" },
+          { value: "4", label: "steps to a finished estimate" },
+          { value: "0", label: "third-party dependencies" },
+        ],
+        ideas: [
+          {
+            title: "A range, not a promise",
+            text: "Unknown connections count at 50% weight and only toward the upper bound; the total is capped at 60%. The client sees a range and a hint on what to specify to narrow it — more honest, and more convincing to engineers.",
+          },
+          {
+            title: "The client corrects their own network",
+            text: "In step two you can remove a wrong upstream, change a neighbor's role, add an exchange point and say how major content is delivered. Open data is only a draft; the client confirms the final picture.",
+          },
+          {
+            title: "Zero dependencies",
+            text: "Only the Python standard library and an on-disk response cache. Double-click launch on Mac and Windows, sharing over the local network or via a temporary public link.",
+          },
+          {
+            title: "Two formats for the website",
+            text: "The short block replaces the form in a service page's grey section; the detailed one is a separate page behind a \"Calculate savings\" button. Moving from short to detailed carries the entered data over.",
+          },
+        ],
+      },
+      resultCaptions: [
+        "How the benefit is calculated: from an AS number to savings in rubles",
+        "Short block on a service page: \"We found your network — is this right?\"",
+        "Short block: the result in numbers and a request to a manager",
+        "The detailed calculator on a website page",
+        "\"Your network\" step: detected upstreams, peers and exchange points can be corrected",
+        "Report: share of movable traffic, port, bandwidth and savings",
+        "Route comparison to major networks, \"now / via GlobalNet\"",
+      ],
+    },
+  },
+  {
+    slug: "pet-care-app",
+    featured: true,
+    title: "«Питомцы» — мобильное приложение",
+    categories: ["Разработка", "Мобильное приложение"],
+    summary:
+      "Приложение для ухода за питомцами на Android, iPhone и в браузере: здоровье, события с напоминаниями, препараты, документы, питание, вес и совместный доступ для семьи — с живыми анимированными персонажами.",
+    year: "2026",
+    role: "Дизайн и разработка под заказ: от экранов до APK",
+    contribution: {
+      role: "Дизайн и разработка под заказ: от экранов до APK",
+      tags: ["React Native", "Expo", "Supabase", "Анимация"],
+      scope: [
+        "Дизайн всех экранов и UI-кит поверх Ant Design под собственный стиль приложения",
+        "Приложение на Expo / React Native: 5 вкладок, карточка питомца с 5 разделами, формы, календарь, поиск",
+        "Два режима данных: локально на телефоне и облако Supabase с правами доступа на стороне базы и журналом изменений",
+        "Анимированные персонажи, нарисованные кодом (SVG + Reanimated): дышат, моргают, реагируют на касания",
+        "Сборка APK и обновления «по воздуху» без переустановки, запуск в один клик на Mac и Windows",
+      ],
+      team: [
+        "Заказчик формулировал требования и принимал работу",
+      ],
+      constraints: [
+        "Ant Design по требованию заказчика — но приложение не должно выглядеть шаблонно",
+        "Нет Android-устройства: проверка через веб-версию и iPhone",
+        "Данные заказчика не должны теряться при обновлениях",
+      ],
+      decision:
+        "Сделал один код на три платформы и описал хранилище данных как интерфейс с двумя реализациями — локальной и Supabase. Приложение работает сразу, без сервера, а облако подключается одним скриптом, когда понадобится общий доступ между телефонами.",
+      production:
+        "~12 700 строк TypeScript, 25+ экранов, 4 анимированных персонажа, схема базы с ролями «владелец / редактор / просмотр», сборка APK и OTA-обновления.",
+      result:
+        "Приложение собирается в APK для заказчика, а правки дизайна и логики доставляются обновлением прямо в установленное приложение — без переустановки и потери данных.",
+    },
+    tools: ["TypeScript", "React Native", "Expo", "Reanimated", "Ant Design", "Supabase", "Claude Code"],
+    task: "Заказчику нужно было приложение, где вся жизнь питомца — прививки, приёмы у врача, курсы препаратов, документы, кормление и вес — хранится в одном месте и доступна всей семье. Требования: Android, компоненты Ant Design и при этом «стильно, современно, по-доброму», с анимациями и переходами.",
+    dev: {
+      stack: ["TypeScript", "React Native", "Expo Router", "Reanimated", "react-native-svg", "Ant Design RN", "Zustand", "Supabase (Postgres, RLS)", "EAS Build / Updates"],
+      metrics: [
+        { value: "12 700", label: "строк TypeScript" },
+        { value: "3", label: "платформы из одного кода" },
+        { value: "25+", label: "экранов" },
+        { value: "4", label: "живых персонажа" },
+      ],
+      ideas: [
+        {
+          title: "Персонажи, нарисованные кодом",
+          text: "Котики и попугаи собраны из SVG-«кистей» — пушистая кромка, шерстинки, перья — и анимированы через Reanimated. У каждого свой характер: один медленно моргает, другой пугается от касания. При системной настройке «Уменьшить движение» анимации отключаются.",
+        },
+        {
+          title: "Сервер — по желанию",
+          text: "Хранилище описано как интерфейс с локальной реализацией и реализацией на Supabase. Приложение можно отдать заказчику сразу, а облако с синхронизацией между телефонами включить потом, ничего не переписывая.",
+        },
+        {
+          title: "Права — на стороне базы",
+          text: "Доступ «владелец / редактор / просмотр» проверяется в Postgres через Row Level Security, из нескольких групп берётся высший уровень, все изменения пишутся в журнал. Клиент не может обойти права, даже если его взломают.",
+        },
+        {
+          title: "Обновления без переустановки",
+          text: "Экраны, тексты и логика доезжают до заказчика OTA-обновлением. Подпись APK и имя пакета не меняются, поэтому новая сборка ставится поверх старой с сохранением данных.",
+        },
+      ],
+    },
+    results: [
+      {
+        caption: "Демо: вход, главная с живыми персонажами, карточка питомца, календарь",
+        ratio: "tall",
+        video: "/work/dev/pet-app/demo.mp4",
+      },
+      {
+        caption: "Вход с демо-аккаунтами, главная и список питомцев",
+        ratio: "wide",
+        src: "/work/dev/pet-app/screens-1.jpg",
+      },
+      {
+        caption: "Карточка питомца: обзор и медицинская история, календарь событий",
+        ratio: "wide",
+        src: "/work/dev/pet-app/screens-2.jpg",
+      },
+      {
+        caption: "История с фильтрами, профиль и экран знакомства с персонажами",
+        ratio: "wide",
+        src: "/work/dev/pet-app/screens-3.jpg",
+      },
+    ],
+    tone: 0,
+    en: {
+      categories: ["Development", "Mobile app"],
+      title: "\"Pets\" — Mobile App",
+      summary:
+        "A pet-care app for Android, iPhone and the web: health, events with reminders, medications, documents, feeding, weight and shared family access — with lively animated characters.",
+      role: "Design and development for a client: from screens to APK",
+      contribution: {
+        role: "Design and development for a client: from screens to APK",
+        tags: ["React Native", "Expo", "Supabase", "Animation"],
+        scope: [
+          "Designed every screen and a UI kit on top of Ant Design in the app's own style",
+          "The app in Expo / React Native: 5 tabs, a pet profile with 5 sections, forms, a calendar, search",
+          "Two data modes: local on the phone and a Supabase cloud with database-side access rules and a change log",
+          "Animated characters drawn in code (SVG + Reanimated): they breathe, blink and react to touch",
+          "APK builds and over-the-air updates without reinstalling, one-click launch on Mac and Windows",
+        ],
+        team: [
+          "The client set the requirements and accepted the work",
+        ],
+        constraints: [
+          "Ant Design was a client requirement — but the app must not look templated",
+          "No Android device: testing via the web build and an iPhone",
+          "The client's data must survive updates",
+        ],
+        decision:
+          "One codebase for three platforms, with data storage defined as an interface with two implementations — local and Supabase. The app works right away with no server, and the cloud is switched on with one script when sharing between phones is needed.",
+        production:
+          "~12,700 lines of TypeScript, 25+ screens, 4 animated characters, a database schema with owner / editor / viewer roles, APK builds and OTA updates.",
+        result:
+          "The app builds into an APK for the client, and design and logic changes ship as updates straight into the installed app — no reinstall, no data loss.",
+      },
+      tools: ["TypeScript", "React Native", "Expo", "Reanimated", "Ant Design", "Supabase", "Claude Code"],
+      task: "The client wanted an app where a pet's whole life — vaccinations, vet visits, medication courses, documents, feeding and weight — lives in one place and is shared with the family. Requirements: Android, Ant Design components, and yet \"stylish, modern and kind\", with animations and transitions.",
+      dev: {
+        stack: ["TypeScript", "React Native", "Expo Router", "Reanimated", "react-native-svg", "Ant Design RN", "Zustand", "Supabase (Postgres, RLS)", "EAS Build / Updates"],
+        metrics: [
+          { value: "12,700", label: "lines of TypeScript" },
+          { value: "3", label: "platforms from one codebase" },
+          { value: "25+", label: "screens" },
+          { value: "4", label: "living characters" },
+        ],
+        ideas: [
+          {
+            title: "Characters drawn in code",
+            text: "Cats and parrots are built from SVG \"brushes\" — fluffy edges, fur strands, feathers — and animated with Reanimated. Each has a personality: one blinks slowly, another startles at a touch. With the system Reduce Motion setting, animations turn off.",
+          },
+          {
+            title: "A server only if you want one",
+            text: "Storage is an interface with a local and a Supabase implementation. The app can go to the client immediately, and cross-phone cloud sync can be switched on later without rewriting anything.",
+          },
+          {
+            title: "Permissions enforced by the database",
+            text: "Owner / editor / viewer access is checked in Postgres via Row Level Security, the highest level across groups wins, and every change is logged. A compromised client can't bypass the rules.",
+          },
+          {
+            title: "Updates without reinstalling",
+            text: "Screens, copy and logic reach the client as OTA updates. The APK signature and package name never change, so a new build installs over the old one and keeps the data.",
+          },
+        ],
+      },
+      resultCaptions: [
+        "Demo: sign-in, a home screen with living characters, a pet profile, the calendar",
+        "Sign-in with demo accounts, home and the pet list",
+        "Pet profile: overview and medical history, the events calendar",
+        "History with filters, profile and the meet-the-characters screen",
+      ],
+    },
+  },
+  {
+    slug: "gnm-ix-landing",
+    title: "GNM-IX — лендинг, собранный в коде",
+    categories: ["Разработка", "Вёрстка"],
+    companyId: "gnm",
+    summary:
+      "Лендинг пиринговой сети GNM-IX, который я не только спроектировал, но и сам собрал в коде с помощью Claude Code: адаптивная вёрстка, анимации, интерактивные блоки — одна HTML-страница без внешних зависимостей.",
+    year: "2026",
+    role: "Дизайн, структура и вёрстка",
+    contribution: {
+      role: "Дизайн, структура и вёрстка",
+      tags: ["HTML/CSS", "JavaScript", "Адаптив", "Claude Code"],
+      scope: [
+        "Структура и тексты страницы: преимущества, география, сегмент в Сингапуре, услуги, отзывы",
+        "Вёрстка адаптивной страницы с анимациями появления и интерактивными элементами",
+        "Постановка задач Claude Code, проверка и доводка деталей до уровня макета",
+      ],
+      constraints: [
+        "Страница должна открываться одним файлом — без сборки и сервера",
+        "Фирменный стиль GNM: шрифт, цвета, графика",
+      ],
+      decision:
+        "Собрал страницу как самодостаточный HTML-файл со встроенными шрифтами и графикой: его можно отправить кому угодно и открыть двойным кликом — обсуждать живую страницу, а не картинку.",
+      production: "1 адаптивная страница, 10 смысловых блоков, версии для desktop и мобильных.",
+      result:
+        "Рабочий прототип сайта, который можно показывать руководству и подрядчикам как живую страницу вместо статичных макетов.",
+    },
+    tools: ["Claude Code", "HTML", "CSS", "JavaScript", "Figma"],
+    task: "Обычно сайт проходит путь «макет в Figma → передача подрядчику → долгая вёрстка и правки». Для GNM-IX я хотел сократить этот путь: спроектировать и сразу собрать страницу самому, чтобы обсуждать уже работающий результат.",
+    dev: {
+      stack: ["HTML", "CSS", "JavaScript", "Claude Code"],
+      metrics: [
+        { value: "1", label: "HTML-файл без зависимостей" },
+        { value: "10", label: "смысловых блоков" },
+        { value: "2", label: "адаптива: desktop и mobile" },
+      ],
+      ideas: [
+        {
+          title: "Макет сразу в коде",
+          text: "Вместо статичного макета и передачи в разработку — сразу работающая страница с анимациями и адаптивом. Правки вношу сам и показываю результат в тот же день.",
+        },
+        {
+          title: "Один файл — ноль проблем",
+          text: "Шрифты и графика встроены прямо в страницу, поэтому её можно переслать в мессенджере и открыть на любом компьютере без сервера и сборки.",
+        },
+      ],
+    },
+    results: [
+      {
+        caption: "Первый экран лендинга GNM-IX",
+        ratio: "wide",
+        src: "/work/dev/gnm-ix-site/hero.jpg",
+      },
+      {
+        caption: "Мобильная версия",
+        ratio: "tall",
+        src: "/work/dev/gnm-ix-site/mobile.jpg",
+      },
+      {
+        caption: "Блоки «Общая информация» и «География»",
+        ratio: "wide",
+        src: "/work/dev/gnm-ix-site/sections.jpg",
+      },
+      {
+        caption: "Услуги, надёжность и преимущества",
+        ratio: "wide",
+        src: "/work/dev/gnm-ix-site/services.jpg",
+      },
+    ],
+    tone: 2,
+    en: {
+      categories: ["Development", "Front-end"],
+      title: "GNM-IX — Landing Page Built in Code",
+      summary:
+        "A landing page for the GNM-IX peering network that I not only designed but built myself in code with Claude Code: responsive layout, animations, interactive blocks — a single dependency-free HTML page.",
+      role: "Design, structure and front-end build",
+      contribution: {
+        role: "Design, structure and front-end build",
+        tags: ["HTML/CSS", "JavaScript", "Responsive", "Claude Code"],
+        scope: [
+          "Page structure and copy: advantages, geography, the Singapore segment, services, testimonials",
+          "A responsive build with reveal animations and interactive elements",
+          "Directing Claude Code, reviewing and polishing details to mockup quality",
+        ],
+        constraints: [
+          "The page had to open as a single file — no build step, no server",
+          "GNM brand identity: typeface, colors, graphics",
+        ],
+        decision:
+          "Built the page as a self-contained HTML file with embedded fonts and graphics: it can be sent to anyone and opened with a double click — so people discuss a live page, not a picture.",
+        production: "1 responsive page, 10 content blocks, desktop and mobile versions.",
+        result:
+          "A working website prototype that can be shown to management and contractors as a live page instead of static mockups.",
+      },
+      tools: ["Claude Code", "HTML", "CSS", "JavaScript", "Figma"],
+      task: "A website usually goes \"Figma mockup → hand-off to a contractor → long build and revisions\". For GNM-IX I wanted to shorten that path: design and build the page myself right away, so the discussion starts from a working result.",
+      dev: {
+        stack: ["HTML", "CSS", "JavaScript", "Claude Code"],
+        metrics: [
+          { value: "1", label: "dependency-free HTML file" },
+          { value: "10", label: "content blocks" },
+          { value: "2", label: "layouts: desktop and mobile" },
+        ],
+        ideas: [
+          {
+            title: "Mockup straight in code",
+            text: "Instead of a static mockup and a hand-off, a working page with animations and a responsive layout from day one. I make changes myself and show the result the same day.",
+          },
+          {
+            title: "One file, zero friction",
+            text: "Fonts and graphics are embedded in the page, so it can be sent in a messenger and opened on any computer without a server or a build.",
+          },
+        ],
+      },
+      resultCaptions: [
+        "GNM-IX landing page hero",
+        "Mobile version",
+        "\"General information\" and \"Geography\" blocks",
+        "Services, reliability and advantages",
+      ],
     },
   },
   {
@@ -2421,6 +3284,7 @@ export function localizeProject(project: Project, lang: "ru" | "en"): Project {
     contribution: t.contribution ?? project.contribution,
     tools: t.tools ?? project.tools,
     categories: t.categories ?? project.categories,
+    dev: t.dev ?? project.dev,
     results: t.resultCaptions
       ? project.results.map((result, index) => ({
           ...result,
@@ -2434,4 +3298,24 @@ export function localizeProject(project: Project, lang: "ru" | "en"): Project {
         }))
       : project.files,
   };
+}
+
+/**
+ * Engineering cases shown in the "Development" block and on /developer.
+ * Order = order on the page.
+ */
+export const DEV_PROJECT_SLUGS = [
+  "news-digest",
+  "ai-designer-bot",
+  "peering-calculator",
+  "telegram-bot-design",
+  "pet-care-app",
+  "chat-monitor-bot",
+  "gnm-ix-landing",
+] as const;
+
+export function getDevProjects(): Project[] {
+  return DEV_PROJECT_SLUGS.map((slug) => getProject(slug)).filter(
+    (project): project is Project => project !== undefined,
+  );
 }
